@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CBRecordSaveTranscriptView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="459"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stored in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il8-K3-i2N">
+                    <rect key="frame" x="20" y="24" width="61" height="24.5"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                    <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPs-BE-0jh" customClass="CBROutlineButton">
+                    <rect key="frame" x="121" y="18" width="234" height="37"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                    <state key="normal" title="Machine Intelligence I">
+                        <color key="titleColor" red="0.40000000000000002" green="0.25098039215686274" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rW6-vT-9Se" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                    <rect key="frame" x="28" y="131" width="319" height="71"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="34"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Transcription name"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                            <color key="value" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                            <color key="value" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                            <color key="value" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                            <color key="value" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Give your transcript a name so that you can recognise it later." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTV-x1-tnQ">
+                    <rect key="frame" x="28" y="210" width="319" height="49"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                    <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-xi-gA1">
+                    <rect key="frame" x="0.0" y="309" width="375" height="150"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know that you have just transcribed a total of 320 words 👏" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdl-g8-g3J">
+                            <rect key="frame" x="24" y="89" width="327" height="49"/>
+                            <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                            <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxh-g1-KGN">
+                            <rect key="frame" x="145" y="29" width="206" height="44"/>
+                            <color key="backgroundColor" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="lro-oh-3LW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
+                            <state key="normal" title="Save transcript">
+                                <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtm-x1-KKC">
+                            <rect key="frame" x="24" y="29" width="109" height="44"/>
+                            <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                            <state key="normal" title="Discard">
+                                <color key="titleColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="jdl-g8-g3J" firstAttribute="top" secondItem="kxh-g1-KGN" secondAttribute="bottom" constant="16" id="7b6-Nh-LNp"/>
+                        <constraint firstItem="kxh-g1-KGN" firstAttribute="trailing" secondItem="jdl-g8-g3J" secondAttribute="trailing" id="Ij8-87-QT9"/>
+                        <constraint firstAttribute="height" constant="150" id="Q0s-lb-Viu"/>
+                        <constraint firstItem="kxh-g1-KGN" firstAttribute="width" secondItem="ohd-xi-gA1" secondAttribute="width" multiplier="0.55" id="TEd-W6-lXs"/>
+                        <constraint firstItem="jdl-g8-g3J" firstAttribute="leading" secondItem="ohd-xi-gA1" secondAttribute="leading" constant="24" id="Vl1-Vk-K76"/>
+                        <constraint firstItem="Wtm-x1-KKC" firstAttribute="top" secondItem="kxh-g1-KGN" secondAttribute="top" id="ZVf-Kc-x0M"/>
+                        <constraint firstItem="kxh-g1-KGN" firstAttribute="leading" secondItem="Wtm-x1-KKC" secondAttribute="trailing" constant="12" id="eVz-iu-zG4"/>
+                        <constraint firstItem="Wtm-x1-KKC" firstAttribute="leading" secondItem="jdl-g8-g3J" secondAttribute="leading" id="g2A-bu-HDJ"/>
+                        <constraint firstAttribute="bottom" secondItem="jdl-g8-g3J" secondAttribute="bottom" constant="12" id="m0w-Hq-yuf"/>
+                        <constraint firstItem="jdl-g8-g3J" firstAttribute="centerX" secondItem="ohd-xi-gA1" secondAttribute="centerX" id="ogJ-e3-TT5"/>
+                        <constraint firstItem="Wtm-x1-KKC" firstAttribute="height" secondItem="kxh-g1-KGN" secondAttribute="height" id="yDk-iC-krs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="sTV-x1-tnQ" firstAttribute="width" secondItem="rW6-vT-9Se" secondAttribute="width" id="0R5-aX-MBu"/>
+                <constraint firstItem="ohd-xi-gA1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6z3-5I-ge7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SPs-BE-0jh" secondAttribute="trailing" constant="20" id="MK2-tO-Nqd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ohd-xi-gA1" secondAttribute="trailing" id="REw-5B-3Ou"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ohd-xi-gA1" secondAttribute="bottom" id="UIw-5h-0ej"/>
+                <constraint firstItem="rW6-vT-9Se" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="W86-Yd-YR5"/>
+                <constraint firstItem="Il8-K3-i2N" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="Xhl-o2-HjG"/>
+                <constraint firstItem="SPs-BE-0jh" firstAttribute="leading" secondItem="Il8-K3-i2N" secondAttribute="trailing" constant="40" id="Ywr-Un-rZX"/>
+                <constraint firstItem="rW6-vT-9Se" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.9" constant="-40" id="brk-Jp-L6j"/>
+                <constraint firstItem="Il8-K3-i2N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cje-fU-Naz"/>
+                <constraint firstItem="rW6-vT-9Se" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="jjO-vL-gNT"/>
+                <constraint firstItem="sTV-x1-tnQ" firstAttribute="leading" secondItem="rW6-vT-9Se" secondAttribute="leading" id="o0B-lf-TjR"/>
+                <constraint firstItem="SPs-BE-0jh" firstAttribute="centerY" secondItem="Il8-K3-i2N" secondAttribute="centerY" id="uX6-3z-8jH"/>
+                <constraint firstItem="sTV-x1-tnQ" firstAttribute="top" secondItem="rW6-vT-9Se" secondAttribute="bottom" constant="8" id="w4e-Sq-CtQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="classButton" destination="SPs-BE-0jh" id="ncb-Ro-Wmb"/>
+                <outlet property="discardButton" destination="Wtm-x1-KKC" id="3xK-mD-iAY"/>
+                <outlet property="saveTranscribtButton" destination="kxh-g1-KGN" id="s0n-qn-Qjn"/>
+                <outlet property="textfield" destination="rW6-vT-9Se" id="03v-Sf-Q9k"/>
+                <outletCollection property="gestureRecognizers" destination="OtP-c0-Yfx" appends="YES" id="MCV-ye-zwN"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="141.67916041979012"/>
+        </view>
+        <tapGestureRecognizer id="OtP-c0-Yfx">
+            <connections>
+                <action selector="tap:" destination="iN0-l3-epB" id="fda-pt-9yf"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
