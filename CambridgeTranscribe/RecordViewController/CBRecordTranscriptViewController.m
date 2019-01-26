@@ -19,14 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [UIColor clearColor];
     self.transcriptTextview.text = self.transcript;
     
     // Gradient
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = @[(id)UIColorFromRGB(0x667EEA).CGColor, (id)UIColorFromRGB(0x764BA2).CGColor];
-    [self.view.layer insertSublayer:gradient atIndex:0];
+    // [self.view.layer insertSublayer:gradient atIndex:0];
 }
 
 - (void)setTranscript:(NSString *)transcript

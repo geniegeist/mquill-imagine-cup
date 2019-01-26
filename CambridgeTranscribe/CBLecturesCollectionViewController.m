@@ -7,7 +7,7 @@
 //
 
 #import "CBLecturesCollectionViewController.h"
-#import "CBLectureCollectionViewCell.h";
+#import "CBLectureCollectionViewCell.h"
 
 @interface CBLecturesCollectionViewController ()
 @end

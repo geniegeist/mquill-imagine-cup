@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
   - AFNetworking (3.2.0):
     - AFNetworking/NSURLSession (= 3.2.0)
     - AFNetworking/Reachability (= 3.2.0)
@@ -39,16 +40,37 @@ PODS:
     - ApiAI/Core
   - ApiAI/VoiceRequest (0.7.2):
     - ApiAI/Core
+  - FCAlertView (1.4.0)
   - FFPopup (1.0.0)
+  - MZTimerLabel (0.5.4)
+  - "NSDate+TimeAgo (1.0.6)"
   - PulsingHalo (0.2.8)
   - Shift (0.2.2)
+  - SkyFloatingLabelTextField (3.4.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - AFNetworking (~> 3.0)
   - ApiAI
+  - FCAlertView
   - FFPopup (from `https://github.com/JonyFang/FFPopup.git`)
+  - MZTimerLabel
+  - "NSDate+TimeAgo"
   - PulsingHalo
   - Shift
+  - SkyFloatingLabelTextField (~> 3.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
+    - AFNetworking
+    - ApiAI
+    - FCAlertView
+    - MZTimerLabel
+    - "NSDate+TimeAgo"
+    - PulsingHalo
+    - Shift
+    - SkyFloatingLabelTextField
 
 EXTERNAL SOURCES:
   FFPopup:
@@ -60,12 +82,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/JonyFang/FFPopup.git
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
+  FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
+  MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
+  "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
   PulsingHalo: 64938e4bd3893b823abdf01478084cd92445af2b
   Shift: 86dc634d046fc86a879dbfdb492739672cc092be
+  SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
 
-PODFILE CHECKSUM: 5dcb41e436d7c13d16d728535482a3ccdaf1968e
+PODFILE CHECKSUM: 78dbf871e890d77044343994fcdccb0ff3ce6f19
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

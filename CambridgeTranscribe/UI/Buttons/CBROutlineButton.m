@@ -18,4 +18,44 @@
 }
 */
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        [self prepareUI];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        [self prepareUI];
+    }
+    
+    return self;
+}
+
+- (void)prepareUI
+{
+    self.titleEdgeInsets = UIEdgeInsetsMake(8, 16, 8, 16);
+    self.layer.borderColor = [UIColor colorWithRed:102/255.0 green:64/255.0 blue:255/255.0 alpha:1].CGColor;
+    self.layer.borderWidth = 1.0;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2.0;
+}
+
 @end

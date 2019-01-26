@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CBChatbotHint">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="213"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip, try saying: &quot;Give me all important facts in Welcome&quot; 🤘" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKX-5E-THO">
+                    <rect key="frame" x="26" y="82" width="328" height="49"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="B8l-hY-nCD">
+                    <rect key="frame" x="366" y="90.5" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="Py2-h8-vQy"/>
+                        <constraint firstAttribute="width" secondItem="B8l-hY-nCD" secondAttribute="height" multiplier="1:1" id="joP-rT-nOZ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.40000000000000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="RKX-5E-THO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="26" id="d68-g5-Meq"/>
+                <constraint firstItem="B8l-hY-nCD" firstAttribute="leading" secondItem="RKX-5E-THO" secondAttribute="trailing" constant="12" id="enB-W0-J6M"/>
+                <constraint firstItem="B8l-hY-nCD" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-12" id="pMc-93-R48"/>
+                <constraint firstItem="RKX-5E-THO" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="tUF-UR-UvC"/>
+                <constraint firstItem="B8l-hY-nCD" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="xlw-Dp-TDt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="25.600000000000001" y="278.41079460269867"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close" width="128" height="122"/>
+    </resources>
+</document>

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBClassCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *classTitle;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfLectures;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 

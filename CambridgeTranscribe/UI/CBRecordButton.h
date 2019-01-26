@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CBRRecordButton : UIView
+@interface CBRecordButton : UIView
+- (void)whiteColor;
+- (void)greyColor;
 
+@property (nonatomic, assign) BOOL active;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SkyFloatingLabelTextField-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *discardButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveTranscribtButton;
 @property (weak, nonatomic) IBOutlet CBROutlineButton *classButton;
+@property (weak, nonatomic) IBOutlet SkyFloatingLabelTextField *textfield;
+@property (nonatomic, assign) NSUInteger transcriptsCount;
 @end
 
 NS_ASSUME_NONNULL_END

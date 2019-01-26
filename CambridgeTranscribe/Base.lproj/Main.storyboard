@@ -43,40 +43,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImU-Hq-goW">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="1MV-4f-99Q"/>
-                                    <constraint firstAttribute="width" secondItem="ImU-Hq-goW" secondAttribute="height" multiplier="1:1" id="sPm-D5-lke"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="click:" destination="EyE-um-iG7" eventType="touchUpInside" id="WbT-jC-puE"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to transcribe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akb-GP-l5J">
-                                <rect key="frame" x="76" y="65" width="223.5" height="49"/>
-                                <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX9-VK-EIH">
+                                <rect key="frame" x="24" y="44" width="327" height="435"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Akb-GP-l5J" firstAttribute="top" secondItem="DDm-DN-bkM" secondAttribute="top" constant="45" id="2ex-Qz-prE"/>
-                            <constraint firstItem="ImU-Hq-goW" firstAttribute="centerX" secondItem="BZ9-3k-brC" secondAttribute="centerX" id="H1E-Ri-aXV"/>
-                            <constraint firstItem="ImU-Hq-goW" firstAttribute="centerY" secondItem="BZ9-3k-brC" secondAttribute="centerY" id="RL1-VE-7Ff"/>
-                            <constraint firstItem="Akb-GP-l5J" firstAttribute="centerX" secondItem="DDm-DN-bkM" secondAttribute="centerX" id="ccN-k4-KrE"/>
+                            <constraint firstItem="DDm-DN-bkM" firstAttribute="bottom" secondItem="fX9-VK-EIH" secondAttribute="bottom" constant="188" id="RR9-iw-lYi"/>
+                            <constraint firstItem="fX9-VK-EIH" firstAttribute="centerX" secondItem="DDm-DN-bkM" secondAttribute="centerX" id="V2I-tz-CxH"/>
+                            <constraint firstItem="fX9-VK-EIH" firstAttribute="top" secondItem="DDm-DN-bkM" secondAttribute="top" constant="24" id="pRS-Si-Z65"/>
+                            <constraint firstItem="DDm-DN-bkM" firstAttribute="trailing" secondItem="fX9-VK-EIH" secondAttribute="trailing" constant="24" id="rY6-Xu-2hF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DDm-DN-bkM"/>
                     </view>
                     <connections>
-                        <outlet property="headerLabel" destination="Akb-GP-l5J" id="fHZ-LD-h68"/>
-                        <outlet property="recordButton" destination="ImU-Hq-goW" id="8Mo-2b-65c"/>
+                        <outlet property="bottomTranscriptTextViewConstraint" destination="RR9-iw-lYi" id="rbf-ns-vTa"/>
+                        <outlet property="transcriptTextViewWrapper" destination="fX9-VK-EIH" id="4vf-YD-tYO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH0-Bo-6eT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="27"/>
+            <point key="canvasLocation" x="1340" y="27"/>
         </scene>
         <!--Record Transcript View Controller-->
         <scene sceneID="ZqJ-7m-eZr">
@@ -115,7 +103,7 @@
         <scene sceneID="l6e-Gz-jGs">
             <objects>
                 <collectionViewController storyboardIdentifier="classesVC" id="kzk-Gl-siO" customClass="CBClassCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8uu-F7-RJ9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="8uu-F7-RJ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,7 +146,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="classTitle" destination="cxu-pc-QLC" id="NcU-hq-yFH"/>
-                                    <outlet property="numberOfLectures" destination="a3S-8z-9dy" id="dCo-7H-xga"/>
+                                    <outlet property="dateLabel" destination="a3S-8z-9dy" id="jRq-s6-hJ4"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -166,8 +154,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP3-hZ-Z6b">
-                                    <rect key="frame" x="112.5" y="45" width="150.5" height="49"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Lectures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP3-hZ-Z6b">
+                                    <rect key="frame" x="104" y="45" width="167" height="49"/>
                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="34"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -210,7 +198,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1co-Gl-BKo">
-                                            <rect key="frame" x="8" y="8" width="304" height="158"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="334"/>
                                             <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

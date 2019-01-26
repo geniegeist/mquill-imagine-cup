@@ -11,5 +11,9 @@ pod 'FFPopup', :git => 'https://github.com/JonyFang/FFPopup.git'
 pod "Shift"
 pod 'ApiAI'
 pod 'AFNetworking', '~> 3.0'
-
+pod 'SkyFloatingLabelTextField', '~> 3.0'
+pod 'FCAlertView'
+pod 'MZTimerLabel'
+pod 'ActionSheetPicker-3.0'
+pod 'NSDate+TimeAgo'
 end

@@ -16,15 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh0-h6-cLY">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh0-h6-cLY" customClass="UIControl">
                     <rect key="frame" x="19" y="11.5" width="337.5" height="337.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Zh0-h6-cLY" secondAttribute="height" multiplier="1:1" id="ajv-MS-zp7"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcc-7K-uDX">
-                    <rect key="frame" x="86.5" y="79" width="202.5" height="202.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcc-7K-uDX" customClass="UIControl">
+                    <rect key="frame" x="94.5" y="87" width="186" height="186"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Tcc-7K-uDX" secondAttribute="height" multiplier="1:1" id="cIO-Sg-LRd"/>
@@ -32,7 +32,7 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="Tcc-7K-uDX" firstAttribute="width" secondItem="Zh0-h6-cLY" secondAttribute="width" multiplier="0.6" id="1KH-Tb-rVb"/>
+                <constraint firstItem="Tcc-7K-uDX" firstAttribute="width" secondItem="Zh0-h6-cLY" secondAttribute="width" multiplier="0.55" id="1KH-Tb-rVb"/>
                 <constraint firstItem="Tcc-7K-uDX" firstAttribute="centerY" secondItem="Zh0-h6-cLY" secondAttribute="centerY" id="ICX-db-MH6"/>
                 <constraint firstItem="Zh0-h6-cLY" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="PgF-k7-Uaz"/>
                 <constraint firstItem="Tcc-7K-uDX" firstAttribute="centerX" secondItem="Zh0-h6-cLY" secondAttribute="centerX" id="RMD-l1-U7r"/>

@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface CBRecordViewController : UIViewController
-
+@property (nonatomic, assign, readonly) BOOL isRecording;
+- (void)record;
 @end
 
 NS_ASSUME_NONNULL_END

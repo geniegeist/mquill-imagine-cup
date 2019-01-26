@@ -10,8 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CBTabBar : UIView
+@class CBTabBar;
+@protocol CBTabBarDelegate <NSObject>
+- (void)tabBarRecordButtonTapped:(CBTabBar *)tabBar;
+- (void)tabBarLecturesButtonTapped:(CBTabBar *)tabBar;
+- (void)tabBarAskMeButtonTapped:(CBTabBar *)tabBar;
 
+@end
+
+@interface CBTabBar : UIView
+@property (nonatomic, assign) id<CBTabBarDelegate> delegate;
+
+- (void)startPulse;
+- (void)stopPulse;
+
+- (void)collapse;
+- (void)expand;
 @end
 
 NS_ASSUME_NONNULL_END

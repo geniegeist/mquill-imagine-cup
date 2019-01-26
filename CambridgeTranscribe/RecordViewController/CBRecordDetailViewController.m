@@ -9,19 +9,21 @@
 #import "CBRecordDetailViewController.h"
 #import <MicrosoftCognitiveServicesSpeech/SPXSpeechApi.h>
 #import <PulsingHalo/PulsingHaloLayer.h>
+#import "CBTranscriptTextView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 @interface CBRecordDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (nonatomic, strong) SPXSpeechRecognizer *speechRecognizer;
-@property (nonatomic, assign) BOOL isPlaying;
-@property (nonatomic, strong) PulsingHaloLayer *halo;
+@property (nonatomic, assign, readwrite) BOOL isPlaying;
 @property (nonatomic, strong) UIImageView *logo;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+@property (weak, nonatomic) IBOutlet UIView *transcriptTextViewWrapper;
+@property (nonatomic, strong) CBTranscriptTextView *transcriptTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomTranscriptTextViewConstraint;
 
-@property (nonatomic, copy) NSString *transcript;
+@property (nonatomic, copy, readwrite) NSString *transcript;
 @property (nonatomic, copy) NSString *sofar;
 @end
 
@@ -35,41 +37,25 @@
     self.transcript = @"";
     self.sofar = @"";
     
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor purpleColor];
-    
-    // UI Setup
-    self.recordButton.backgroundColor = [UIColor whiteColor];
 
-    // Pulsing
-    self.halo = [PulsingHaloLayer layer];
-    self.halo.position = self.view.center;
-    self.halo.radius = 340;
-    [self.halo start];
-    self.halo.hidden = true;
-    [self.view.layer insertSublayer:self.halo atIndex:1];
+    // UI
+    self.transcriptTextViewWrapper.backgroundColor = [UIColor clearColor];
+    self.transcriptTextView = [[[UINib nibWithNibName:@"CBTranscriptTextView" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+    [self.transcriptTextViewWrapper addSubview:self.transcriptTextView];
     
-    // Gradient
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.view.bounds;
-    gradient.colors = @[(id)UIColorFromRGB(0x764BA2).CGColor, (id)UIColorFromRGB(0x667EEA).CGColor];
-    [self.view.layer insertSublayer:gradient atIndex:0];
-    
-    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hackcambridge-logo"]];
-    logo.frame = CGRectMake(0, 0, 150, 150);
-    logo.center = CGPointMake(self.recordButton.bounds.size.width/2.0, self.recordButton.bounds.size.height/2.0);
-    logo.contentMode = UIViewContentModeScaleAspectFit;
-    logo.alpha = 0.5;
-    [self.recordButton addSubview:logo];
-    self.recordButton.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
-    self.logo = logo;
+    self.view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.transcriptTextView positionTextView];
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.recordButton.layer.cornerRadius = self.recordButton.frame.size.width / 2.0;
-    self.halo.position = self.view.center;
+    self.transcriptTextView.frame = self.transcriptTextViewWrapper.bounds;
 }
 
 #pragma mark - Getter
@@ -80,7 +66,6 @@
         SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:@"9ffbf97363c6488a8a3b8db23d9ddf77" region:@"westus"];
         if (!speechConfig) {
             NSLog(@"Could not load speech config");
-            [self updateRecognitionErrorText:(@"Speech Config Error")];
             return nil;
         }
         
@@ -89,18 +74,36 @@
     return _speechRecognizer;
 }
 
+- (void)setShowDiscardedState:(BOOL)showDiscardedState
+{
+    _showDiscardedState = showDiscardedState;
+    self.transcriptTextView.showDiscardedState = showDiscardedState;
+}
+
 #pragma mark - Record
 
 - (void)recognizeFromMicrophone {
     if (self.isPlaying) return;
     
-    NSLog(@"Click me");
-    [self updateRecognitionStatusText:(@"Recognizing...")];
+    NSLog(@"Start recognising");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.transcriptTextView startTimer];
+        
+        self.bottomTranscriptTextViewConstraint.constant = 140;
+        [self.view setNeedsUpdateConstraints];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+        
+        self.transcriptTextView.showEmptyState = NO;
+        self.transcriptTextView.showSavedState = NO;
+        self.transcriptTextView.showDiscardedState = NO;
+    });
     
     SPXSpeechRecognizer* speechRecognizer = self.speechRecognizer;
     if (!speechRecognizer) {
         NSLog(@"Could not create speech recognizer");
-        [self updateRecognitionResultText:(@"Speech Recognition Error")];
         return;
     }
     
@@ -116,9 +119,12 @@
         
         if (result.text) {
             self.transcript = [NSString stringWithFormat:@"%@ %@", self.sofar, result.text];
-            if (self.delegate && [self.delegate respondsToSelector:@selector(didReceiveTranscriptData:)]) {
-                [self.delegate didReceiveTranscriptData:self.transcript];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(didReceiveTranscriptData:transcript:)]) {
+                [self.delegate didReceiveTranscriptData:self transcript:self.transcript];
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self updateTranscriptTextView];
+            });
         }
     }];
     [speechRecognizer addCanceledEventHandler:^(SPXSpeechRecognizer * _Nonnull recognizer, SPXSpeechRecognitionCanceledEventArgs * _Nonnull args) {
@@ -129,7 +135,6 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.logo.alpha = 1;
-        self.halo.hidden = false;
         self.headerLabel.text = @"Transcribing...";
     });
 }
@@ -139,46 +144,39 @@
     
     NSLog(@"Stop recording");
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.bottomTranscriptTextViewConstraint.constant = 188;
+        [self.view setNeedsUpdateConstraints];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+        
+        [self.transcriptTextView endTimer];
+        [self.transcriptTextView reset];
+        
+        if (self.showDiscardedState) {
+            self.transcriptTextView.showDiscardedState = YES;
+            self.transcriptTextView.showSavedState = NO;
+        } else {
+            self.transcriptTextView.showDiscardedState = NO;
+            self.transcriptTextView.showSavedState = YES;
+        }
+        self.transcriptTextView.showEmptyState = NO;
+    });
+    
+    
     [self.speechRecognizer stopContinuousRecognition];
     self.isPlaying = false;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.logo.alpha = 0.5;
-        self.halo.hidden = true;
-        self.headerLabel.text = @"Tap to transcribe";
-    });
+    if ([self.delegate respondsToSelector:@selector(didStopTranscript:)]) {
+        [self.delegate didStopTranscript:self];
+    }
 }
 
-- (IBAction)click:(id)sender {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
-        if (!self.isPlaying) {
-            [self recognizeFromMicrophone];
-        } else {
-            [self stopRecording];
-            [self.delegate didStopTranscript:self.transcript];
-        }
-    });
+- (void)updateTranscriptTextView
+{
+    self.transcriptTextView.text = self.transcript;
 }
-
-- (void)updateRecognitionResultText:(NSString *) resultText {
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-    });
-}
-
-- (void)updateRecognitionErrorText:(NSString *) errorText {
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-
-    });
-}
-
-- (void)updateRecognitionStatusText:(NSString *) statusText {
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-
-    });
-}
-
 
 @end

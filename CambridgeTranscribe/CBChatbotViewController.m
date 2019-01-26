@@ -10,6 +10,9 @@
 #import <Shift/Shift-umbrella.h>
 #import <Speech/Speech.h>
 #import <ApiAI/ApiAI.h>
+#import "CBClassesManager.h"
+#import "CBChatbotHint.h"
+#import <FFPopup/FFPopup.h>
 
 @interface CBChatbotViewController ()
 @property (nonatomic, strong) AVAudioEngine *audioEngine;
@@ -20,18 +23,22 @@
 
 @property (nonatomic, strong) ShiftView_Objc *shiftView;
 
-@property (nonatomic, strong) UILabel *welcome;
+@property (nonatomic, strong) UITextView *welcome;
 @property (nonatomic, strong) UIButton *recordButton;
 @property (nonatomic, assign) BOOL isRecording;
 
+@property (nonatomic, strong) CBClassesManager *classesManager;
+
 @property(nonatomic, strong) ApiAI *apiAI;
+
+@property (nonatomic, strong) FFPopup *hintPopup;
 
 @property (nonatomic, strong) NSString *currentClass;
 
 @end
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
+NSString * const kFirstTime = @"mquill_chatbot_first_time";
 
 @implementation CBChatbotViewController
 
@@ -42,23 +49,10 @@
     self.speechRecognizer= [[SFSpeechRecognizer alloc] initWithLocale:[NSLocale localeWithLocaleIdentifier:@"en-UK"]];
     self.request = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
     
-    ShiftView_Objc *shiftView = [[ShiftView_Objc alloc] initWithFrame:self.view.bounds];
-    [shiftView setColors:@[
-                           [UIColor colorWithRed:156/255.0 green:39.0/255.0 blue:176.0/255.0 alpha:1],
-                           [UIColor colorWithRed:255/255.0 green:64/255.0 blue:129.0/255.0 alpha:1],
-                           [UIColor colorWithRed:123/255.0 green:31.0/255.0 blue:162.0/255.0 alpha:1],
-                           [UIColor colorWithRed:32/255.0 green:76.0/255.0 blue:255.0/255.0 alpha:1],
-                           [UIColor colorWithRed:32/255.0 green:158.0/255.0 blue:255.0/255.0 alpha:1],
-                           [UIColor colorWithRed:90/255.0 green:120.0/255.0 blue:127.0/255.0 alpha:1],
-                           [UIColor colorWithRed:58/255.0 green:255.0/255.0 blue:217.0/255.0 alpha:1],
-    ]];
-    shiftView.backgroundColor = [UIColor redColor];
-    [shiftView startTimedAnimation];
-    [self.view addSubview:shiftView];
-    self.shiftView = shiftView;
+    self.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1];
     
     UIButton *record = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
-    [record setTitle:@"Record" forState:UIControlStateNormal];
+    [record setTitle:@"I am looking for..." forState:UIControlStateNormal];
     record.center = self.view.center;
     record.frame = CGRectOffset(record.frame, 0, 200);
     record.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
@@ -68,15 +62,18 @@
     self.recordButton = record;
     [self.view addSubview:record];
     
-    UILabel *welcome = [[UILabel alloc] initWithFrame:CGRectMake(32, 50, 300, 200)];
-    welcome.text = @"Hey there! What class do you want to polish up on?";
-    welcome.numberOfLines = 9;
+    UITextView *welcome = [[UITextView alloc] initWithFrame:CGRectMake(32, 50, 300, 500)];
+    welcome.text = @"Hey there! What lecture do you want to polish up on?";
     welcome.textColor = [UIColor whiteColor];
     welcome.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:24];
+    welcome.editable = NO;
+    welcome.backgroundColor = [UIColor clearColor];
+    welcome.bounces = YES;
     self.welcome = welcome;
     [self.view addSubview:welcome];
     self.isRecording = false;
     
+    self.classesManager = [CBClassesManager sharedInstance];
     
     // API
     self.apiAI = [[ApiAI alloc] init];
@@ -93,14 +90,36 @@
     [super viewDidAppear:animated];
     [self.shiftView startTimedAnimation];
     
-    
+    BOOL firstTime = ![[NSUserDefaults standardUserDefaults] boolForKey:kFirstTime];
+    if (firstTime) {
+        CBChatbotHint *chatbotHint = [[[UINib nibWithNibName:@"CBChatbotHint" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+        chatbotHint.frame = CGRectMake(0, 0, 320, 64);
+        chatbotHint.alpha = 1;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lol)];
+        [chatbotHint addGestureRecognizer:tap];
+        
+        FFPopup *popUp = [FFPopup popupWithContentView:chatbotHint];
+        popUp.shouldDismissOnBackgroundTouch = YES;
+        popUp.showType = FFPopupShowType_BounceInFromBottom;
+        popUp.maskType = FFPopupMaskType_None;
+        [popUp showAtCenterPoint:CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, CGRectGetMaxY(self.view.bounds) - 210) inView:self.view];
+        
+        self.hintPopup = popUp;
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kFirstTime];
+    }
+}
 
+- (void)lol {
+    [self.hintPopup dismissAnimated:YES];
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.welcome.frame = CGRectMake(32, 50, 300, 200);
+    CGFloat ypos = 84;
+    self.welcome.frame = CGRectMake(24, ypos, CGRectGetWidth(self.view.bounds) - 24 * 2, CGRectGetHeight(self.view.bounds) - ypos - 170);
 }
 
 -  (void)record {
@@ -116,6 +135,7 @@
 - (void)recordAndRecognizeSpeech {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.isRecording = true;
+        self.welcome.text = @"Just speak and I will know what you mean...";
         [self.recordButton setTitle:@"Stop recording" forState:UIControlStateNormal];
         self.recordButton.backgroundColor = [UIColor redColor];
     });
@@ -168,56 +188,167 @@
     NSLog(@"Handle send");
     [self stop];
     
+    NSString *userRequest = self.welcome.text.lowercaseString;
     AITextRequest *request = [self.apiAI textRequest];
-    request.query = @[self.welcome.text];
+    request.query = @[userRequest];
     //self.currentClass = @"Chemistry";
-#warning delete current class
     [request setCompletionBlockSuccess:^(AIRequest *request, id response) {
         // Handle success ...
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"%@", request);
+            // NSLog(@"%@", request);
             NSLog(@"%@", response);
             NSString *speech = response[@"result"][@"fulfillment"][@"speech"];
             NSString *intent = response[@"result"][@"metadata"][@"intentName"];
             NSDictionary *parameters = response[@"result"][@"parameters"];
-            self.welcome.text = speech;
             
-            if ([intent isEqualToString:@"Key Words"]) {
-                NSDictionary *allClasses = [[NSUserDefaults standardUserDefaults] objectForKey:@"classes"];
-                for (NSString *key in [allClasses allKeys]) {
-                    if ([key.lowercaseString isEqualToString:self.currentClass.lowercaseString]) {
-                        // is equal key
-                        NSArray *lectures = allClasses[key];
-                        NSDictionary *lecture = [lectures lastObject];
-                        NSString *content = lecture[@"content"];
-                        NSDate *date = lecture[@"date"];
-                        NSDictionary *dict = [self keywordSearch:content];
-                        NSUInteger i = 0;
-                        NSString *output = @"";
-                        NSArray *documents = dict[@"documents"];
-                        if (![documents firstObject]) {
-                            self.welcome.text = @"I am sorry no keywords could be found :(";
-                            return;
-                        }
-                        for (NSString *keyword in documents[0][@"keyPhrases"]) {
-                            i++;
-                            if (i > 6) {
-                                break;
-                            }
-                            NSLog(@"%@", keyword);
-                            if (i==1) {
-                                output = [NSString stringWithFormat:@"%@", keyword];
-                            } else {
-                                output = [NSString stringWithFormat:@"%@, %@", output, keyword];
-                            }
-                        }
-                        NSLog(@"%@", output);
-                        self.welcome.text = [NSString stringWithFormat:@"I have found the following key words: %@", output];
-                        
-                        break;
+            NSString *lookfor;
+            
+            if ([userRequest containsString:@"keyword"] || [userRequest containsString:@"key word"] || [userRequest containsString:@"key"] || [userRequest containsString:@"keywords"] || [userRequest containsString:@"fact"] || [userRequest containsString:@"facts"] || [userRequest containsString:@"important"] || [userRequest containsString:@"highlights"]) {
+                
+                if ([userRequest containsString:@" in "]) {
+                    NSRange range = [userRequest rangeOfString:@" in " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" lecture "]) {
+                    NSRange range = [userRequest rangeOfString:@" lecture " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" class "]) {
+                    NSRange range = [userRequest rangeOfString:@" class " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" of "]) {
+                    NSRange range = [userRequest rangeOfString:@" of " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" about "]) {
+                    NSRange range = [userRequest rangeOfString:@" of " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
                     }
                 }
+            }
+
+            
+            if ([intent isEqualToString:@"Key Words"]) {
+                
+                if (lookfor.length > 0) {
+                    NSDictionary *class = [self.classesManager getClassWithName:@"general"];
+                    NSArray <NSDictionary *> *lectures = class[pClassLectures];
+                    NSDictionary *resLecture;
+                    for (NSDictionary *lecture in lectures) {
+                        if ([[lecture[pLectureName] lowercaseString] isEqualToString:lookfor]) {
+                            resLecture = lecture;
+                            break;
+                        }
+                    }
+                    
+                    if (resLecture) {
+                        NSString *content = resLecture[pLectureContent];
+                        NSDictionary *document = [[self keywordSearch:content][@"documents"] firstObject];
+                        if (document) {
+                            NSArray <NSString *> *keywords = document[@"keyPhrases"];
+                            NSString *responseStr = @"Here, it is all summed up: ";
+                            NSUInteger index = 0;
+                            for (NSString *key in keywords) {
+                                if (index == [keywords count]-1) {
+                                    responseStr = [NSString stringWithFormat:@"%@and %@.", responseStr, key];
+                                } else if (index == [keywords count]-2) {
+                                    responseStr = [NSString stringWithFormat:@"%@%@ ", responseStr, key];
+                                } else {
+                                    responseStr = [NSString stringWithFormat:@"%@%@, ", responseStr, key];
+                                }
+                                index++;
+                            }
+                            responseStr = [NSString stringWithFormat:@"%@\n\n If you want to know more about %@, you can ask \"What can you tell me about %@\".", responseStr, [keywords firstObject], [keywords firstObject]];
+                            self.welcome.text = responseStr;
+                        } else {
+                            self.welcome.text = [NSString stringWithFormat:@"I am sorry. I could not find any keywords for %@", lookfor];
+                        }
+                    } else {
+                        // nothing found
+                        self.welcome.text = [NSString stringWithFormat:@"I am sorry. I tried to search for any lecture with the name \"%@\". Maybe you were looking for the lecture \"%@\"? If yes, then try: \"Give me the important facts in %@\"", lookfor, [lectures firstObject][pLectureName], lookfor];
+                    }
+                } else {
+                    // do dialogflow things
+                    self.welcome.text = speech;
+                    NSString *param = parameters[@"engineering"];
+                    
+                    if (!param) {
+                        
+                        if (!param) {
+                            NSString *param = parameters[@"any"];
+                            
+                            if (!param) {
+                                param = [NSString stringWithFormat: @"%@", parameters[@"classes"]];
+                            }
+                        }
+                    }
+                    
+                    if (param) {
+                        NSDictionary *class = [self.classesManager getClassWithName:@"general"];
+                        NSArray <NSDictionary *> *lectures = class[pClassLectures];
+                        NSDictionary *resLecture;
+                        for (NSDictionary *lecture in lectures) {
+                            if ([[lecture[pLectureName] lowercaseString] isEqualToString:param]) {
+                                resLecture = lecture;
+                                break;
+                            }
+                        }
+                        
+                        if (resLecture) {
+                            NSString *content = resLecture[pLectureContent];
+                            NSDictionary *document = [[self keywordSearch:content][@"documents"] firstObject];
+                            if (document) {
+                                NSArray <NSString *> *keywords = document[@"keyPhrases"];
+                                NSString *responseStr = @"Here, it is all summed up: ";
+                                NSUInteger index = 0;
+                                for (NSString *key in keywords) {
+                                    if (index == [keywords count]-1) {
+                                        responseStr = [NSString stringWithFormat:@"%@and %@.", responseStr, key];
+                                    } else if (index == [keywords count]-2) {
+                                        responseStr = [NSString stringWithFormat:@"%@%@ ", responseStr, key];
+                                    } else {
+                                        responseStr = [NSString stringWithFormat:@"%@%@, ", responseStr, key];
+                                    }
+                                    index++;
+                                }
+                                responseStr = [NSString stringWithFormat:@"%@\n\n If you want to know more about %@, you can ask \"What can you tell me about %@\".", responseStr, [keywords firstObject], [keywords firstObject]];
+                                self.welcome.text = responseStr;
+                            } else {
+                                self.welcome.text = [NSString stringWithFormat:@"I am sorry. I could not find any keywords for %@", param];
+                            }
+                        } else {
+                            // nothing found
+                            self.welcome.text = [NSString stringWithFormat:@"I am sorry. I tried to search for any lecture with the name \"%@\". Maybe you were looking for the lecture \"%@\"? If yes, then try: \"Give me the important facts in %@\"", param, [lectures firstObject][pLectureName], param];
+                        }
+                    } else {
+                        self.welcome.text = @"I am sorry. I don't know in which lecture I should look for keywords. Try something like: \"What are the key phrases in ...\"";
+                    }
+                }
+                
+                // NSDictionary *dict = [self keywordSearch:content];
             } else if ([intent isEqualToString:@"Find Class"]) {
+                self.welcome.text = speech;
                 NSLog(@"%@", parameters[@"classes"][0]);
                 NSString *myClass;
                 if (![parameters[@"classes"] isKindOfClass:[NSString class]]) {
@@ -229,6 +360,9 @@
                 self.currentClass = myClass;
                 self.welcome.text = [NSString stringWithFormat:@"What are you looking for in your %@ class?", myClass];
             } else if ([intent.lowercaseString isEqualToString:[NSString stringWithFormat: @"Further questions"].lowercaseString]) {
+                self.welcome.text = speech;
+                
+                /*
                 NSString *objectToSearch = [[parameters allValues] firstObject];
                 NSLog(@"%@", objectToSearch);
                 NSDictionary *result = [self bingSearch: objectToSearch];
@@ -236,9 +370,61 @@
                 self.welcome.text = result[@"entities"][@"value"][0][@"description"];
                 if (!self.welcome.text) {
                     self.welcome.text = @"Unfortunately, I have found nothing";
-                }
-            } else if ([intent.lowercaseString isEqualToString:@"switch class"]) {
+                }*/
                 
+                
+                if ([userRequest containsString:@" in "]) {
+                    NSRange range = [userRequest rangeOfString:@" in " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" of "]) {
+                    NSRange range = [userRequest rangeOfString:@" of " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" about "]) {
+                    NSRange range = [userRequest rangeOfString:@" about " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                } else if ([userRequest containsString:@" for "]) {
+                    NSRange range = [userRequest rangeOfString:@" for " options:NSBackwardsSearch];
+                    if (range.location != NSNotFound) {
+                        lookfor = [userRequest substringFromIndex:range.location+range.length];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                        lookfor = [lookfor stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+                        NSLog(@"%@", lookfor);
+                    }
+                }
+                
+                if (lookfor.length > 0) {
+                    NSDictionary *result = [self bingSearch: lookfor];
+                    NSLog(@"%@", result[@"entities"][@"value"][0][@"description"]);
+                    self.welcome.text = result[@"entities"][@"value"][0][@"description"];
+                    if (!self.welcome.text) {
+                        self.welcome.text = @"Unfortunately, I have found nothing";
+                    } else if (self.welcome.text.length == 0) {
+                        self.welcome.text = [NSString stringWithFormat:@"I started a search for %@ but could not find anything about it.", lookfor];
+                    }
+                } else {
+                    // do dialogflow things
+                    self.welcome.text = @"I am sorry. I do not know what to search for.";
+                }
+                
+            } else if ([intent.lowercaseString isEqualToString:@"switch class"]) {
+                self.welcome.text = speech;
+            } else {
+                self.welcome.text = speech;
             }
         });
     } failure:^(AIRequest *request, NSError *error) {
@@ -255,7 +441,7 @@
     [self.recognitionTask cancel];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.recordButton setTitle:@"Start recording" forState:UIControlStateNormal];
+        [self.recordButton setTitle:@"I am looking for..." forState:UIControlStateNormal];
         self.recordButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
     });
 }
@@ -352,7 +538,7 @@
 
 - (NSDictionary *)bingSearch:(NSString *)keyword
 {
-    NSString* path = [NSString stringWithFormat:@"https://api.cognitive.microsoft.com/bing/v7.0/entities/?q=%@&mkt=en-us&count=5&offset=0&safesearch=Moderate", keyword];
+    NSString* path = [NSString stringWithFormat:@"https://api.cognitive.microsoft.com/bing/v7.0/entities/?q=%@&mkt=en-us&count=5&offset=0&safesearch=Moderate", [keyword stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     
     NSMutableURLRequest* _request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:path]];
     [_request setHTTPMethod:@"GET"];

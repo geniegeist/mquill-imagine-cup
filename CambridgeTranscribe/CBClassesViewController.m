@@ -25,6 +25,8 @@
     [self.view addSubview:collectionVC.view];
     [collectionVC didMoveToParentViewController:self];
     
+    collectionVC.collectionView.alwaysBounceVertical = YES;
+    
     self.view.backgroundColor = [UIColor whiteColor];
 }
 

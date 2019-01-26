@@ -36,6 +36,9 @@
                     <state key="normal" title="Machine Intelligence I">
                         <color key="titleColor" red="0.40000000000000002" green="0.25098039215686274" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="classButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="kJb-8w-Wa1"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rW6-vT-9Se" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                     <rect key="frame" x="28" y="131" width="319" height="71"/>
@@ -138,7 +141,9 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="classButton" destination="SPs-BE-0jh" id="ncb-Ro-Wmb"/>
+                <outlet property="classesButton" destination="SPs-BE-0jh" id="Z6e-qg-gWd"/>
                 <outlet property="discardButton" destination="Wtm-x1-KKC" id="3xK-mD-iAY"/>
+                <outlet property="funTextLabel" destination="jdl-g8-g3J" id="WkR-DJ-yNT"/>
                 <outlet property="saveTranscribtButton" destination="kxh-g1-KGN" id="s0n-qn-Qjn"/>
                 <outlet property="textfield" destination="rW6-vT-9Se" id="03v-Sf-Q9k"/>
                 <outletCollection property="gestureRecognizers" destination="OtP-c0-Yfx" appends="YES" id="MCV-ye-zwN"/>

@@ -11,7 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CBLectureView : UIView
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *lectureName;
+@property (nonatomic, copy) NSString *lectureDate;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
+- (void)prepare;
 @end
 
 NS_ASSUME_NONNULL_END

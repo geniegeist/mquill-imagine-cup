@@ -8,14 +8,52 @@
 
 #import "CBLectureView.h"
 
+@interface CBLectureView ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+@end
+
 @implementation CBLectureView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.layer.cornerRadius = 16;
+    self.layer.masksToBounds = YES;
 }
-*/
+
+#pragma mark - Getter
+
+- (void)setContent:(NSString *)content
+{
+    _content = [content copy];
+    self.textView.text = content;
+    [self.textView setContentOffset:CGPointZero animated:NO];
+}
+
+- (void)setLectureName:(NSString *)lectureName
+{
+    _lectureName = [lectureName copy];
+    self.titleLabel.text = _lectureName;
+}
+
+- (void)setLectureDate:(NSString *)lectureDate
+{
+    _lectureDate = [lectureDate copy];
+    self.dateLabel.text = lectureDate;
+}
+
+- (void)prepare
+{
+    [self.textView setContentOffset:CGPointZero animated:NO];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self.textView setContentOffset:CGPointZero animated:NO];
+}
 
 @end

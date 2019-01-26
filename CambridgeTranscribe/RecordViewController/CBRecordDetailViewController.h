@@ -10,13 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class CBRecordDetailViewController;
 @protocol CBRecordDelegate <NSObject>
-- (void)didReceiveTranscriptData:(NSString *)transcript;
-- (void)didStopTranscript:(NSString *)transcript;
+- (void)didReceiveTranscriptData:(CBRecordDetailViewController *)recordDetailViewController transcript:(NSString *)transcript;
+- (void)didStopTranscript:(CBRecordDetailViewController *)recordDetailViewController;
 @end
 
 @interface CBRecordDetailViewController : UIViewController
 @property (nonatomic, assign) id <CBRecordDelegate> delegate;
+@property (nonatomic, copy, readonly) NSString *transcript;
+@property (nonatomic, assign, readonly) BOOL isPlaying;
+
+- (void)recognizeFromMicrophone;
+- (void)stopRecording;
+
+@property (nonatomic, assign) BOOL showDiscardedState;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2011093029A611543B852F05 /* Pods_CambridgeTranscribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7936189370E7CBB3485B8CD9 /* Pods_CambridgeTranscribe.framework */; };
+		6F15506921FB647D00057F39 /* CBLectureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F15506821FB647D00057F39 /* CBLectureView.m */; };
+		6F15506B21FB648800057F39 /* CBLectureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F15506A21FB648800057F39 /* CBLectureView.xib */; };
 		6F36DDDA21F38782001FE943 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F36DDD921F38782001FE943 /* AppDelegate.m */; };
 		6F36DDDD21F38782001FE943 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F36DDDC21F38782001FE943 /* ViewController.m */; };
 		6F36DDE021F38782001FE943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F36DDDE21F38782001FE943 /* Main.storyboard */; };
 		6F36DDE221F38784001FE943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F36DDE121F38784001FE943 /* Assets.xcassets */; };
 		6F36DDE521F38784001FE943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F36DDE321F38784001FE943 /* LaunchScreen.storyboard */; };
 		6F36DDE821F38784001FE943 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F36DDE721F38784001FE943 /* main.m */; };
+		6F69F60021FC461E00F84EF9 /* CBChatbotHint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69F5FF21FC461E00F84EF9 /* CBChatbotHint.m */; };
+		6F69F60221FC462F00F84EF9 /* CBChatbotHint.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F69F60121FC462F00F84EF9 /* CBChatbotHint.xib */; };
 		6FA1452221F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */; };
-		6FA1452321F3D99D00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */; };
 		6FA1452421F3D99D00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FB1C93621F48C9E004529BD /* CBLectureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C93521F48C9D004529BD /* CBLectureCollectionViewCell.m */; };
 		6FD8E7C321F3ECFA00363438 /* CBRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7C221F3ECFA00363438 /* CBRecordViewController.m */; };
@@ -38,6 +41,16 @@
 		6FD8E7F521F42DD600363438 /* CBClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7F421F42DD600363438 /* CBClassCollectionViewCell.m */; };
 		6FD8E7F821F4389600363438 /* CBLecturesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7F721F4389600363438 /* CBLecturesCollectionViewController.m */; };
 		6FD8E7FB21F43BC400363438 /* CBChatbotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7FA21F43BC400363438 /* CBChatbotViewController.m */; };
+		6FE5573821FB000100669EE9 /* CBRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5573721FB000100669EE9 /* CBRecordButton.m */; };
+		6FE5573A21FB001400669EE9 /* CBRecordButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5573921FB001400669EE9 /* CBRecordButton.xib */; };
+		6FE5573D21FB01E100669EE9 /* CBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5573C21FB01E100669EE9 /* CBTabBar.m */; };
+		6FE5573F21FB022A00669EE9 /* CBTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5573E21FB022A00669EE9 /* CBTabBar.xib */; };
+		6FE5574221FB09F300669EE9 /* CBTranscriptTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5574121FB09F300669EE9 /* CBTranscriptTextView.m */; };
+		6FE5574421FB0A0700669EE9 /* CBTranscriptTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5574321FB0A0700669EE9 /* CBTranscriptTextView.xib */; };
+		6FE93AB321FA60E00016069E /* CBRecordSaveTranscriptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE93AB221FA60E00016069E /* CBRecordSaveTranscriptView.m */; };
+		6FE93AB521FA63C90016069E /* CBRecordSaveTranscriptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE93AB421FA63C90016069E /* CBRecordSaveTranscriptView.xib */; };
+		6FE93ABA21FA66E70016069E /* CBROutlineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE93AB921FA66E70016069E /* CBROutlineButton.m */; };
+		6FFB845921FB42A000739F76 /* CBClassesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB845821FB42A000739F76 /* CBClassesManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +68,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F15506721FB647D00057F39 /* CBLectureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBLectureView.h; sourceTree = "<group>"; };
+		6F15506821FB647D00057F39 /* CBLectureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBLectureView.m; sourceTree = "<group>"; };
+		6F15506A21FB648800057F39 /* CBLectureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBLectureView.xib; sourceTree = "<group>"; };
 		6F36DDD521F38782001FE943 /* CambridgeTranscribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CambridgeTranscribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F36DDD821F38782001FE943 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F36DDD921F38782001FE943 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,6 +81,9 @@
 		6F36DDE421F38784001FE943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F36DDE621F38784001FE943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F36DDE721F38784001FE943 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F69F5FE21FC461E00F84EF9 /* CBChatbotHint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBChatbotHint.h; sourceTree = "<group>"; };
+		6F69F5FF21FC461E00F84EF9 /* CBChatbotHint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBChatbotHint.m; sourceTree = "<group>"; };
+		6F69F60121FC462F00F84EF9 /* CBChatbotHint.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBChatbotHint.xib; sourceTree = "<group>"; };
 		6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		6FB1C93421F48C9D004529BD /* CBLectureCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBLectureCollectionViewCell.h; sourceTree = "<group>"; };
 		6FB1C93521F48C9D004529BD /* CBLectureCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBLectureCollectionViewCell.m; sourceTree = "<group>"; };
@@ -96,6 +115,22 @@
 		6FD8E7F721F4389600363438 /* CBLecturesCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBLecturesCollectionViewController.m; sourceTree = "<group>"; };
 		6FD8E7F921F43BC400363438 /* CBChatbotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBChatbotViewController.h; sourceTree = "<group>"; };
 		6FD8E7FA21F43BC400363438 /* CBChatbotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBChatbotViewController.m; sourceTree = "<group>"; };
+		6FE5573621FB000100669EE9 /* CBRecordButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBRecordButton.h; sourceTree = "<group>"; };
+		6FE5573721FB000100669EE9 /* CBRecordButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRecordButton.m; sourceTree = "<group>"; };
+		6FE5573921FB001400669EE9 /* CBRecordButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBRecordButton.xib; sourceTree = "<group>"; };
+		6FE5573B21FB01E100669EE9 /* CBTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBTabBar.h; sourceTree = "<group>"; };
+		6FE5573C21FB01E100669EE9 /* CBTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBTabBar.m; sourceTree = "<group>"; };
+		6FE5573E21FB022A00669EE9 /* CBTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBTabBar.xib; sourceTree = "<group>"; };
+		6FE5574021FB09F300669EE9 /* CBTranscriptTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBTranscriptTextView.h; sourceTree = "<group>"; };
+		6FE5574121FB09F300669EE9 /* CBTranscriptTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBTranscriptTextView.m; sourceTree = "<group>"; };
+		6FE5574321FB0A0700669EE9 /* CBTranscriptTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBTranscriptTextView.xib; sourceTree = "<group>"; };
+		6FE93AB121FA60E00016069E /* CBRecordSaveTranscriptView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBRecordSaveTranscriptView.h; sourceTree = "<group>"; };
+		6FE93AB221FA60E00016069E /* CBRecordSaveTranscriptView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRecordSaveTranscriptView.m; sourceTree = "<group>"; };
+		6FE93AB421FA63C90016069E /* CBRecordSaveTranscriptView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CBRecordSaveTranscriptView.xib; sourceTree = "<group>"; };
+		6FE93AB821FA66E70016069E /* CBROutlineButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBROutlineButton.h; sourceTree = "<group>"; };
+		6FE93AB921FA66E70016069E /* CBROutlineButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBROutlineButton.m; sourceTree = "<group>"; };
+		6FFB845721FB42A000739F76 /* CBClassesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBClassesManager.h; sourceTree = "<group>"; };
+		6FFB845821FB42A000739F76 /* CBClassesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBClassesManager.m; sourceTree = "<group>"; };
 		7936189370E7CBB3485B8CD9 /* Pods_CambridgeTranscribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CambridgeTranscribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF949BC2B7001A1609FE29F8 /* Pods-CambridgeTranscribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CambridgeTranscribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe.release.xcconfig"; sourceTree = "<group>"; };
 		FBB58E6986C6F2B7A1D0C903 /* Pods-CambridgeTranscribe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CambridgeTranscribe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FA1452221F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
-				6FA1452321F3D99D00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
 				2011093029A611543B852F05 /* Pods_CambridgeTranscribe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +149,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F15506621FB645B00057F39 /* LectureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6F15506721FB647D00057F39 /* CBLectureView.h */,
+				6F15506821FB647D00057F39 /* CBLectureView.m */,
+				6F15506A21FB648800057F39 /* CBLectureView.xib */,
+			);
+			path = LectureViewController;
+			sourceTree = "<group>";
+		};
 		6F36DDCC21F38782001FE943 = {
 			isa = PBXGroup;
 			children = (
@@ -137,22 +181,12 @@
 		6F36DDD721F38782001FE943 /* CambridgeTranscribe */ = {
 			isa = PBXGroup;
 			children = (
-				6FD8E7CA21F40D1200363438 /* Fonts */,
-				6F36DDD821F38782001FE943 /* AppDelegate.h */,
-				6F36DDD921F38782001FE943 /* AppDelegate.m */,
+				6F15506621FB645B00057F39 /* LectureViewController */,
+				6FFB845621FB428100739F76 /* Model */,
+				6FE93AB621FA66BE0016069E /* UI */,
 				6F36DDDB21F38782001FE943 /* ViewController.h */,
 				6F36DDDC21F38782001FE943 /* ViewController.m */,
-				6F36DDDE21F38782001FE943 /* Main.storyboard */,
-				6F36DDE121F38784001FE943 /* Assets.xcassets */,
-				6F36DDE321F38784001FE943 /* LaunchScreen.storyboard */,
-				6F36DDE621F38784001FE943 /* Info.plist */,
-				6F36DDE721F38784001FE943 /* main.m */,
-				6FD8E7C121F3ECFA00363438 /* CBRecordViewController.h */,
-				6FD8E7C221F3ECFA00363438 /* CBRecordViewController.m */,
-				6FD8E7C421F3FE0000363438 /* CBRecordDetailViewController.h */,
-				6FD8E7C521F3FE0000363438 /* CBRecordDetailViewController.m */,
-				6FD8E7C721F4071900363438 /* CBRecordTranscriptViewController.h */,
-				6FD8E7C821F4071900363438 /* CBRecordTranscriptViewController.m */,
+				6FE93AAF21FA60970016069E /* RecordViewController */,
 				6FD8E7E321F426B000363438 /* CBClassesViewController.h */,
 				6FD8E7E421F426B000363438 /* CBClassesViewController.m */,
 				6FD8E7F021F42C2900363438 /* CBClassCollectionViewController.h */,
@@ -165,6 +199,11 @@
 				6FD8E7FA21F43BC400363438 /* CBChatbotViewController.m */,
 				6FB1C93421F48C9D004529BD /* CBLectureCollectionViewCell.h */,
 				6FB1C93521F48C9D004529BD /* CBLectureCollectionViewCell.m */,
+				6F36DDDE21F38782001FE943 /* Main.storyboard */,
+				6F36DDE121F38784001FE943 /* Assets.xcassets */,
+				6F36DDE621F38784001FE943 /* Info.plist */,
+				6FD8E7CA21F40D1200363438 /* Fonts */,
+				6FE93AB021FA60B20016069E /* Support */,
 			);
 			path = CambridgeTranscribe;
 			sourceTree = "<group>";
@@ -186,6 +225,79 @@
 				6FD8E7D621F40D3900363438 /* Brandon_thin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6FE5573521FAFFE100669EE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6FE93AB121FA60E00016069E /* CBRecordSaveTranscriptView.h */,
+				6FE93AB221FA60E00016069E /* CBRecordSaveTranscriptView.m */,
+				6FE93AB421FA63C90016069E /* CBRecordSaveTranscriptView.xib */,
+				6FE5574021FB09F300669EE9 /* CBTranscriptTextView.h */,
+				6FE5574121FB09F300669EE9 /* CBTranscriptTextView.m */,
+				6FE5574321FB0A0700669EE9 /* CBTranscriptTextView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6FE93AAF21FA60970016069E /* RecordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6FE5573521FAFFE100669EE9 /* Views */,
+				6FD8E7C121F3ECFA00363438 /* CBRecordViewController.h */,
+				6FD8E7C221F3ECFA00363438 /* CBRecordViewController.m */,
+				6FD8E7C421F3FE0000363438 /* CBRecordDetailViewController.h */,
+				6FD8E7C521F3FE0000363438 /* CBRecordDetailViewController.m */,
+				6FD8E7C721F4071900363438 /* CBRecordTranscriptViewController.h */,
+				6FD8E7C821F4071900363438 /* CBRecordTranscriptViewController.m */,
+			);
+			path = RecordViewController;
+			sourceTree = "<group>";
+		};
+		6FE93AB021FA60B20016069E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6F36DDE321F38784001FE943 /* LaunchScreen.storyboard */,
+				6F36DDE721F38784001FE943 /* main.m */,
+				6F36DDD821F38782001FE943 /* AppDelegate.h */,
+				6F36DDD921F38782001FE943 /* AppDelegate.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		6FE93AB621FA66BE0016069E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6FE5573B21FB01E100669EE9 /* CBTabBar.h */,
+				6FE5573C21FB01E100669EE9 /* CBTabBar.m */,
+				6FE5573E21FB022A00669EE9 /* CBTabBar.xib */,
+				6FE5573621FB000100669EE9 /* CBRecordButton.h */,
+				6FE5573721FB000100669EE9 /* CBRecordButton.m */,
+				6FE5573921FB001400669EE9 /* CBRecordButton.xib */,
+				6F69F5FE21FC461E00F84EF9 /* CBChatbotHint.h */,
+				6F69F5FF21FC461E00F84EF9 /* CBChatbotHint.m */,
+				6F69F60121FC462F00F84EF9 /* CBChatbotHint.xib */,
+				6FE93AB721FA66C30016069E /* Buttons */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6FE93AB721FA66C30016069E /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				6FE93AB821FA66E70016069E /* CBROutlineButton.h */,
+				6FE93AB921FA66E70016069E /* CBROutlineButton.m */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		6FFB845621FB428100739F76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB845721FB42A000739F76 /* CBClassesManager.h */,
+				6FFB845821FB42A000739F76 /* CBClassesManager.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		84F4863DE67919E8314B5E73 /* Pods */ = {
@@ -217,7 +329,6 @@
 				6F36DDD221F38782001FE943 /* Frameworks */,
 				6F36DDD321F38782001FE943 /* Resources */,
 				28985E351C4EDBF0A250C9D3 /* [CP] Embed Pods Frameworks */,
-				8991D34F3BD403AF3F3598C2 /* [CP] Copy Pods Resources */,
 				6FB1398D21F39BAD002EB966 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -269,11 +380,17 @@
 			files = (
 				6FD8E7E221F411B200363438 /* Brandon_thin.otf in Resources */,
 				6F36DDE521F38784001FE943 /* LaunchScreen.storyboard in Resources */,
+				6F15506B21FB648800057F39 /* CBLectureView.xib in Resources */,
 				6F36DDE221F38784001FE943 /* Assets.xcassets in Resources */,
 				6FD8E7DF21F411B200363438 /* Brandon_reg_it.otf in Resources */,
 				6FD8E7DB21F411B200363438 /* Brandon_light_it.otf in Resources */,
 				6FD8E7DA21F411B200363438 /* Brandon_blk.otf in Resources */,
+				6FE5574421FB0A0700669EE9 /* CBTranscriptTextView.xib in Resources */,
+				6F69F60221FC462F00F84EF9 /* CBChatbotHint.xib in Resources */,
+				6FE5573F21FB022A00669EE9 /* CBTabBar.xib in Resources */,
 				6FD8E7E021F411B200363438 /* Brandon_reg.otf in Resources */,
+				6FE5573A21FB001400669EE9 /* CBRecordButton.xib in Resources */,
+				6FE93AB521FA63C90016069E /* CBRecordSaveTranscriptView.xib in Resources */,
 				6FD8E7E121F411B200363438 /* Brandon_thin_it.otf in Resources */,
 				6FD8E7DC21F411B200363438 /* Brandon_light.otf in Resources */,
 				6FD8E7D821F411B200363438 /* Brandon_bld.otf in Resources */,
@@ -296,37 +413,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework",
+				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework",
 				"${BUILT_PRODUCTS_DIR}/PulsingHalo/PulsingHalo.framework",
 				"${BUILT_PRODUCTS_DIR}/Shift/Shift.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFPopup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSDate_TimeAgo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PulsingHalo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8991D34F3BD403AF3F3598C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C436E7999FA14D62637F3B36 /* [CP] Check Pods Manifest.lock */ = {
@@ -354,14 +466,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE93ABA21FA66E70016069E /* CBROutlineButton.m in Sources */,
+				6FE93AB321FA60E00016069E /* CBRecordSaveTranscriptView.m in Sources */,
 				6F36DDDD21F38782001FE943 /* ViewController.m in Sources */,
+				6FE5574221FB09F300669EE9 /* CBTranscriptTextView.m in Sources */,
 				6F36DDE821F38784001FE943 /* main.m in Sources */,
+				6F15506921FB647D00057F39 /* CBLectureView.m in Sources */,
 				6FD8E7FB21F43BC400363438 /* CBChatbotViewController.m in Sources */,
 				6FD8E7C921F4071900363438 /* CBRecordTranscriptViewController.m in Sources */,
+				6FE5573D21FB01E100669EE9 /* CBTabBar.m in Sources */,
 				6FD8E7E521F426B000363438 /* CBClassesViewController.m in Sources */,
+				6FE5573821FB000100669EE9 /* CBRecordButton.m in Sources */,
 				6FD8E7F521F42DD600363438 /* CBClassCollectionViewCell.m in Sources */,
 				6FD8E7C621F3FE0000363438 /* CBRecordDetailViewController.m in Sources */,
 				6F36DDDA21F38782001FE943 /* AppDelegate.m in Sources */,
+				6FFB845921FB42A000739F76 /* CBClassesManager.m in Sources */,
+				6F69F60021FC461E00F84EF9 /* CBChatbotHint.m in Sources */,
 				6FB1C93621F48C9E004529BD /* CBLectureCollectionViewCell.m in Sources */,
 				6FD8E7F221F42C2900363438 /* CBClassCollectionViewController.m in Sources */,
 				6FD8E7F821F4389600363438 /* CBLecturesCollectionViewController.m in Sources */,
@@ -527,7 +647,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CambridgeTranscribe/CambridgeTranscribe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -554,7 +674,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CambridgeTranscribe/CambridgeTranscribe-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

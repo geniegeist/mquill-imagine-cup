@@ -9,10 +9,15 @@
 #import "CBClassCollectionViewController.h"
 #import "CBClassCollectionViewCell.h"
 #import "CBLecturesCollectionViewController.h"
+#import "CBClassesManager.h"
+#import "NSDate+TimeAgo.h"
+#import "CBLectureView.h"
+#import "FFPopup.h"
 
 @interface CBClassCollectionViewController () <UICollectionViewDelegateFlowLayout>
-@property (nonatomic, strong) NSArray *classes;
-@property (nonatomic, strong) NSArray *classTitles;
+@property (nonatomic, strong) CBClassesManager *classesManager;
+@property (nonatomic, strong) FFPopup *popup;
+@property (nonatomic, strong) NSString *currentContent;
 @end
 
 @implementation CBClassCollectionViewController
@@ -23,7 +28,8 @@ static NSString * const reuseIdentifier = @"reuse";
     [super viewDidLoad];
     
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 16, 0, 16);
-    // Do any additional setup after loading the view.
+
+    self.classesManager = [CBClassesManager sharedInstance];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -36,6 +42,7 @@ static NSString * const reuseIdentifier = @"reuse";
 
 }
 
+#pragma mark - Getter
 
 /*
 #pragma mark - Navigation
@@ -56,25 +63,19 @@ static NSString * const reuseIdentifier = @"reuse";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.classes =[[userDefaults objectForKey:@"classes"] allValues];
-    self.classTitles = [[userDefaults objectForKey:@"classes"] allKeys];
-    return self.classes.count;
+    return [(NSArray *)[self.classesManager getClasses][0][pClassLectures] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CBClassCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.classTitle.text = self.classTitles[indexPath.item];
     
-    NSUInteger numberOfLectures = [self.classes[indexPath.item] count];
-    if (numberOfLectures > 1) {
-        cell.numberOfLectures.text = [NSString stringWithFormat:@"%d Lectures", numberOfLectures];
-    } else if (numberOfLectures == 1) {
-        cell.numberOfLectures.text = [NSString stringWithFormat:@"%d Lecture", numberOfLectures];
-    } else {
-        cell.numberOfLectures.text = [NSString stringWithFormat:@"%d Lectures", numberOfLectures];
-    }
-    // Configure the cell
+    NSArray <NSDictionary *> *lectures = [self.classesManager getClasses][0][pClassLectures];
+    NSDictionary *lecture = lectures[indexPath.item];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[lecture[pLectureDate] integerValue]];
+    
+    cell.classTitle.text = lecture[pLectureName];
+    cell.dateLabel.text = date.timeAgo;
     
     return cell;
 }
@@ -122,9 +123,48 @@ static NSString * const reuseIdentifier = @"reuse";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CBLecturesCollectionViewController *lecturesVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"lecturesVC"];
-    lecturesVC.lectures = self.classes[indexPath.item];
-    [self presentViewController:lecturesVC animated:true completion:nil];
+    NSArray <NSDictionary *> *lectures = [self.classesManager getClasses][0][pClassLectures];
+    NSDictionary *lecture = lectures[indexPath.item];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd/MM/yyyy - hh:mm a";
+    NSDate *lectureDate = [NSDate dateWithTimeIntervalSince1970:[lecture[pLectureDate] integerValue]];
+    
+    NSLog(@"%@", lecture);
+    
+    CBLectureView *lectureView = [[[UINib nibWithNibName:@"CBLectureView" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+    lectureView.lectureName = lecture[pLectureName];
+    lectureView.content = lecture[pLectureContent];
+    lectureView.lectureDate = [dateFormatter stringFromDate:lectureDate];
+    
+    self.currentContent = lecture[pLectureContent];
+    
+    [lectureView.shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    
+    const CGFloat sidePadding = 16.0;
+    const CGFloat width = self.view.bounds.size.width - sidePadding * 2;
+    const CGFloat height = self.view.bounds.size.height * 0.8;
+    lectureView.frame = CGRectMake(sidePadding, (self.view.bounds.size.height - height) / 2.0, width, height);
+    
+    FFPopup *popUp = [FFPopup popupWithContentView:lectureView];
+    popUp.shouldDismissOnBackgroundTouch = YES;
+    popUp.showType = FFPopupShowType_BounceInFromBottom;
+    [popUp show];
+        
+    self.popup = popUp;
 }
+
+- (void)share
+{
+    [self.popup dismissAnimated:YES];
+    
+    NSArray * activityItems = @[self.currentContent];
+    NSArray * applicationActivities = nil;
+    NSArray * excludeActivities = @[UIActivityTypePostToFacebook,UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePrint, UIActivityTypeAirDrop];
+    UIActivityViewController * activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:applicationActivities];
+    activityController.excludedActivityTypes = excludeActivities;
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
 
 @end

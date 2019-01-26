@@ -21,7 +21,7 @@
     // Gradient
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.bounds;
-    gradient.colors = @[(id)UIColorFromRGB(0xA5C0EE).CGColor, (id)UIColorFromRGB(0xFBC5EC).CGColor];
+    gradient.colors = @[(id)UIColorFromRGB(0x00C6FB).CGColor, (id)UIColorFromRGB(0x005BEA).CGColor];
     [self.layer insertSublayer:gradient atIndex:0];
     
     self.layer.cornerRadius = 12;

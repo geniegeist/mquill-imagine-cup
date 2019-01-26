@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>True</string>
+	<string>Allow access to your microphone so that you can transcribe lectures.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Okay, </string>
+	<string>Allow speech recognition so that you can use your voice to search for keywords and much more.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Brandon_reg.otf</string>
@@ -41,6 +41,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
