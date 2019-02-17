@@ -21,6 +21,13 @@
     if (![userDefaults objectForKey:@"classes"]) {
         [userDefaults setObject:@{} forKey:@"classes"];
     }
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Root" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateInitialViewController];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

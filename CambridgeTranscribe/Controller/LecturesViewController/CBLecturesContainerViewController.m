@@ -6,25 +6,24 @@
 //  Copyright © 2019 Viet Duc Nguyen. All rights reserved.
 //
 
-#import "CBClassesViewController.h"
+#import "CBLecturesContainerViewController.h"
 #import "CBClassCollectionViewController.h"
 
-@interface CBClassesViewController ()
+@interface CBLecturesContainerViewController ()
 
 @end
 
-@implementation CBClassesViewController
+@implementation CBLecturesContainerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     CBClassCollectionViewController *collectionVC = [[CBClassCollectionViewController alloc] init];
     
     [self addChildViewController:collectionVC];
     collectionVC.view.frame = self.view.frame;
     [self.view addSubview:collectionVC.view];
     [collectionVC didMoveToParentViewController:self];
-    
     collectionVC.collectionView.alwaysBounceVertical = YES;
     
     self.view.backgroundColor = [UIColor whiteColor];

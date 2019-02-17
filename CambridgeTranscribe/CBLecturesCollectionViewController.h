@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CBLecturesCollectionViewController : UICollectionViewController
 @property (nonatomic, strong) NSArray *lectures;
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, copy) NSString *title;
 @end
 
 NS_ASSUME_NONNULL_END

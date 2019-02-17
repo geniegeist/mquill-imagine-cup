@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CBClassesViewController : UIViewController
+@interface CBLecturesContainerViewController : UIViewController
 
 @end
 

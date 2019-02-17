@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Y4g-jI-KND" customClass="RecordTabBarItem" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kag-uR-6MH" customClass="CircleView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                    <rect key="frame" x="19" y="11.5" width="337.5" height="337.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="kag-uR-6MH" secondAttribute="height" multiplier="1:1" id="892-Js-6cC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMk-Kr-fCe" customClass="CircleView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                    <rect key="frame" x="94.5" y="87" width="186" height="186"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="EMk-Kr-fCe" secondAttribute="height" multiplier="1:1" id="w2W-mN-ulE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="kag-uR-6MH" firstAttribute="width" secondItem="Y4g-jI-KND" secondAttribute="width" multiplier="0.9" id="2cs-bF-nZ6"/>
+                <constraint firstItem="kag-uR-6MH" firstAttribute="centerX" secondItem="hJK-gB-rba" secondAttribute="centerX" id="4nI-JX-pUO"/>
+                <constraint firstItem="EMk-Kr-fCe" firstAttribute="width" secondItem="kag-uR-6MH" secondAttribute="width" multiplier="0.55" id="9O9-ib-a2j"/>
+                <constraint firstItem="kag-uR-6MH" firstAttribute="centerY" secondItem="hJK-gB-rba" secondAttribute="centerY" id="FZb-H4-DOP"/>
+                <constraint firstItem="EMk-Kr-fCe" firstAttribute="centerY" secondItem="kag-uR-6MH" secondAttribute="centerY" id="KAu-GN-wGT"/>
+                <constraint firstItem="EMk-Kr-fCe" firstAttribute="centerX" secondItem="kag-uR-6MH" secondAttribute="centerX" id="cIR-ox-18V"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hJK-gB-rba"/>
+            <connections>
+                <outlet property="innerCircle" destination="EMk-Kr-fCe" id="fNL-lv-5fu"/>
+                <outlet property="outerCircle" destination="kag-uR-6MH" id="nSA-3Y-N9J"/>
+            </connections>
+            <point key="canvasLocation" x="149.59999999999999" y="197.00149925037482"/>
+        </view>
+    </objects>
+</document>
