@@ -28,6 +28,12 @@
 	<string>Allow speech recognition so that you can use your voice to search for keywords and much more.</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MaratPro-Bold-Italic.otf</string>
+		<string>MaratPro-Medium-Italic.otf</string>
+		<string>MaratPro-Regular.otf</string>
+		<string>MaratPro-Regular-Italic.otf</string>
+		<string>MaratPro-Medium.otf</string>
+		<string>MaratPro-Bold.otf</string>
 		<string>Brandon_reg.otf</string>
 		<string>Brandon_med.otf</string>
 		<string>Brandon_bld.otf</string>

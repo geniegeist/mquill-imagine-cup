@@ -6,7 +6,6 @@ target 'CambridgeTranscribe' do
   use_frameworks!
 
   # Pods for CambridgeTranscribe
-  pod 'PulsingHalo'
   pod 'FFPopup', :git => 'https://github.com/JonyFang/FFPopup.git'
   pod "Shift"
   pod 'ApiAI', :inhibit_warnings => true
@@ -17,4 +16,5 @@ target 'CambridgeTranscribe' do
   pod 'ActionSheetPicker-3.0', :inhibit_warnings => true
   pod 'NSDate+TimeAgo'
   pod "Pulsator"
+  pod "Motion"
 end

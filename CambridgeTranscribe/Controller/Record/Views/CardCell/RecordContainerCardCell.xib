@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecordContainerCardCell" id="gTV-IL-0wX" customClass="RecordContainerCardCell" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="233" height="294"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="233" height="294"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9n-Fs-5SG">
+                        <rect key="frame" x="0.0" y="0.0" width="233" height="294"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptystate-transcript" translatesAutoresizingMaskIntoConstraints="NO" id="nND-dE-sak">
+                                <rect key="frame" x="0.0" y="0.0" width="233" height="206"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXf-h1-UaW">
+                                <rect key="frame" x="0.0" y="206" width="233" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make every lecture unforgettable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gag-8T-elr">
+                                        <rect key="frame" x="0.0" y="4" width="233" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MQuill will write down what your lecturer says in real time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg8-rg-QUb">
+                                        <rect key="frame" x="0.0" y="32.5" width="233" height="43"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Wg8-rg-QUb" firstAttribute="centerX" secondItem="rXf-h1-UaW" secondAttribute="centerX" id="IhP-ml-AYf"/>
+                                    <constraint firstItem="gag-8T-elr" firstAttribute="centerX" secondItem="rXf-h1-UaW" secondAttribute="centerX" id="JqL-6Z-x22"/>
+                                    <constraint firstItem="Wg8-rg-QUb" firstAttribute="width" secondItem="rXf-h1-UaW" secondAttribute="width" id="PTf-jy-frr"/>
+                                    <constraint firstItem="gag-8T-elr" firstAttribute="width" secondItem="rXf-h1-UaW" secondAttribute="width" id="nxN-14-dnq"/>
+                                    <constraint firstItem="Wg8-rg-QUb" firstAttribute="top" secondItem="gag-8T-elr" secondAttribute="bottom" constant="4" id="pcq-00-pdW"/>
+                                    <constraint firstItem="gag-8T-elr" firstAttribute="top" secondItem="rXf-h1-UaW" secondAttribute="top" constant="4" id="xZf-Ar-8kk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nND-dE-sak" firstAttribute="leading" secondItem="V9n-Fs-5SG" secondAttribute="leading" id="EgV-6r-Lai"/>
+                            <constraint firstItem="nND-dE-sak" firstAttribute="top" secondItem="V9n-Fs-5SG" secondAttribute="top" id="d87-E4-0Wi"/>
+                            <constraint firstAttribute="trailing" secondItem="nND-dE-sak" secondAttribute="trailing" id="eTy-bf-ZAx"/>
+                            <constraint firstItem="rXf-h1-UaW" firstAttribute="leading" secondItem="V9n-Fs-5SG" secondAttribute="leading" id="lV7-NK-YtT"/>
+                            <constraint firstItem="nND-dE-sak" firstAttribute="height" secondItem="V9n-Fs-5SG" secondAttribute="height" multiplier="0.7" id="oku-uS-y4h"/>
+                            <constraint firstAttribute="bottom" secondItem="rXf-h1-UaW" secondAttribute="bottom" id="pSE-v8-DwY"/>
+                            <constraint firstItem="rXf-h1-UaW" firstAttribute="top" secondItem="nND-dE-sak" secondAttribute="bottom" id="sFd-p6-Lol"/>
+                            <constraint firstAttribute="trailing" secondItem="rXf-h1-UaW" secondAttribute="trailing" id="yFe-mK-tOu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="V9n-Fs-5SG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0sv-EG-SpI"/>
+                <constraint firstAttribute="trailing" secondItem="V9n-Fs-5SG" secondAttribute="trailing" id="Ew4-n2-adA"/>
+                <constraint firstItem="V9n-Fs-5SG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="R9z-2Q-AZz"/>
+                <constraint firstAttribute="bottom" secondItem="V9n-Fs-5SG" secondAttribute="bottom" id="YPR-yU-5Sl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="233" height="294"/>
+            <connections>
+                <outlet property="container" destination="V9n-Fs-5SG" id="WOM-gL-fs7"/>
+                <outlet property="imageView" destination="nND-dE-sak" id="nyN-PC-EEL"/>
+            </connections>
+            <point key="canvasLocation" x="199.19999999999999" y="158.32083958020991"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="emptystate-transcript" width="171" height="189"/>
+    </resources>
+</document>

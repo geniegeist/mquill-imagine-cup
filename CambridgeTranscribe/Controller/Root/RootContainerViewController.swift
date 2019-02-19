@@ -10,9 +10,11 @@ import UIKit
 
 private struct CONSTANTS {
     enum TabBarHeight: CGFloat {
-        case large = 180
-        case small = 130
+        case large = 190
+        case small = 140
     }
+    
+    static let TabBarColorGrey = UIColor.init(white: 0.8, alpha: 0.8)
 }
 
 private struct Page {
@@ -27,6 +29,7 @@ private struct Page {
         }
     }
     var tabBarHeight: CGFloat
+    var tabBarColor: UIColor
     
     // Private
     
@@ -37,12 +40,14 @@ private struct Page {
          backgroundView: UIView? = nil,
          backgroundViewBlock: (() -> UIView)? = nil,
          isInitial: Bool = false,
-         tabBarHeight: CGFloat = CONSTANTS.TabBarHeight.small.rawValue) {
+         tabBarHeight: CGFloat = CONSTANTS.TabBarHeight.small.rawValue,
+         tabBarColor: UIColor = UIColor.white) {
         self.viewController = viewController
         _backgroundView = backgroundView
         _backgroundViewBlock = backgroundViewBlock
         self.isInitial = isInitial
         self.tabBarHeight = tabBarHeight
+        self.tabBarColor = tabBarColor
     }
 }
 
@@ -55,8 +60,9 @@ class RootContainerViewController: UIViewController {
     private var backgroundView: UIView?
     
     private let pages = [Page(viewController: UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "classesVC"),
-                              backgroundView: UIView.whiteView()),
-                         Page(viewController: CBRecordViewController(),
+                              backgroundView: UIView.whiteView(),
+                              tabBarColor: CONSTANTS.TabBarColorGrey),
+                         Page(viewController: UIStoryboard.init(name: "Record", bundle: nil).instantiateInitialViewController()!,
                               backgroundViewBlock: {() in
                                 let view = ColorfulShiftView()
                                 view.startTimedAnimation()
@@ -65,10 +71,11 @@ class RootContainerViewController: UIViewController {
                               isInitial: true,
                               tabBarHeight: CONSTANTS.TabBarHeight.large.rawValue),
                          Page(viewController: CBChatbotViewController(),
-                              backgroundView: UIView.colorView(UIColor.black))];
-    private var recordViewController: CBRecordViewController {
+                              backgroundView: UIView.colorView(UIColor.black),
+                              tabBarColor: CONSTANTS.TabBarColorGrey)];
+    private var recordViewController: RecordContainerViewController {
         get {
-            return pages[1].viewController as! CBRecordViewController
+            return pages[1].viewController as! RecordContainerViewController
         }
     }
     
@@ -101,11 +108,13 @@ class RootContainerViewController: UIViewController {
         }
         
         snapChatTabBarController.tabBarView.didTapLeftTabBarItemBlock = {tabBarView in
-            self.pageViewController.setViewControllers([self.pages[0].viewController], direction: .forward, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([self.pages[0].viewController], direction: .reverse, animated: true, completion: nil)
+            self.pageViewControllerDidTransition(self.pageViewController)
         }
         
         snapChatTabBarController.tabBarView.didTapRightTabBarItemBlock = { tabBarView in
-            self.pageViewController.setViewControllers([self.pages[2].viewController], direction: .reverse, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([self.pages[2].viewController], direction: .forward, animated: true, completion: nil)
+            self.pageViewControllerDidTransition(self.pageViewController)
         }
     }
     
@@ -127,6 +136,22 @@ class RootContainerViewController: UIViewController {
         
         // adjust tabBarHeight
         tabBarHeightConstraint.constant = initialPage.tabBarHeight
+    }
+    
+    // MARK: User Interface State Events
+    
+    private func pageViewControllerDidTransition(_ pageViewController: UIPageViewController) {
+        guard let currentVC = pageViewController.viewControllers?.first, let currentPage = pages.first(where: {$0.viewController == currentVC}) else {
+            return
+        }
+        
+        // do something with currentPage
+        view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3) {
+            self.tabBarHeightConstraint.constant = currentPage.tabBarHeight
+            self.snapChatTabBarController.color = currentPage.tabBarColor
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -152,16 +177,7 @@ extension RootContainerViewController: UIPageViewControllerDelegate, UIPageViewC
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if (completed) {
-            guard let currentVC = pageViewController.viewControllers?.first, let currentPage = pages.first(where: {$0.viewController == currentVC}) else {
-                return
-            }
-
-            // do something with currentPage
-            view.layoutIfNeeded()
-            UIView.animate(withDuration: 0.3) {
-                self.tabBarHeightConstraint.constant = currentPage.tabBarHeight
-                self.view.layoutIfNeeded()
-            }
+            pageViewControllerDidTransition(pageViewController)
         }
     }
 }

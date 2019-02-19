@@ -42,10 +42,12 @@ PODS:
     - ApiAI/Core
   - FCAlertView (1.4.0)
   - FFPopup (1.0.0)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
   - MZTimerLabel (0.5.4)
   - "NSDate+TimeAgo (1.0.6)"
   - Pulsator (0.5.1)
-  - PulsingHalo (0.2.8)
   - Shift (0.2.2)
   - SkyFloatingLabelTextField (3.4.0)
 
@@ -55,10 +57,10 @@ DEPENDENCIES:
   - ApiAI
   - FCAlertView
   - FFPopup (from `https://github.com/JonyFang/FFPopup.git`)
+  - Motion
   - MZTimerLabel
   - "NSDate+TimeAgo"
   - Pulsator
-  - PulsingHalo
   - Shift
   - SkyFloatingLabelTextField (~> 3.0)
 
@@ -68,10 +70,10 @@ SPEC REPOS:
     - AFNetworking
     - ApiAI
     - FCAlertView
+    - Motion
     - MZTimerLabel
     - "NSDate+TimeAgo"
     - Pulsator
-    - PulsingHalo
     - Shift
     - SkyFloatingLabelTextField
 
@@ -90,13 +92,13 @@ SPEC CHECKSUMS:
   ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
   Pulsator: f465ca37212d826523fe8c79b07c1a4c1a941f5e
-  PulsingHalo: 64938e4bd3893b823abdf01478084cd92445af2b
   Shift: 86dc634d046fc86a879dbfdb492739672cc092be
   SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
 
-PODFILE CHECKSUM: b5e75f73ca039ac1207a36bb075a640130956df8
+PODFILE CHECKSUM: 5b07e162d0fe2af862fe58363786d96f83b0921c
 
 COCOAPODS: 1.6.0

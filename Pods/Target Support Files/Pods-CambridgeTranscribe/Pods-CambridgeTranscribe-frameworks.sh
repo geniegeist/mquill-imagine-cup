@@ -159,9 +159,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PulsingHalo/PulsingHalo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Shift/Shift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
 fi
@@ -172,9 +172,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/PulsingHalo/PulsingHalo.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Shift/Shift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
 fi
