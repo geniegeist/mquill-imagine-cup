@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EntitiyHeader" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Taylor-Swift-revenge-nerds" translatesAutoresizingMaskIntoConstraints="NO" id="v18-aa-03O" customClass="ShadowImageView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-DV-mD6">
+                    <rect key="frame" x="24" y="112.5" width="331" height="51.5"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="36"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wk-e4-I5J">
+                    <rect key="frame" x="12" y="48" width="43" height="38"/>
+                    <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                    <state key="normal" image="back"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8wk-e4-I5J" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="CPa-UJ-EAD"/>
+                <constraint firstItem="v18-aa-03O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G4y-ra-3ih"/>
+                <constraint firstItem="uDZ-DV-mD6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="dix-yx-KPs"/>
+                <constraint firstItem="v18-aa-03O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gNC-P2-lkp"/>
+                <constraint firstItem="8wk-e4-I5J" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="48" id="h8A-nM-SDc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v18-aa-03O" secondAttribute="trailing" id="jHE-xH-fm8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="v18-aa-03O" secondAttribute="bottom" id="mO3-4Q-QC7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uDZ-DV-mD6" secondAttribute="bottom" constant="12" id="nbR-um-5dO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uDZ-DV-mD6" secondAttribute="trailing" constant="20" id="oCa-45-KNr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="backButton" destination="8wk-e4-I5J" id="vGK-Y9-o20"/>
+                <outlet property="titleLabel" destination="uDZ-DV-mD6" id="HzY-By-gI5"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="374.21289355322341"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Taylor-Swift-revenge-nerds" width="491" height="368.6400146484375"/>
+        <image name="back" width="11" height="18"/>
+    </resources>
+</document>

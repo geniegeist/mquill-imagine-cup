@@ -156,27 +156,27 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Shift/Shift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UserDefaultsStore/UserDefaultsStore.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Motion/Motion.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Shift/Shift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UserDefaultsStore/UserDefaultsStore.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

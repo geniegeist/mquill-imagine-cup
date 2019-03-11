@@ -40,42 +40,42 @@ PODS:
     - ApiAI/Core
   - ApiAI/VoiceRequest (0.7.2):
     - ApiAI/Core
+  - CHIPageControl/Aleppo (0.1.7)
   - FCAlertView (1.4.0)
   - FFPopup (1.0.0)
+  - GSKStretchyHeaderView (1.0.4)
   - Motion (1.4.3):
     - Motion/Core (= 1.4.3)
   - Motion/Core (1.4.3)
   - MZTimerLabel (0.5.4)
   - "NSDate+TimeAgo (1.0.6)"
-  - Pulsator (0.5.1)
-  - Shift (0.2.2)
-  - SkyFloatingLabelTextField (3.4.0)
+  - UserDefaultsStore (1.3)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
   - AFNetworking (~> 3.0)
   - ApiAI
+  - CHIPageControl/Aleppo
   - FCAlertView
   - FFPopup (from `https://github.com/JonyFang/FFPopup.git`)
+  - GSKStretchyHeaderView
   - Motion
   - MZTimerLabel
   - "NSDate+TimeAgo"
-  - Pulsator
-  - Shift
-  - SkyFloatingLabelTextField (~> 3.0)
+  - UserDefaultsStore
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActionSheetPicker-3.0
     - AFNetworking
     - ApiAI
+    - CHIPageControl
     - FCAlertView
+    - GSKStretchyHeaderView
     - Motion
     - MZTimerLabel
     - "NSDate+TimeAgo"
-    - Pulsator
-    - Shift
-    - SkyFloatingLabelTextField
+    - UserDefaultsStore
 
 EXTERNAL SOURCES:
   FFPopup:
@@ -90,15 +90,15 @@ SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
+  CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
+  GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
-  Pulsator: f465ca37212d826523fe8c79b07c1a4c1a941f5e
-  Shift: 86dc634d046fc86a879dbfdb492739672cc092be
-  SkyFloatingLabelTextField: 703aa1420b697392b1e7dba25571180dde018477
+  UserDefaultsStore: b91848cdfa88a0e3e73fb01aa614631dd3092450
 
-PODFILE CHECKSUM: 5b07e162d0fe2af862fe58363786d96f83b0921c
+PODFILE CHECKSUM: 369e0d4d23c041ace8b43685fc690fbc53a740b7
 
 COCOAPODS: 1.6.0

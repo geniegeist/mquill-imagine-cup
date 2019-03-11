@@ -7,11 +7,9 @@
 //
 
 #import "CBChatbotViewController.h"
-#import <Shift/Shift-umbrella.h>
 #import <Speech/Speech.h>
 #import <ApiAI/ApiAI.h>
 #import "CBClassesManager.h"
-#import "CBChatbotHint.h"
 #import <FFPopup/FFPopup.h>
 
 @interface CBChatbotViewController ()
@@ -21,7 +19,6 @@
 @property (nonatomic, strong) SFSpeechRecognitionTask *recognitionTask;
 @property (nonatomic, strong) NSTimer *detectionTimer;
 
-@property (nonatomic, strong) ShiftView_Objc *shiftView;
 
 @property (nonatomic, strong) UITextView *welcome;
 @property (nonatomic, strong) UIButton *recordButton;
@@ -88,27 +85,6 @@ NSString * const kFirstTime = @"mquill_chatbot_first_time";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.shiftView startTimedAnimation];
-    
-    BOOL firstTime = ![[NSUserDefaults standardUserDefaults] boolForKey:kFirstTime];
-    if (firstTime) {
-        CBChatbotHint *chatbotHint = [[[UINib nibWithNibName:@"CBChatbotHint" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
-        chatbotHint.frame = CGRectMake(0, 0, 320, 64);
-        chatbotHint.alpha = 1;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lol)];
-        [chatbotHint addGestureRecognizer:tap];
-        
-        FFPopup *popUp = [FFPopup popupWithContentView:chatbotHint];
-        popUp.shouldDismissOnBackgroundTouch = YES;
-        popUp.showType = FFPopupShowType_BounceInFromBottom;
-        popUp.maskType = FFPopupMaskType_None;
-        [popUp showAtCenterPoint:CGPointMake(CGRectGetWidth(self.view.bounds)/2.0, CGRectGetMaxY(self.view.bounds) - 210) inView:self.view];
-        
-        self.hintPopup = popUp;
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kFirstTime];
-    }
 }
 
 - (void)lol {

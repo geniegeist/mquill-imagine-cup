@@ -10,40 +10,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Record Container View Controller-->
+        <!--Record View Controller-->
         <scene sceneID="ZZq-Oc-hsv">
             <objects>
-                <viewController id="C2y-Fn-N14" customClass="RecordContainerViewController" customModule="CambridgeTranscribe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C2y-Fn-N14" customClass="RecordViewController" customModule="CambridgeTranscribe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G9z-6p-ibr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yO-HQ-R5g" customClass="VerticalCardSwiper" customModule="CambridgeTranscribe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="497"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSideSwipingEnabled" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPreviousCardVisible" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="visibleNextCardHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mq5-cf-kx7" customClass="RecordButton" customModule="CambridgeTranscribe" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5Jg-fZ-7De"/>
+                                    <constraint firstAttribute="height" constant="200" id="RL4-tO-F6a"/>
+                                </constraints>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f0-uH-GNz">
+                                <rect key="frame" x="67.5" y="173" width="240" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to transcribe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iV-BO-udp">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7iV-BO-udp" secondAttribute="bottom" id="Mf6-VY-7eX"/>
+                                    <constraint firstItem="7iV-BO-udp" firstAttribute="leading" secondItem="5f0-uH-GNz" secondAttribute="leading" id="Q2P-Wh-3iL"/>
+                                    <constraint firstAttribute="trailing" secondItem="7iV-BO-udp" secondAttribute="trailing" id="dWB-C6-XsP"/>
+                                    <constraint firstItem="7iV-BO-udp" firstAttribute="top" secondItem="5f0-uH-GNz" secondAttribute="top" id="pHX-gb-Axg"/>
+                                    <constraint firstAttribute="width" constant="240" id="zlE-Sd-5kI"/>
+                                </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.22352941176470587" green="0.2627450980392157" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="8yO-HQ-R5g" firstAttribute="leading" secondItem="4eK-Ir-eBl" secondAttribute="leading" id="0kp-7N-sXV"/>
-                            <constraint firstItem="8yO-HQ-R5g" firstAttribute="trailing" secondItem="4eK-Ir-eBl" secondAttribute="trailing" id="Hhq-jS-7xt"/>
-                            <constraint firstItem="4eK-Ir-eBl" firstAttribute="bottom" secondItem="8yO-HQ-R5g" secondAttribute="bottom" constant="150" id="O8K-HO-8Aj"/>
-                            <constraint firstItem="8yO-HQ-R5g" firstAttribute="top" secondItem="4eK-Ir-eBl" secondAttribute="top" id="Rb7-9n-zYk"/>
+                            <constraint firstItem="5f0-uH-GNz" firstAttribute="centerX" secondItem="mq5-cf-kx7" secondAttribute="centerX" id="1j4-Qc-MCG"/>
+                            <constraint firstItem="mq5-cf-kx7" firstAttribute="centerX" secondItem="G9z-6p-ibr" secondAttribute="centerX" id="ByX-gA-aje"/>
+                            <constraint firstItem="mq5-cf-kx7" firstAttribute="centerY" secondItem="G9z-6p-ibr" secondAttribute="centerY" id="Id4-LL-n1N"/>
+                            <constraint firstItem="mq5-cf-kx7" firstAttribute="top" secondItem="5f0-uH-GNz" secondAttribute="bottom" constant="40" id="e1H-IJ-SlY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4eK-Ir-eBl"/>
                     </view>
                     <connections>
-                        <outlet property="cardSwiper" destination="8yO-HQ-R5g" id="xHL-J2-Jjh"/>
+                        <outlet property="headlineLabel" destination="7iV-BO-udp" id="PpG-H7-9e1"/>
+                        <outlet property="recordButton" destination="mq5-cf-kx7" id="Nzo-dc-Nyp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Fn-tj-5on" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="4"/>
+            <point key="canvasLocation" x="-185" y="2"/>
         </scene>
         <!--Transcribing View Controller-->
         <scene sceneID="an1-qB-S1j">

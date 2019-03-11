@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DdM-CF-PlY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lectures View Controller-->
+        <scene sceneID="g0O-ea-jyZ">
+            <objects>
+                <viewController id="DdM-CF-PlY" customClass="LecturesViewController" customModule="CambridgeTranscribe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CHi-kl-aTH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="471-M7-GvL">
+                                <rect key="frame" x="24" y="56" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="471-M7-GvL" secondAttribute="height" multiplier="1:1" id="HlG-Z2-qXX"/>
+                                    <constraint firstAttribute="width" constant="25" id="Xfx-dX-Xqk"/>
+                                </constraints>
+                                <state key="normal" image="settings"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="05a-Nx-j7B">
+                                <rect key="frame" x="0.0" y="89" width="375" height="578"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hVf-1K-vFY">
+                                    <size key="itemSize" width="350" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DdM-CF-PlY" id="rhh-Zx-oKI"/>
+                                    <outlet property="delegate" destination="DdM-CF-PlY" id="ePg-jZ-TOh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23921568627450979" green="0.22352941176470587" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="05a-Nx-j7B" firstAttribute="top" secondItem="471-M7-GvL" secondAttribute="bottom" constant="8" id="JKW-8g-NAC"/>
+                            <constraint firstItem="gSk-Ql-KgQ" firstAttribute="trailing" secondItem="05a-Nx-j7B" secondAttribute="trailing" id="YKr-sp-ODX"/>
+                            <constraint firstItem="471-M7-GvL" firstAttribute="leading" secondItem="gSk-Ql-KgQ" secondAttribute="leading" constant="24" id="aWA-fJ-Rad"/>
+                            <constraint firstItem="471-M7-GvL" firstAttribute="top" secondItem="gSk-Ql-KgQ" secondAttribute="top" constant="36" id="odA-tz-He3"/>
+                            <constraint firstItem="05a-Nx-j7B" firstAttribute="leading" secondItem="gSk-Ql-KgQ" secondAttribute="leading" id="rey-Ti-FEg"/>
+                            <constraint firstItem="gSk-Ql-KgQ" firstAttribute="bottom" secondItem="05a-Nx-j7B" secondAttribute="bottom" id="xwb-iK-5zK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gSk-Ql-KgQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="05a-Nx-j7B" id="oiA-NR-PDs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVM-Oj-Q0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="-229.83508245877064"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings" width="50" height="50"/>
+    </resources>
+</document>

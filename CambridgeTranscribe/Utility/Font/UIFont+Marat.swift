@@ -21,7 +21,7 @@ extension UIFont {
         }
     }
     
-    class func maratPro(weight: MaratPro.FontWeight, size: CGFloat) -> UIFont? {
+    class func maratPro(weight: MaratPro.FontWeight, size: CGFloat) -> UIFont {
         var fontName: String = ""
         switch weight {
         case .regular:
@@ -38,6 +38,6 @@ extension UIFont {
             fontName = "MaratPro-BoldItalic"
         }
         
-        return UIFont.init(name: fontName, size: size)
+        return UIFont.init(name: fontName, size: size)!
     }
 }

@@ -8,7 +8,6 @@
 
 #import "CBRecordDetailViewController.h"
 #import <MicrosoftCognitiveServicesSpeech/SPXSpeechApi.h>
-#import "CBTranscriptTextView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -19,7 +18,6 @@
 @property (nonatomic, strong) UIImageView *logo;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 @property (weak, nonatomic) IBOutlet UIView *transcriptTextViewWrapper;
-@property (nonatomic, strong) CBTranscriptTextView *transcriptTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomTranscriptTextViewConstraint;
 
 @property (nonatomic, copy, readwrite) NSString *transcript;
@@ -39,23 +37,10 @@
 
     // UI
     self.transcriptTextViewWrapper.backgroundColor = [UIColor clearColor];
-    self.transcriptTextView = [[[UINib nibWithNibName:@"CBTranscriptTextView" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
-    [self.transcriptTextViewWrapper addSubview:self.transcriptTextView];
     
     self.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.transcriptTextView positionTextView];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-    self.transcriptTextView.frame = self.transcriptTextViewWrapper.bounds;
-}
 
 #pragma mark - Getter
 
@@ -73,11 +58,6 @@
     return _speechRecognizer;
 }
 
-- (void)setShowDiscardedState:(BOOL)showDiscardedState
-{
-    _showDiscardedState = showDiscardedState;
-    self.transcriptTextView.showDiscardedState = showDiscardedState;
-}
 
 #pragma mark - Record
 
@@ -86,7 +66,6 @@
     
     NSLog(@"Start recognising");
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.transcriptTextView startTimer];
         
         self.bottomTranscriptTextViewConstraint.constant = 140;
         [self.view setNeedsUpdateConstraints];
@@ -95,9 +74,6 @@
             [self.view layoutIfNeeded];
         }];
         
-        self.transcriptTextView.showEmptyState = NO;
-        self.transcriptTextView.showSavedState = NO;
-        self.transcriptTextView.showDiscardedState = NO;
     });
     
     SPXSpeechRecognizer* speechRecognizer = self.speechRecognizer;
@@ -151,17 +127,7 @@
             [self.view layoutIfNeeded];
         }];
         
-        [self.transcriptTextView endTimer];
-        [self.transcriptTextView reset];
-        
-        if (self.showDiscardedState) {
-            self.transcriptTextView.showDiscardedState = YES;
-            self.transcriptTextView.showSavedState = NO;
-        } else {
-            self.transcriptTextView.showDiscardedState = NO;
-            self.transcriptTextView.showSavedState = YES;
-        }
-        self.transcriptTextView.showEmptyState = NO;
+       
     });
     
     
@@ -175,7 +141,7 @@
 
 - (void)updateTranscriptTextView
 {
-    self.transcriptTextView.text = self.transcript;
+
 }
 
 @end

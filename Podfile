@@ -7,14 +7,14 @@ target 'CambridgeTranscribe' do
 
   # Pods for CambridgeTranscribe
   pod 'FFPopup', :git => 'https://github.com/JonyFang/FFPopup.git'
-  pod "Shift"
   pod 'ApiAI', :inhibit_warnings => true
   pod 'AFNetworking', '~> 3.0'
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'FCAlertView', :inhibit_warnings => true
   pod 'MZTimerLabel'
   pod 'ActionSheetPicker-3.0', :inhibit_warnings => true
   pod 'NSDate+TimeAgo'
-  pod "Pulsator"
   pod "Motion"
+  pod 'CHIPageControl/Aleppo'
+  pod 'UserDefaultsStore'
+  pod "GSKStretchyHeaderView"
 end
