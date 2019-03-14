@@ -1,0 +1,6 @@
+framework module PXSiriWave {
+  umbrella header "PXSiriWave-umbrella.h"
+
+  export *
+  module * { export * }
+}

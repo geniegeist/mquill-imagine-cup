@@ -21,7 +21,7 @@ class LecturesViewController: UIViewController {
         super.viewDidLoad()
         
         isMotionEnabled = false
-        view.backgroundColor = UIColor(rgb: 0x3D3966)
+        view.backgroundColor = UIColor(rgb: 0xFAB943)
         
         collectionView.register(UINib(nibName: "LectureCell", bundle: nil), forCellWithReuseIdentifier: "lectureCell")
         collectionView.register(UINib(nibName: "LectureHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
@@ -45,9 +45,6 @@ extension LecturesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lectureCell", for: indexPath) as! LectureCell
-        cell.leftImageView.motionIdentifier = "leftImageView"
-        cell.headlineLabel.motionIdentifier = "headline"
-        cell.bgView.motionIdentifier = "headerBG"
         return cell
     }
     

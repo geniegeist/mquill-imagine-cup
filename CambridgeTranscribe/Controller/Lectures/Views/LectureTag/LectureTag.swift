@@ -27,8 +27,8 @@ class LectureTag: UILabel {
     }
     
     private func setupUI() {
-        backgroundColor = UIColor.init(white: 1, alpha: 0.12)
-        textColor = UIColor.init(white: 1, alpha: 0.8)
+        backgroundColor = UIColor(rgb: 0xE8E8E8)
+        textColor = UIColor.init(white: 0, alpha: 0.5)
         font = UIFont.brandonGrotesque(weight: .medium, size: 13)
         textAlignment = .center
         layer.cornerRadius = 4

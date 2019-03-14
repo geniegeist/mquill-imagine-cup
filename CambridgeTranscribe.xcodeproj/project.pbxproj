@@ -40,12 +40,28 @@
 		6F15506B21FB648800057F39 /* CBLectureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F15506A21FB648800057F39 /* CBLectureView.xib */; };
 		6F36DDE221F38784001FE943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F36DDE121F38784001FE943 /* Assets.xcassets */; };
 		6F36DDE521F38784001FE943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F36DDE321F38784001FE943 /* LaunchScreen.storyboard */; };
+		6F4D1F49223673DB0068C7A2 /* PullOverADIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F48223673DB0068C7A2 /* PullOverADIViewController.swift */; };
+		6F4D1F4D223674460068C7A2 /* PullOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F4C223674460068C7A2 /* PullOverViewController.swift */; };
+		6F4D1F5022368CFB0068C7A2 /* PullOverADIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F4F22368CFB0068C7A2 /* PullOverADIView.swift */; };
+		6F4D1F5422368D280068C7A2 /* PullOverADIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F5322368D280068C7A2 /* PullOverADIView.xib */; };
+		6F4D1F582238597E0068C7A2 /* DailySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F572238597E0068C7A2 /* DailySummaryViewController.swift */; };
+		6F4D1F5A223859890068C7A2 /* Summary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F59223859890068C7A2 /* Summary.storyboard */; };
+		6F4D1F5E223863460068C7A2 /* DailySummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F5D223863460068C7A2 /* DailySummaryCell.swift */; };
+		6F4D1F6122386EB50068C7A2 /* DailySummaryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F6022386EB50068C7A2 /* DailySummaryHeader.swift */; };
+		6F4D1F6322386EC10068C7A2 /* DailySummaryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F6222386EC10068C7A2 /* DailySummaryHeader.xib */; };
+		6F4D1F68223999E00068C7A2 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F67223999E00068C7A2 /* LNPopupController.framework */; };
+		6F4D1F69223999E00068C7A2 /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F67223999E00068C7A2 /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F4D1F6B22399A0F0068C7A2 /* TranscribingPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F6A22399A0F0068C7A2 /* TranscribingPopupController.swift */; };
+		6F4D1F6E2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F6D2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift */; };
+		6F4D1F722239A4F10068C7A2 /* TranscribingCustomBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F712239A4F10068C7A2 /* TranscribingCustomBarViewController.xib */; };
+		6F4D1F742239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */; };
+		6F4D1F752239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */; };
+		6F4D1F762239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F4D1F7A2239BABD0068C7A2 /* CTSpeechToText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F792239BABD0068C7A2 /* CTSpeechToText.m */; };
 		6F93887D21FEDF91004A1C40 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93887C21FEDF91004A1C40 /* Root.storyboard */; };
 		6F98735B2218B0E0008E302B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98735A2218B0E0008E302B /* CircleView.swift */; };
 		6F9E98F62232BE1200DF7D9E /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E98F52232BE1200DF7D9E /* RecordButton.swift */; };
 		6F9E98FB2232C08900DF7D9E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E98FA2232C08900DF7D9E /* UIColor+Hex.swift */; };
-		6FA1452221F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */; };
-		6FA1452421F3D99D00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FB1C93621F48C9E004529BD /* CBLectureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C93521F48C9D004529BD /* CBLectureCollectionViewCell.m */; };
 		6FBB6198221B3E820073650C /* TranscribingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBB6197221B3E820073650C /* TranscribingViewController.swift */; };
 		6FBB619E221B42BA0073650C /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBB619C221B42BA0073650C /* SCSiriWaveformView.m */; };
@@ -92,7 +108,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6FA1452421F3D99D00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */,
+				6F4D1F762239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */,
+				6F4D1F69223999E00068C7A2 /* LNPopupController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,12 +152,27 @@
 		6F36DDE121F38784001FE943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F36DDE421F38784001FE943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F36DDE621F38784001FE943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F4D1F48223673DB0068C7A2 /* PullOverADIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullOverADIViewController.swift; sourceTree = "<group>"; };
+		6F4D1F4C223674460068C7A2 /* PullOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullOverViewController.swift; sourceTree = "<group>"; };
+		6F4D1F4F22368CFB0068C7A2 /* PullOverADIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullOverADIView.swift; sourceTree = "<group>"; };
+		6F4D1F5322368D280068C7A2 /* PullOverADIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullOverADIView.xib; sourceTree = "<group>"; };
+		6F4D1F572238597E0068C7A2 /* DailySummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryViewController.swift; sourceTree = "<group>"; };
+		6F4D1F59223859890068C7A2 /* Summary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Summary.storyboard; sourceTree = "<group>"; };
+		6F4D1F5D223863460068C7A2 /* DailySummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryCell.swift; sourceTree = "<group>"; };
+		6F4D1F6022386EB50068C7A2 /* DailySummaryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummaryHeader.swift; sourceTree = "<group>"; };
+		6F4D1F6222386EC10068C7A2 /* DailySummaryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailySummaryHeader.xib; sourceTree = "<group>"; };
+		6F4D1F67223999E00068C7A2 /* LNPopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LNPopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4D1F6A22399A0F0068C7A2 /* TranscribingPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingPopupController.swift; sourceTree = "<group>"; };
+		6F4D1F6D2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingCustomBarViewController.swift; sourceTree = "<group>"; };
+		6F4D1F712239A4F10068C7A2 /* TranscribingCustomBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscribingCustomBarViewController.xib; sourceTree = "<group>"; };
+		6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
+		6F4D1F782239BABD0068C7A2 /* CTSpeechToText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTSpeechToText.h; sourceTree = "<group>"; };
+		6F4D1F792239BABD0068C7A2 /* CTSpeechToText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTSpeechToText.m; sourceTree = "<group>"; };
 		6F93887C21FEDF91004A1C40 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		6F93888121FEE22A004A1C40 /* CambridgeTranscribe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CambridgeTranscribe-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F98735A2218B0E0008E302B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		6F9E98F52232BE1200DF7D9E /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		6F9E98FA2232C08900DF7D9E /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		6FB1C93421F48C9D004529BD /* CBLectureCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBLectureCollectionViewCell.h; sourceTree = "<group>"; };
 		6FB1C93521F48C9D004529BD /* CBLectureCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBLectureCollectionViewCell.m; sourceTree = "<group>"; };
 		6FBB6197221B3E820073650C /* TranscribingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingViewController.swift; sourceTree = "<group>"; };
@@ -198,8 +230,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FA1452221F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
+				6F4D1F752239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
 				2011093029A611543B852F05 /* Pods_CambridgeTranscribe.framework in Frameworks */,
+				6F4D1F742239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
+				6F4D1F68223999E00068C7A2 /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,8 +392,10 @@
 		6F05D4EF2236525700729A21 /* ADI */ = {
 			isa = PBXGroup;
 			children = (
+				6F4D1F5122368D090068C7A2 /* Views */,
 				6F05D4F02236527800729A21 /* ADIViewController.swift */,
 				6F05D4F22236528600729A21 /* ADI.storyboard */,
+				6F4D1F48223673DB0068C7A2 /* PullOverADIViewController.swift */,
 			);
 			path = ADI;
 			sourceTree = "<group>";
@@ -386,7 +422,8 @@
 		6F36DDCC21F38782001FE943 = {
 			isa = PBXGroup;
 			children = (
-				6FA1452121F3D75A00B33A29 /* MicrosoftCognitiveServicesSpeech.framework */,
+				6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */,
+				6F4D1F67223999E00068C7A2 /* LNPopupController.framework */,
 				6F36DDD721F38782001FE943 /* CambridgeTranscribe */,
 				6F36DDD621F38782001FE943 /* Products */,
 				84F4863DE67919E8314B5E73 /* Pods */,
@@ -407,6 +444,7 @@
 			children = (
 				6F93888021FEE201004A1C40 /* BridgingHeader */,
 				6FED1A532219BF2800A3D375 /* Utility */,
+				6F4D1F772239BA970068C7A2 /* API */,
 				6FFB845621FB428100739F76 /* Model */,
 				6FE93AB621FA66BE0016069E /* Views */,
 				6FAA21BC21FDFB9300C7389F /* Controller */,
@@ -422,6 +460,119 @@
 				6FE93AB021FA60B20016069E /* Support */,
 			);
 			path = CambridgeTranscribe;
+			sourceTree = "<group>";
+		};
+		6F4D1F4A223674270068C7A2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F4B2236742E0068C7A2 /* PullOver */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6F4D1F4B2236742E0068C7A2 /* PullOver */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F4C223674460068C7A2 /* PullOverViewController.swift */,
+			);
+			path = PullOver;
+			sourceTree = "<group>";
+		};
+		6F4D1F5122368D090068C7A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F5522369C860068C7A2 /* Processing */,
+				6F4D1F5222368D130068C7A2 /* PullOver */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F4D1F5222368D130068C7A2 /* PullOver */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F4F22368CFB0068C7A2 /* PullOverADIView.swift */,
+				6F4D1F5322368D280068C7A2 /* PullOverADIView.xib */,
+			);
+			path = PullOver;
+			sourceTree = "<group>";
+		};
+		6F4D1F5522369C860068C7A2 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		6F4D1F56223859650068C7A2 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F5B223863200068C7A2 /* Views */,
+				6F4D1F572238597E0068C7A2 /* DailySummaryViewController.swift */,
+				6F4D1F59223859890068C7A2 /* Summary.storyboard */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		6F4D1F5B223863200068C7A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F5F22386EA40068C7A2 /* Header */,
+				6F4D1F5C223863290068C7A2 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F4D1F5C223863290068C7A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F5D223863460068C7A2 /* DailySummaryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6F4D1F5F22386EA40068C7A2 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F6022386EB50068C7A2 /* DailySummaryHeader.swift */,
+				6F4D1F6222386EC10068C7A2 /* DailySummaryHeader.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		6F4D1F6F2239A4870068C7A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F702239A4A00068C7A2 /* Transcribing */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6F4D1F702239A4A00068C7A2 /* Transcribing */ = {
+			isa = PBXGroup;
+			children = (
+				6FBB6197221B3E820073650C /* TranscribingViewController.swift */,
+				6F4D1F6A22399A0F0068C7A2 /* TranscribingPopupController.swift */,
+				6F4D1F6D2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift */,
+				6F4D1F712239A4F10068C7A2 /* TranscribingCustomBarViewController.xib */,
+			);
+			path = Transcribing;
+			sourceTree = "<group>";
+		};
+		6F4D1F772239BA970068C7A2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F7B2239D13C0068C7A2 /* SpeechToText */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6F4D1F7B2239D13C0068C7A2 /* SpeechToText */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F782239BABD0068C7A2 /* CTSpeechToText.h */,
+				6F4D1F792239BABD0068C7A2 /* CTSpeechToText.m */,
+			);
+			path = SpeechToText;
 			sourceTree = "<group>";
 		};
 		6F93888021FEE201004A1C40 /* BridgingHeader */ = {
@@ -476,12 +627,14 @@
 		6FAA21BC21FDFB9300C7389F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6F4D1F4A223674270068C7A2 /* Classes */,
 				6FAA21BA21FDFB5900C7389F /* Root */,
 				6F05D4EF2236525700729A21 /* ADI */,
 				6FE93AAF21FA60970016069E /* Record */,
 				6F15506621FB645B00057F39 /* Lectures */,
 				6F05D4952233F87B00729A21 /* Transcript */,
 				6F05D4DE2235A0A000729A21 /* Entity */,
+				6F4D1F56223859650068C7A2 /* Summary */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -541,8 +694,8 @@
 		6FE93AAF21FA60970016069E /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				6F4D1F6F2239A4870068C7A2 /* Controller */,
 				6FE5573521FAFFE100669EE9 /* Views */,
-				6FBB6197221B3E820073650C /* TranscribingViewController.swift */,
 				6FED1A592219C33E00A3D375 /* RecordViewController.swift */,
 				6FED1A5B2219C36C00A3D375 /* Record.storyboard */,
 				6FD8E7C421F3FE0000363438 /* CBRecordDetailViewController.h */,
@@ -685,13 +838,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FED1A4B2219BEC800A3D375 /* MaratPro-Medium.otf in Resources */,
+				6F4D1F6322386EC10068C7A2 /* DailySummaryHeader.xib in Resources */,
 				6FED1A522219BEC800A3D375 /* MaratPro-Black-Italic.otf in Resources */,
 				6FED1A4E2219BEC800A3D375 /* MaratPro-Black.otf in Resources */,
 				6FED1A512219BEC800A3D375 /* MaratPro-Regular-Italic.otf in Resources */,
 				6FED1A4D2219BEC800A3D375 /* MaratPro-Bold.otf in Resources */,
 				6F05D4912233F33500729A21 /* LectureHeader.xib in Resources */,
+				6F4D1F5422368D280068C7A2 /* PullOverADIView.xib in Resources */,
 				6F93887D21FEDF91004A1C40 /* Root.storyboard in Resources */,
 				6F05D4EB2235B14000729A21 /* EntityHeader.xib in Resources */,
+				6F4D1F722239A4F10068C7A2 /* TranscribingCustomBarViewController.xib in Resources */,
 				6F05D49F2234037900729A21 /* TranscriptAudioPlaybackProgress.xib in Resources */,
 				6FD8E7E221F411B200363438 /* Brandon_thin.otf in Resources */,
 				6F05D4F32236528600729A21 /* ADI.storyboard in Resources */,
@@ -702,6 +858,7 @@
 				6F05D48C2233E98200729A21 /* LectureCell.xib in Resources */,
 				6FED1A502219BEC800A3D375 /* MaratPro-Medium-Italic.otf in Resources */,
 				6F15506B21FB648800057F39 /* CBLectureView.xib in Resources */,
+				6F4D1F5A223859890068C7A2 /* Summary.storyboard in Resources */,
 				6FED1A4C2219BEC800A3D375 /* MaratPro-Bold-Italic.otf in Resources */,
 				6F36DDE221F38784001FE943 /* Assets.xcassets in Resources */,
 				6FD8E7DF21F411B200363438 /* Brandon_reg_it.otf in Resources */,
@@ -740,6 +897,9 @@
 				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/NSDate+TimeAgo/NSDate_TimeAgo.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/PXSiriWave/PXSiriWave.framework",
+				"${BUILT_PRODUCTS_DIR}/TOMSMorphingLabel/TOMSMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/UserDefaultsStore/UserDefaultsStore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -754,6 +914,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSDate_TimeAgo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PXSiriWave.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOMSMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UserDefaultsStore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,8 +956,11 @@
 				6F15506921FB647D00057F39 /* CBLectureView.m in Sources */,
 				6F05D4E62235AC7600729A21 /* EntityCell.swift in Sources */,
 				6FD8E7FB21F43BC400363438 /* CBChatbotViewController.m in Sources */,
+				6F4D1F5022368CFB0068C7A2 /* PullOverADIView.swift in Sources */,
+				6F4D1F6B22399A0F0068C7A2 /* TranscribingPopupController.swift in Sources */,
 				6FBB6198221B3E820073650C /* TranscribingViewController.swift in Sources */,
 				6FED1A582219C1D100A3D375 /* UIFont+BrandonGrotesque.swift in Sources */,
+				6F4D1F582238597E0068C7A2 /* DailySummaryViewController.swift in Sources */,
 				6FD8E7C921F4071900363438 /* CBRecordTranscriptViewController.m in Sources */,
 				6F05D49D2234035A00729A21 /* TranscriptAudioPlaybackProgress.swift in Sources */,
 				6F05D4972233F89F00729A21 /* TranscriptViewController.swift in Sources */,
@@ -807,19 +973,25 @@
 				6FD8E7C621F3FE0000363438 /* CBRecordDetailViewController.m in Sources */,
 				6FCC5120221962F90029AEAC /* TintImageView.swift in Sources */,
 				6F05D4E02235A0D700729A21 /* EntityViewController.swift in Sources */,
+				6F4D1F5E223863460068C7A2 /* DailySummaryCell.swift in Sources */,
+				6F4D1F4D223674460068C7A2 /* PullOverViewController.swift in Sources */,
 				6F05D4A422347E3000729A21 /* IconButton.swift in Sources */,
 				6F05D4D42235421600729A21 /* AppDelegate.swift in Sources */,
 				6F05D4E92235AF6C00729A21 /* EntitiyHeader.swift in Sources */,
+				6F4D1F7A2239BABD0068C7A2 /* CTSpeechToText.m in Sources */,
 				6F05D4902233F33500729A21 /* LectureHeader.swift in Sources */,
 				6FED1A562219BF8C00A3D375 /* UIFont+Marat.swift in Sources */,
 				6F05D4B42235410100729A21 /* TranscriptStore.swift in Sources */,
 				6F9E98F62232BE1200DF7D9E /* RecordButton.swift in Sources */,
+				6F4D1F49223673DB0068C7A2 /* PullOverADIViewController.swift in Sources */,
+				6F4D1F6122386EB50068C7A2 /* DailySummaryHeader.swift in Sources */,
 				6FFB845921FB42A000739F76 /* CBClassesManager.m in Sources */,
 				6F05D4B222353E4000729A21 /* TranscriptDocument.swift in Sources */,
 				6F05D4942233F68700729A21 /* LectureTag.swift in Sources */,
 				6FED1A5A2219C33E00A3D375 /* RecordViewController.swift in Sources */,
 				6F05D48A2233E96E00729A21 /* LectureCell.swift in Sources */,
 				6FB1C93621F48C9E004529BD /* CBLectureCollectionViewCell.m in Sources */,
+				6F4D1F6E2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift in Sources */,
 				6FD8E7F221F42C2900363438 /* CBClassCollectionViewController.m in Sources */,
 				6F05D4AA223501F300729A21 /* TranscriptLabel.swift in Sources */,
 				6F98735B2218B0E0008E302B /* CircleView.swift in Sources */,
@@ -981,6 +1153,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}";
 			};
 			name = Debug;
 		};
@@ -1008,6 +1181,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CambridgeTranscribe/BridgingHeader/CambridgeTranscribe-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}";
 			};
 			name = Release;
 		};

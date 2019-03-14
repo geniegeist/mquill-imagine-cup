@@ -9,11 +9,15 @@
 import UIKit
 
 class ADIViewController: UIViewController {
+    
+    var adiView: PullOverADIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        adiView = UINib(nibName: "PullOverADIView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PullOverADIView
+        adiView.frame = CGRect(x: 12, y: 80, width: view.bounds.size.width - 12 * 2, height: 264)
+        view.addSubview(adiView)
     }
     
 

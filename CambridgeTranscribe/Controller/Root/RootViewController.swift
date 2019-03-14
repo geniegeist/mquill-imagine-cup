@@ -20,7 +20,7 @@ class RootViewController: UIViewController {
     private lazy var recordViewController: RecordViewController = {
         return UIStoryboard.init(name: "Record", bundle: nil).instantiateInitialViewController()
         }() as! RecordViewController
-    private var adiViewController: CBChatbotViewController!
+    private var dailySummaryViewController: DailySummaryViewController!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -32,7 +32,7 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         
         lecturesViewController = UIStoryboard(name: "Lectures", bundle: nil).instantiateInitialViewController() as? LecturesViewController
-        adiViewController = CBChatbotViewController()
+        dailySummaryViewController = UIStoryboard(name: "Summary", bundle: nil).instantiateInitialViewController() as? DailySummaryViewController
         
         let pageControlHeight: CGFloat = 10
         let pageControlWidth: CGFloat = 200
@@ -73,7 +73,7 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if (viewController == recordViewController) {
             return lecturesViewController
-        } else if (viewController == adiViewController) {
+        } else if (viewController == dailySummaryViewController) {
             return recordViewController
         }
         
@@ -84,7 +84,7 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
         if (viewController == lecturesViewController) {
             return recordViewController
         } else if (viewController == recordViewController) {
-            return adiViewController
+            return dailySummaryViewController
         }
         
         return nil;
@@ -97,7 +97,7 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
                 currentPageIndex = 0
             } else if (currentVC == recordViewController) {
                 currentPageIndex = 1
-            } else if (currentVC == adiViewController) {
+            } else if (currentVC == dailySummaryViewController) {
                 currentPageIndex = 2
             }
         }

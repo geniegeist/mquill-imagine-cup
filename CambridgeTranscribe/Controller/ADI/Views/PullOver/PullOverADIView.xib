@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PullOverADIView" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsU-EL-d41" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                    <rect key="frame" x="67.5" y="136" width="240" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="fsE-4N-3AE"/>
+                        <constraint firstAttribute="width" constant="240" id="rxE-id-mt9"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                            <color key="value" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-d5-AYe">
+                    <rect key="frame" x="0.0" y="100" width="375" height="164"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="164" id="yZs-NW-IIf"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="rdg-00-yog"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.33000001311302185" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOICE RECORDING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-Ny-fgW">
+                    <rect key="frame" x="109" y="16" width="157" height="24.5"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can I help you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvQ-dh-k6B">
+                    <rect key="frame" x="12" y="40.5" width="351" height="46"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="32"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozy-AZ-wwm">
+                    <rect key="frame" x="12" y="44.5" width="351" height="34.5"/>
+                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-Th-xDi">
+                    <rect key="frame" x="0.0" y="-40" width="375" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="cNr-Xz-fSa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fTR-d5-AYe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8WP-v0-rLf"/>
+                <constraint firstItem="MvQ-dh-k6B" firstAttribute="top" secondItem="tMO-Ny-fgW" secondAttribute="bottom" id="8YV-eH-YeC"/>
+                <constraint firstItem="tMO-Ny-fgW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="8kF-zn-hvA"/>
+                <constraint firstItem="ozy-AZ-wwm" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="CDs-UE-oB6"/>
+                <constraint firstItem="MvQ-dh-k6B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="DOM-9e-vml"/>
+                <constraint firstItem="fTR-d5-AYe" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="FB5-6T-TVB"/>
+                <constraint firstItem="ozy-AZ-wwm" firstAttribute="top" secondItem="tMO-Ny-fgW" secondAttribute="bottom" constant="4" id="JTR-Y9-lYI"/>
+                <constraint firstItem="tMO-Ny-fgW" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Mrr-ny-XNc"/>
+                <constraint firstItem="MvQ-dh-k6B" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="TyC-an-Grb"/>
+                <constraint firstItem="9eW-Th-xDi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Uig-ls-NKh"/>
+                <constraint firstItem="9eW-Th-xDi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="-40" id="XRG-ur-w6k"/>
+                <constraint firstItem="fTR-d5-AYe" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ah4-dR-QYF"/>
+                <constraint firstItem="ozy-AZ-wwm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="hoK-zj-mLe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9eW-Th-xDi" secondAttribute="trailing" id="lVv-Co-kbf"/>
+                <constraint firstItem="WsU-EL-d41" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rTh-bt-yHh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WsU-EL-d41" secondAttribute="bottom" constant="48" id="stN-Uu-bFk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityIndicator" destination="WsU-EL-d41" id="Em8-zs-XPi"/>
+                <outlet property="siriViewContainer" destination="fTR-d5-AYe" id="6P6-UH-YuY"/>
+                <outlet property="smallTitleLabel" destination="ozy-AZ-wwm" id="6Zs-JM-tmS"/>
+                <outlet property="supportLabel" destination="tMO-Ny-fgW" id="dYb-C1-6NY"/>
+                <outlet property="titleLabel" destination="MvQ-dh-k6B" id="5Wn-mZ-qCY"/>
+                <outlet property="topHeaderContainer" destination="9eW-Th-xDi" id="Ic9-bT-QIN"/>
+            </connections>
+            <point key="canvasLocation" x="53.600000000000001" y="273.4632683658171"/>
+        </view>
+    </objects>
+</document>

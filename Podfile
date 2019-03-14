@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'CambridgeTranscribe' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -17,4 +17,7 @@ target 'CambridgeTranscribe' do
   pod 'CHIPageControl/Aleppo'
   pod 'UserDefaultsStore'
   pod "GSKStretchyHeaderView"
+  pod 'PXSiriWave', '~> 0.0.2'
+  pod 'NVActivityIndicatorView'
+  pod "TOMSMorphingLabel", "~> 0.5"
 end

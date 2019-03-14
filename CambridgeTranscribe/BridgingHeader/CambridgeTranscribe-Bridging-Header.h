@@ -12,6 +12,8 @@
 #import "CBLecturesContainerViewController.h"
 #import "CBChatbotViewController.h"
 #import "CBRecordDetailViewController.h"
+#import "CTSpeechToText.h"
 #import "SCSiriWaveformView.h"
+#import <PXSiriWave/PXSiriWave.h>
 
 #endif /* CambridgeTranscribe_Bridging_Header_h */

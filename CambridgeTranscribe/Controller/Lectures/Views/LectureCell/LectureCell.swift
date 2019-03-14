@@ -24,31 +24,23 @@ class LectureCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        bgView.frame = bounds
     }
     
     private func setupUI() {
-        layer.cornerRadius = 12
-        layer.masksToBounds = true
-        
-        bgView = UIView(frame: bounds)
-        bgView.backgroundColor = UIColor(rgb: 0x2A2A49)
-        insertSubview(bgView, at: 0)
-        
-        backgroundColor = UIColor(rgb: 0x2A2A49)
+        backgroundColor = UIColor.white
         
         let imageGradient = CAGradientLayer()
         imageGradient.frame = leftImageView.bounds
-        imageGradient.colors = [UIColor(rgb: 0x5A4BFF).cgColor, UIColor(rgb: 0x5F4CFF).cgColor]
+        imageGradient.colors = [UIColor(rgb: 0x56BDFF).cgColor, UIColor(rgb: 0x4255E1).cgColor]
         leftImageView.layer.cornerRadius = 8
         leftImageView.layer.masksToBounds = true
         leftImageView.layer.insertSublayer(imageGradient, at: 0)
         
         dateLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 13)
-        dateLabel.textColor = UIColor(white: 1, alpha: 0.35)
+        dateLabel.textColor = UIColor(rgb: 0xB7B7B7)
         
         headlineLabel.font = UIFont.brandonGrotesque(weight: .bold, size: 17)
-        headlineLabel.textColor = UIColor.white
+        headlineLabel.textColor = UIColor(rgb: 0x3F3E51)
         
         leftImageTitleLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 20)
         leftImageTitleLabel.textColor = UIColor.white

@@ -7,83 +7,99 @@
 //
 
 import UIKit
-import Motion
 
 class RecordViewController: UIViewController {
     
-    @IBOutlet weak var recordButton: RecordButton!
-    @IBOutlet weak var headlineLabel: UILabel!
+    struct Constants {
+        static let pullOverThreshold: CGFloat = 320
+        static let pullOverTopInset: CGFloat = 64
+    }
     
-    private lazy var transcribingViewController: TranscribingViewController = {
-        return TranscribingViewController.createFromStoryboard()
-    }()
+    @IBOutlet weak var transcribeContainerView: UIScrollView!
+    @IBOutlet weak var transcribeView: UIView!
+    @IBOutlet weak var transcribeButton: UIButton!
+    @IBOutlet weak var pullOverScrollView: UIScrollView!
+    @IBOutlet weak var topPullOverScrollViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var pullOverScrollViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var darkView: UIView!
+    
+    private var adiView: PullOverADIView!
+    private var adiViewOriginFrame: CGRect {
+        return CGRect(x: 12, y: Constants.pullOverTopInset, width: view.bounds.size.width - 12 * 2, height: 264)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        transcribeView.layer.cornerRadius = 16
+        transcribeView.layer.shadowColor = UIColor(rgb: 0x0036FF).cgColor
+        transcribeView.layer.shadowOpacity = 0.1
+        transcribeView.layer.shadowRadius = 32
+        transcribeView.layer.shadowPath = UIBezierPath(roundedRect: transcribeView.frame, cornerRadius: 16).cgPath
         
-        view.backgroundColor = UIColor(rgb: 0x393B66)
+        transcribeButton.layer.cornerRadius = 12
         
-        headlineLabel.font = UIFont.brandonGrotesque(weight: .bold, size: 32)
-        headlineLabel.textColor = UIColor.white
+        pullOverScrollView.contentSize = CGSize(width: view.bounds.size.width, height: Constants.pullOverThreshold+finalPullOverOffset()+Constants.pullOverTopInset)
+        pullOverScrollViewHeightConstraint.constant = Constants.pullOverThreshold + Constants.pullOverTopInset
         
-        animateRecordButton()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        adiView = UINib(nibName: "PullOverADIView", bundle: nil).instantiate(withOwner: self, options: nil).first as? PullOverADIView
+        adiView.frame = adiViewOriginFrame
+        adiView.isPlayingTopWave = true
+        adiView.isPlayingMainWave = false
+        pullOverScrollView.addSubview(adiView)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        adiView.frame = adiViewOriginFrame
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    @IBAction func transcribeButtonTapped(_ sender: Any) {
+        let transcribingVC = TranscribingViewController.createFromStoryboard()
+        present(transcribingVC, animated: true, completion: nil)
+    }
+    
+    //MARK: Helper
+    
+    private func finalPullOverOffset() -> CGFloat {
+        let extra = view.frame.size.height - transcribeContainerView.frame.maxY - 22
+        return Constants.pullOverThreshold - extra
     }
 }
 
-// MARK: Animation
-
-private extension RecordViewController {
-    
-    private enum RecordButtonState {
-        case normal
-        case expanded
+extension RecordViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView == pullOverScrollView) {
+            let offset = scrollView.contentOffset.y
+            topPullOverScrollViewConstraint.constant = -offset
+            adiView.frame = adiViewOriginFrame.offsetBy(dx: 0, dy: offset)
+            
+            let opacity = offset / finalPullOverOffset()
+            darkView.alpha = opacity * 2.2
+            
+            if (offset  >= Constants.pullOverThreshold * 0.5) {
+                adiView.isPlayingTopWave = false
+                adiView.isPlayingMainWave = true
+            } else {
+                adiView.isPlayingTopWave = true
+                adiView.isPlayingMainWave = false
+            }
+            
+            adiView.topSiri.alpha = 1 - opacity * 3
+        }
     }
     
-    private func animateRecordButton() {
-        let duration: TimeInterval = 2
-        let expandFactor: CGFloat = 1.05
-
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .repeat, animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
-                self.recordButton.transform = CGAffineTransform(scaleX: expandFactor, y: expandFactor)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6, animations: {
-                self.recordButton.transform = .identity
-            })
-        })
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        print("Did end dragging")
+        let offset = scrollView.contentOffset.y
+        if (offset >= Constants.pullOverThreshold * 0.75) {
+            scrollView.setContentOffset(CGPoint(x: 0, y: finalPullOverOffset() - 22), animated: true)
+        } else {
+            scrollView.setContentOffset(.zero, animated: true)
+        }
     }
-    
-    /*
-    private func animateRecordButton(_ state: RecordButtonState) {
-        let duration: TimeInterval = 1.1
-        let timingFunction = CAMediaTimingFunction.easeInOut
-        let expandFactor: CGFloat = 1.05
-        
-        UIView.animate(withDuration: duration, animations: {
-            self.recordButton.transform = CGAffineTransform(scaleX: expandFactor, y: expandFactor)
-        }) { (completed) in
-            <#code#>
-        }
-        
-        if (state == .normal) {
-            recordButton.animate([.scale(1.01), .duration(duration), .timingFunction(.linear)]) {
-                self.animateRecordButton(.expanded)
-            }
-        } else if (state == .expanded) {
-            recordButton.animate([.scale(expandFactor), .duration(duration), .timingFunction(.linear)]) {
-                self.recordButton.animate([.scale(), .duration(duration), .timingFunction(.linear)]) {
-                    self.animateRecordButton(.expanded)
-                }
-            }
-        }
-    }*/
 }

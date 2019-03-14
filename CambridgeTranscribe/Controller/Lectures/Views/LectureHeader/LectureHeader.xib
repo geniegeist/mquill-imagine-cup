@@ -21,14 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="431" height="168"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Lectures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGK-fR-9at">
-                    <rect key="frame" x="24" y="86" width="157" height="46"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Lectures" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGK-fR-9at">
+                    <rect key="frame" x="24" y="86" width="383" height="46"/>
                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
+                <constraint firstItem="JGK-fR-9at" firstAttribute="centerX" secondItem="VXr-Tz-HHm" secondAttribute="centerX" id="8sg-XQ-C0Q"/>
                 <constraint firstItem="JGK-fR-9at" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="24" id="X0R-Cq-WLm"/>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="JGK-fR-9at" secondAttribute="bottom" constant="36" id="ltS-CM-Eeb"/>
             </constraints>
