@@ -23,7 +23,6 @@
 		6F05D4A422347E3000729A21 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4A322347E3000729A21 /* IconButton.swift */; };
 		6F05D4A72234F85800729A21 /* TranscriptFragmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4A62234F85800729A21 /* TranscriptFragmentView.swift */; };
 		6F05D4AA223501F300729A21 /* TranscriptLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4A9223501F300729A21 /* TranscriptLabel.swift */; };
-		6F05D4AE22350D5F00729A21 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4AD22350D5F00729A21 /* CopyableLabel.swift */; };
 		6F05D4B222353E4000729A21 /* TranscriptDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4B122353E4000729A21 /* TranscriptDocument.swift */; };
 		6F05D4B42235410100729A21 /* TranscriptStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4B32235410100729A21 /* TranscriptStore.swift */; };
 		6F05D4D42235421600729A21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05D4D32235421600729A21 /* AppDelegate.swift */; };
@@ -132,7 +131,6 @@
 		6F05D4A322347E3000729A21 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		6F05D4A62234F85800729A21 /* TranscriptFragmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptFragmentView.swift; sourceTree = "<group>"; };
 		6F05D4A9223501F300729A21 /* TranscriptLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptLabel.swift; sourceTree = "<group>"; };
-		6F05D4AD22350D5F00729A21 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		6F05D4B122353E4000729A21 /* TranscriptDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptDocument.swift; sourceTree = "<group>"; };
 		6F05D4B32235410100729A21 /* TranscriptStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptStore.swift; sourceTree = "<group>"; };
 		6F05D4D32235421600729A21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -327,14 +325,6 @@
 				6F05D4A9223501F300729A21 /* TranscriptLabel.swift */,
 			);
 			path = TranscriptLabel;
-			sourceTree = "<group>";
-		};
-		6F05D4AC22350D4800729A21 /* CopyableLabel */ = {
-			isa = PBXGroup;
-			children = (
-				6F05D4AD22350D5F00729A21 /* CopyableLabel.swift */,
-			);
-			path = CopyableLabel;
 			sourceTree = "<group>";
 		};
 		6F05D4DB2235844600729A21 /* Range */ = {
@@ -719,7 +709,6 @@
 			isa = PBXGroup;
 			children = (
 				6F05D4EC2235BB2F00729A21 /* ShadowImageView */,
-				6F05D4AC22350D4800729A21 /* CopyableLabel */,
 				6F05D4A8223501CE00729A21 /* TranscriptLabel */,
 				6F05D4A0223422ED00729A21 /* Button */,
 				6FBB619B221B42AC0073650C /* SCSiriWaveformView */,
@@ -952,7 +941,6 @@
 				6F05D4EE2235BB4100729A21 /* ShadowImageView.swift in Sources */,
 				6F05D4862233E72800729A21 /* LecturesViewController.swift in Sources */,
 				6F9E98FB2232C08900DF7D9E /* UIColor+Hex.swift in Sources */,
-				6F05D4AE22350D5F00729A21 /* CopyableLabel.swift in Sources */,
 				6F15506921FB647D00057F39 /* CBLectureView.m in Sources */,
 				6F05D4E62235AC7600729A21 /* EntityCell.swift in Sources */,
 				6FD8E7FB21F43BC400363438 /* CBChatbotViewController.m in Sources */,

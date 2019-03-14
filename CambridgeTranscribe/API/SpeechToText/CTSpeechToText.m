@@ -17,11 +17,23 @@
 
 @implementation CTSpeechToText
 
++ (NSString *)subscriptionKey {
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Info" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    return dict[@"speechApiKey"];
+}
+
++ (NSString *)region {
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Info" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    return dict[@"speechRegion"];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _subscriptionKey = @"d6046a5b39b94fe6b9d466532500491d";
-        _region = @"uksouth";
+        _subscriptionKey = self.class.subscriptionKey;
+        _region = self.class.region;
     }
     return self;
 }

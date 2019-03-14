@@ -41,7 +41,7 @@ class RootViewController: UIViewController {
         pageControl.numberOfPages = 3
         pageControl.padding = 12
         pageControl.radius = pageControlHeight / 2
-        pageControl.tintColor = UIColor(white: 1, alpha: 0.4)
+        pageControl.tintColors = [UIColor(white: 1, alpha: 0.4), UIColor(rgb: 0x2D6EFF), UIColor(white: 1, alpha: 0.4)]
         pageControl.currentPageTintColor = UIColor(white: 1, alpha: 1)
         pageControl.set(progress: 1, animated: false)
         view.addSubview(pageControl)
