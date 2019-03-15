@@ -57,7 +57,21 @@
 		6F4D1F752239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */; };
 		6F4D1F762239B97E0068C7A2 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F4D1F7A2239BABD0068C7A2 /* CTSpeechToText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F792239BABD0068C7A2 /* CTSpeechToText.m */; };
+		6F4D1F7D223A47D10068C7A2 /* TranscribingPopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F7C223A47D10068C7A2 /* TranscribingPopupController.xib */; };
+		6F4D1F84223A4B7F0068C7A2 /* TranscribingPopupFragmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F82223A4B7F0068C7A2 /* TranscribingPopupFragmentCell.xib */; };
+		6F4D1F86223A4BA00068C7A2 /* TranscribingPopupFragmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F85223A4BA00068C7A2 /* TranscribingPopupFragmentCell.swift */; };
+		6F4D1F89223A56120068C7A2 /* TranscriptIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F88223A56120068C7A2 /* TranscriptIconView.swift */; };
+		6F4D1F8C223A641F0068C7A2 /* LiveTranscribingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F8B223A641F0068C7A2 /* LiveTranscribingViewModel.swift */; };
+		6F4D1F8F223A65400068C7A2 /* LiveTranscriptFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F8E223A65400068C7A2 /* LiveTranscriptFragment.swift */; };
+		6F4D1F96223AAA6A0068C7A2 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F95223AAA6A0068C7A2 /* PlayButton.swift */; };
+		6F4D1F9A223ACD1D0068C7A2 /* TranscribingFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D1F98223ACD1D0068C7A2 /* TranscribingFeedCell.swift */; };
+		6F4D1F9B223ACD1D0068C7A2 /* TranscribingFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F4D1F99223ACD1D0068C7A2 /* TranscribingFeedCell.xib */; };
 		6F93887D21FEDF91004A1C40 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93887C21FEDF91004A1C40 /* Root.storyboard */; };
+		6F98320D223AD55800868167 /* LiveFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98320C223AD55800868167 /* LiveFeedViewModel.swift */; };
+		6F983210223AD62E00868167 /* TextAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98320F223AD62E00868167 /* TextAnalytics.swift */; };
+		6F983212223AFB8F00868167 /* TextAnalyticsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F983211223AFB8F00868167 /* TextAnalyticsDocument.swift */; };
+		6F983215223BAF6F00868167 /* EntitySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F983214223BAF6F00868167 /* EntitySearch.swift */; };
+		6F983219223BC0BC00868167 /* LiveTranscriptFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F983218223BC0BC00868167 /* LiveTranscriptFeed.swift */; };
 		6F98735B2218B0E0008E302B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F98735A2218B0E0008E302B /* CircleView.swift */; };
 		6F9E98F62232BE1200DF7D9E /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E98F52232BE1200DF7D9E /* RecordButton.swift */; };
 		6F9E98FB2232C08900DF7D9E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E98FA2232C08900DF7D9E /* UIColor+Hex.swift */; };
@@ -166,8 +180,22 @@
 		6F4D1F732239B9760068C7A2 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		6F4D1F782239BABD0068C7A2 /* CTSpeechToText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTSpeechToText.h; sourceTree = "<group>"; };
 		6F4D1F792239BABD0068C7A2 /* CTSpeechToText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTSpeechToText.m; sourceTree = "<group>"; };
+		6F4D1F7C223A47D10068C7A2 /* TranscribingPopupController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscribingPopupController.xib; sourceTree = "<group>"; };
+		6F4D1F82223A4B7F0068C7A2 /* TranscribingPopupFragmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscribingPopupFragmentCell.xib; sourceTree = "<group>"; };
+		6F4D1F85223A4BA00068C7A2 /* TranscribingPopupFragmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingPopupFragmentCell.swift; sourceTree = "<group>"; };
+		6F4D1F88223A56120068C7A2 /* TranscriptIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptIconView.swift; sourceTree = "<group>"; };
+		6F4D1F8B223A641F0068C7A2 /* LiveTranscribingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTranscribingViewModel.swift; sourceTree = "<group>"; };
+		6F4D1F8E223A65400068C7A2 /* LiveTranscriptFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTranscriptFragment.swift; sourceTree = "<group>"; };
+		6F4D1F95223AAA6A0068C7A2 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		6F4D1F98223ACD1D0068C7A2 /* TranscribingFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribingFeedCell.swift; sourceTree = "<group>"; };
+		6F4D1F99223ACD1D0068C7A2 /* TranscribingFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranscribingFeedCell.xib; sourceTree = "<group>"; };
 		6F93887C21FEDF91004A1C40 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		6F93888121FEE22A004A1C40 /* CambridgeTranscribe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CambridgeTranscribe-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F98320C223AD55800868167 /* LiveFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedViewModel.swift; sourceTree = "<group>"; };
+		6F98320F223AD62E00868167 /* TextAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalytics.swift; sourceTree = "<group>"; };
+		6F983211223AFB8F00868167 /* TextAnalyticsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyticsDocument.swift; sourceTree = "<group>"; };
+		6F983214223BAF6F00868167 /* EntitySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitySearch.swift; sourceTree = "<group>"; };
+		6F983218223BC0BC00868167 /* LiveTranscriptFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveTranscriptFeed.swift; sourceTree = "<group>"; };
 		6F98735A2218B0E0008E302B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		6F9E98F52232BE1200DF7D9E /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		6F9E98FA2232C08900DF7D9E /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -307,6 +335,7 @@
 			children = (
 				6F05D4A12234230D00729A21 /* Button.swift */,
 				6F05D4A322347E3000729A21 /* IconButton.swift */,
+				6F4D1F95223AAA6A0068C7A2 /* PlayButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -540,8 +569,12 @@
 		6F4D1F702239A4A00068C7A2 /* Transcribing */ = {
 			isa = PBXGroup;
 			children = (
+				6F4D1F8D223A65130068C7A2 /* Model */,
+				6F4D1F8A223A63DA0068C7A2 /* ViewModel */,
+				6F4D1F7E223A49EA0068C7A2 /* Views */,
 				6FBB6197221B3E820073650C /* TranscribingViewController.swift */,
 				6F4D1F6A22399A0F0068C7A2 /* TranscribingPopupController.swift */,
+				6F4D1F7C223A47D10068C7A2 /* TranscribingPopupController.xib */,
 				6F4D1F6D2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift */,
 				6F4D1F712239A4F10068C7A2 /* TranscribingCustomBarViewController.xib */,
 			);
@@ -551,6 +584,8 @@
 		6F4D1F772239BA970068C7A2 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				6F983213223BAF6000868167 /* EntitySearch */,
+				6F98320E223AD61000868167 /* TextAnalytics */,
 				6F4D1F7B2239D13C0068C7A2 /* SpeechToText */,
 			);
 			path = API;
@@ -565,12 +600,82 @@
 			path = SpeechToText;
 			sourceTree = "<group>";
 		};
+		6F4D1F7E223A49EA0068C7A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F97223ACD020068C7A2 /* TranscribingFeedCell */,
+				6F4D1F7F223A4B510068C7A2 /* PopupCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F4D1F7F223A4B510068C7A2 /* PopupCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F85223A4BA00068C7A2 /* TranscribingPopupFragmentCell.swift */,
+				6F4D1F82223A4B7F0068C7A2 /* TranscribingPopupFragmentCell.xib */,
+			);
+			path = PopupCell;
+			sourceTree = "<group>";
+		};
+		6F4D1F87223A55F60068C7A2 /* TranscriptIconView */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F88223A56120068C7A2 /* TranscriptIconView.swift */,
+			);
+			path = TranscriptIconView;
+			sourceTree = "<group>";
+		};
+		6F4D1F8A223A63DA0068C7A2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F8B223A641F0068C7A2 /* LiveTranscribingViewModel.swift */,
+				6F98320C223AD55800868167 /* LiveFeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6F4D1F8D223A65130068C7A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F8E223A65400068C7A2 /* LiveTranscriptFragment.swift */,
+				6F983218223BC0BC00868167 /* LiveTranscriptFeed.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6F4D1F97223ACD020068C7A2 /* TranscribingFeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F4D1F98223ACD1D0068C7A2 /* TranscribingFeedCell.swift */,
+				6F4D1F99223ACD1D0068C7A2 /* TranscribingFeedCell.xib */,
+			);
+			path = TranscribingFeedCell;
+			sourceTree = "<group>";
+		};
 		6F93888021FEE201004A1C40 /* BridgingHeader */ = {
 			isa = PBXGroup;
 			children = (
 				6F93888121FEE22A004A1C40 /* CambridgeTranscribe-Bridging-Header.h */,
 			);
 			path = BridgingHeader;
+			sourceTree = "<group>";
+		};
+		6F98320E223AD61000868167 /* TextAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				6F98320F223AD62E00868167 /* TextAnalytics.swift */,
+				6F983211223AFB8F00868167 /* TextAnalyticsDocument.swift */,
+			);
+			path = TextAnalytics;
+			sourceTree = "<group>";
+		};
+		6F983213223BAF6000868167 /* EntitySearch */ = {
+			isa = PBXGroup;
+			children = (
+				6F983214223BAF6F00868167 /* EntitySearch.swift */,
+			);
+			path = EntitySearch;
 			sourceTree = "<group>";
 		};
 		6F9873592218B0CF008E302B /* CircleView */ = {
@@ -708,6 +813,7 @@
 		6FE93AB621FA66BE0016069E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F4D1F87223A55F60068C7A2 /* TranscriptIconView */,
 				6F05D4EC2235BB2F00729A21 /* ShadowImageView */,
 				6F05D4A8223501CE00729A21 /* TranscriptLabel */,
 				6F05D4A0223422ED00729A21 /* Button */,
@@ -829,6 +935,7 @@
 				6FED1A4B2219BEC800A3D375 /* MaratPro-Medium.otf in Resources */,
 				6F4D1F6322386EC10068C7A2 /* DailySummaryHeader.xib in Resources */,
 				6FED1A522219BEC800A3D375 /* MaratPro-Black-Italic.otf in Resources */,
+				6F4D1F84223A4B7F0068C7A2 /* TranscribingPopupFragmentCell.xib in Resources */,
 				6FED1A4E2219BEC800A3D375 /* MaratPro-Black.otf in Resources */,
 				6FED1A512219BEC800A3D375 /* MaratPro-Regular-Italic.otf in Resources */,
 				6FED1A4D2219BEC800A3D375 /* MaratPro-Bold.otf in Resources */,
@@ -840,6 +947,7 @@
 				6F05D49F2234037900729A21 /* TranscriptAudioPlaybackProgress.xib in Resources */,
 				6FD8E7E221F411B200363438 /* Brandon_thin.otf in Resources */,
 				6F05D4F32236528600729A21 /* ADI.storyboard in Resources */,
+				6F4D1F7D223A47D10068C7A2 /* TranscribingPopupController.xib in Resources */,
 				6FED1A4F2219BEC800A3D375 /* MaratPro-Regular.otf in Resources */,
 				6F05D4992233F8A900729A21 /* Transcript.storyboard in Resources */,
 				6F36DDE521F38784001FE943 /* LaunchScreen.storyboard in Resources */,
@@ -851,6 +959,7 @@
 				6FED1A4C2219BEC800A3D375 /* MaratPro-Bold-Italic.otf in Resources */,
 				6F36DDE221F38784001FE943 /* Assets.xcassets in Resources */,
 				6FD8E7DF21F411B200363438 /* Brandon_reg_it.otf in Resources */,
+				6F4D1F9B223ACD1D0068C7A2 /* TranscribingFeedCell.xib in Resources */,
 				6F05D4842233E6EC00729A21 /* Lectures.storyboard in Resources */,
 				6FD8E7DB21F411B200363438 /* Brandon_light_it.otf in Resources */,
 				6FD8E7DA21F411B200363438 /* Brandon_blk.otf in Resources */,
@@ -878,8 +987,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-CambridgeTranscribe/Pods-CambridgeTranscribe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
+				"${BUILT_PRODUCTS_DIR}/Dwifft/Dwifft.framework",
 				"${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/FFPopup/FFPopup.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
@@ -895,8 +1007,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dwifft.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFPopup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
@@ -938,42 +1053,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F983215223BAF6F00868167 /* EntitySearch.swift in Sources */,
 				6F05D4EE2235BB4100729A21 /* ShadowImageView.swift in Sources */,
 				6F05D4862233E72800729A21 /* LecturesViewController.swift in Sources */,
 				6F9E98FB2232C08900DF7D9E /* UIColor+Hex.swift in Sources */,
 				6F15506921FB647D00057F39 /* CBLectureView.m in Sources */,
+				6F4D1F86223A4BA00068C7A2 /* TranscribingPopupFragmentCell.swift in Sources */,
+				6F4D1F8F223A65400068C7A2 /* LiveTranscriptFragment.swift in Sources */,
 				6F05D4E62235AC7600729A21 /* EntityCell.swift in Sources */,
 				6FD8E7FB21F43BC400363438 /* CBChatbotViewController.m in Sources */,
 				6F4D1F5022368CFB0068C7A2 /* PullOverADIView.swift in Sources */,
 				6F4D1F6B22399A0F0068C7A2 /* TranscribingPopupController.swift in Sources */,
+				6F983212223AFB8F00868167 /* TextAnalyticsDocument.swift in Sources */,
 				6FBB6198221B3E820073650C /* TranscribingViewController.swift in Sources */,
+				6F983219223BC0BC00868167 /* LiveTranscriptFeed.swift in Sources */,
 				6FED1A582219C1D100A3D375 /* UIFont+BrandonGrotesque.swift in Sources */,
 				6F4D1F582238597E0068C7A2 /* DailySummaryViewController.swift in Sources */,
 				6FD8E7C921F4071900363438 /* CBRecordTranscriptViewController.m in Sources */,
 				6F05D49D2234035A00729A21 /* TranscriptAudioPlaybackProgress.swift in Sources */,
 				6F05D4972233F89F00729A21 /* TranscriptViewController.swift in Sources */,
+				6F4D1F89223A56120068C7A2 /* TranscriptIconView.swift in Sources */,
 				6FD8E7E521F426B000363438 /* CBLecturesContainerViewController.m in Sources */,
 				6F05D4A22234230D00729A21 /* Button.swift in Sources */,
 				6FBB619E221B42BA0073650C /* SCSiriWaveformView.m in Sources */,
 				6F05D4F12236527800729A21 /* ADIViewController.swift in Sources */,
 				6F05D4DD2235845500729A21 /* NSRange+UITextRange.swift in Sources */,
+				6F4D1F8C223A641F0068C7A2 /* LiveTranscribingViewModel.swift in Sources */,
 				6FD8E7F521F42DD600363438 /* CBClassCollectionViewCell.m in Sources */,
 				6FD8E7C621F3FE0000363438 /* CBRecordDetailViewController.m in Sources */,
+				6F98320D223AD55800868167 /* LiveFeedViewModel.swift in Sources */,
 				6FCC5120221962F90029AEAC /* TintImageView.swift in Sources */,
 				6F05D4E02235A0D700729A21 /* EntityViewController.swift in Sources */,
 				6F4D1F5E223863460068C7A2 /* DailySummaryCell.swift in Sources */,
+				6F4D1F96223AAA6A0068C7A2 /* PlayButton.swift in Sources */,
 				6F4D1F4D223674460068C7A2 /* PullOverViewController.swift in Sources */,
 				6F05D4A422347E3000729A21 /* IconButton.swift in Sources */,
 				6F05D4D42235421600729A21 /* AppDelegate.swift in Sources */,
 				6F05D4E92235AF6C00729A21 /* EntitiyHeader.swift in Sources */,
 				6F4D1F7A2239BABD0068C7A2 /* CTSpeechToText.m in Sources */,
 				6F05D4902233F33500729A21 /* LectureHeader.swift in Sources */,
+				6F4D1F9A223ACD1D0068C7A2 /* TranscribingFeedCell.swift in Sources */,
 				6FED1A562219BF8C00A3D375 /* UIFont+Marat.swift in Sources */,
 				6F05D4B42235410100729A21 /* TranscriptStore.swift in Sources */,
 				6F9E98F62232BE1200DF7D9E /* RecordButton.swift in Sources */,
 				6F4D1F49223673DB0068C7A2 /* PullOverADIViewController.swift in Sources */,
 				6F4D1F6122386EB50068C7A2 /* DailySummaryHeader.swift in Sources */,
 				6FFB845921FB42A000739F76 /* CBClassesManager.m in Sources */,
+				6F983210223AD62E00868167 /* TextAnalytics.swift in Sources */,
 				6F05D4B222353E4000729A21 /* TranscriptDocument.swift in Sources */,
 				6F05D4942233F68700729A21 /* LectureTag.swift in Sources */,
 				6FED1A5A2219C33E00A3D375 /* RecordViewController.swift in Sources */,

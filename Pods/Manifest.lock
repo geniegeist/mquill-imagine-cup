@@ -1,5 +1,6 @@
 PODS:
   - ActionSheetPicker-3.0 (2.3.0)
+  - ActiveLabel (1.0.1)
   - AFNetworking (3.2.0):
     - AFNetworking/NSURLSession (= 3.2.0)
     - AFNetworking/Reachability (= 3.2.0)
@@ -15,6 +16,7 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - Alamofire (4.0.1)
   - ApiAI (0.7.2):
     - ApiAI/AudioFileConverter (= 0.7.2)
     - ApiAI/Core (= 0.7.2)
@@ -41,6 +43,7 @@ PODS:
   - ApiAI/VoiceRequest (0.7.2):
     - ApiAI/Core
   - CHIPageControl/Aleppo (0.1.7)
+  - Dwifft (0.9)
   - FCAlertView (1.4.0)
   - FFPopup (1.0.0)
   - GSKStretchyHeaderView (1.0.4)
@@ -58,9 +61,12 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
+  - ActiveLabel
   - AFNetworking (~> 3.0)
+  - Alamofire (~> 4.0.0)
   - ApiAI
   - CHIPageControl/Aleppo
+  - Dwifft
   - FCAlertView
   - FFPopup (from `https://github.com/JonyFang/FFPopup.git`)
   - GSKStretchyHeaderView
@@ -75,9 +81,12 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActionSheetPicker-3.0
+    - ActiveLabel
     - AFNetworking
+    - Alamofire
     - ApiAI
     - CHIPageControl
+    - Dwifft
     - FCAlertView
     - GSKStretchyHeaderView
     - Motion
@@ -99,9 +108,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
+  Dwifft: 42912068ed2a8146077d1a1404df18625bd086e1
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
   GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
@@ -113,6 +125,6 @@ SPEC CHECKSUMS:
   TOMSMorphingLabel: 3e88a2bf5257f8993ebc51fb3109187a0bfb2c4d
   UserDefaultsStore: b91848cdfa88a0e3e73fb01aa614631dd3092450
 
-PODFILE CHECKSUM: 745de14892503352fde44a18cb378cfffd1118b7
+PODFILE CHECKSUM: 4e55c8ad4856abbee944c5239403d5b4ec447024
 
 COCOAPODS: 1.6.0

@@ -17,7 +17,7 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
     }
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var playButton: Button!
+    @IBOutlet weak var playButton: PlayButton!
     @IBOutlet weak var askAdiButton: Button!
     @IBOutlet weak var contentLabel: TOMSMorphingLabel!
     
@@ -46,7 +46,6 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
         
         askAdiButton.layer.cornerRadius = 8
         askAdiButton.minimumHitArea = CGSize(width: 16, height: 16)
-        playButton.layer.cornerRadius = playButton.frame.size.width / 2
         playButton.minimumHitArea = CGSize(width: 16, height: 16)
         
         contentLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 17)
@@ -56,9 +55,7 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        playButton.layer.cornerRadius = playButton.frame.size.width / 2
+        super.viewDidLayoutSubviews()        
     }
     
     func setContent(_ content: String?, animated: Bool = true) {

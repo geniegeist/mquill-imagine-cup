@@ -27,6 +27,8 @@ class TranscriptFragmentView: UIView {
         }
     }
     
+    var paddingDateLabelAndContent: CGFloat = 16
+    
     var content: NSAttributedString? {
         didSet {
             transcriptLabel.attributedText = content
@@ -46,15 +48,15 @@ class TranscriptFragmentView: UIView {
     
     // UI
     
-    private var favouriteButton: UIButton!
-    private var playButton: UIButton!
-    private var transcriptLabel: TranscriptLabel!
+    var favouriteButton: UIButton!
+    var playButton: UIButton!
+    var transcriptLabel: TranscriptLabel!
     
     // Internal properties
     
     override var intrinsicContentSize: CGSize {
         let rect = rectForTranscriptLabel()
-        return CGSize(width: bounds.size.width, height: rect.size.height + dateLabel.frame.size.height + 24)
+        return CGSize(width: bounds.size.width, height: rect.size.height + dateLabel.frame.size.height + paddingDateLabelAndContent)
     }
     
     // Init
@@ -138,7 +140,7 @@ class TranscriptFragmentView: UIView {
     
     private func rectForTranscriptLabel() -> CGRect {
         let size = transcriptLabel.sizeThatFits(CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude))
-        return CGRect(x: 0, y: dateLabel.frame.maxY + 16, width: max(size.width, frame.size.width), height: size.height)
+        return CGRect(x: 0, y: dateLabel.frame.maxY + paddingDateLabelAndContent, width: max(size.width, frame.size.width), height: size.height)
     }
 }
 

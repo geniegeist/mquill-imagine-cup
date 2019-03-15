@@ -59,7 +59,7 @@ class RecordViewController: UIViewController {
     }
     
     @IBAction func transcribeButtonTapped(_ sender: Any) {
-        let transcribingVC = TranscribingViewController.createFromStoryboard()
+        let transcribingVC = TranscribingViewController()
         present(transcribingVC, animated: true, completion: nil)
     }
     

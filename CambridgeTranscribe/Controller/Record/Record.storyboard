@@ -147,49 +147,6 @@
             </objects>
             <point key="canvasLocation" x="-185" y="2"/>
         </scene>
-        <!--Transcribing View Controller-->
-        <scene sceneID="an1-qB-S1j">
-            <objects>
-                <viewController storyboardIdentifier="transcribingViewController" id="4b2-Eu-2cy" customClass="TranscribingViewController" customModule="CambridgeTranscribe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="N8G-EH-88a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ng-k3-w2o">
-                                <rect key="frame" x="0.0" y="603" width="375" height="64"/>
-                                <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Vh-gn-Sfo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="F73-kZ-NZP"/>
-                                    <constraint firstItem="1Vh-gn-Sfo" firstAttribute="top" secondItem="7ng-k3-w2o" secondAttribute="top" id="QpD-Yq-VhS"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Vh-gn-Sfo" secondAttribute="trailing" id="WB3-DE-FcW"/>
-                                    <constraint firstAttribute="bottom" secondItem="1Vh-gn-Sfo" secondAttribute="bottom" id="fGD-OJ-vYX"/>
-                                    <constraint firstItem="1Vh-gn-Sfo" firstAttribute="leading" secondItem="7ng-k3-w2o" secondAttribute="leading" id="gGN-eS-Gke"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="c8T-TY-Mu2" firstAttribute="trailing" secondItem="7ng-k3-w2o" secondAttribute="trailing" id="IEa-BJ-ghh"/>
-                            <constraint firstItem="1Vh-gn-Sfo" firstAttribute="width" secondItem="N8G-EH-88a" secondAttribute="width" id="dqP-iy-fTr"/>
-                            <constraint firstItem="7ng-k3-w2o" firstAttribute="leading" secondItem="c8T-TY-Mu2" secondAttribute="leading" id="i46-uc-dM1"/>
-                            <constraint firstItem="1Vh-gn-Sfo" firstAttribute="height" secondItem="N8G-EH-88a" secondAttribute="height" id="r2b-Vx-ZoC"/>
-                            <constraint firstItem="c8T-TY-Mu2" firstAttribute="bottom" secondItem="7ng-k3-w2o" secondAttribute="bottom" id="y3a-V3-bOR"/>
-                            <constraint firstItem="7ng-k3-w2o" firstAttribute="width" secondItem="N8G-EH-88a" secondAttribute="width" id="zR1-tF-VfI"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="c8T-TY-Mu2"/>
-                    </view>
-                    <connections>
-                        <outlet property="pullOverContentView" destination="1Vh-gn-Sfo" id="dAs-yY-alV"/>
-                        <outlet property="pullOverScrollView" destination="7ng-k3-w2o" id="ZPy-fx-az9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ht-Ax-I4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="642" y="3"/>
-        </scene>
     </scenes>
     <resources>
         <image name="home-scene" width="1440" height="888"/>

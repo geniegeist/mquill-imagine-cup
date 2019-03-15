@@ -20,4 +20,7 @@ target 'CambridgeTranscribe' do
   pod 'PXSiriWave', '~> 0.0.2'
   pod 'NVActivityIndicatorView'
   pod "TOMSMorphingLabel", "~> 0.5"
+  pod 'Alamofire', '~> 4.0.0'
+  pod 'Dwifft'
+  pod 'ActiveLabel'
 end

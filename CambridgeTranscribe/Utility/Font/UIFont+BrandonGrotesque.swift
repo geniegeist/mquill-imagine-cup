@@ -19,7 +19,7 @@ extension UIFont {
         }
     }
     
-    class func brandonGrotesque(weight: BrandonGrotesque.FontWeight, size: CGFloat) -> UIFont? {
+    class func brandonGrotesque(weight: BrandonGrotesque.FontWeight, size: CGFloat) -> UIFont {
         var fontName: String = ""
         switch weight {
         case .regular:
@@ -32,6 +32,6 @@ extension UIFont {
             fontName = "BrandonGrotesque-BoldItalic"
         }
         
-        return UIFont.init(name: fontName, size: size)
+        return UIFont.init(name: fontName, size: size)!
     }
 }

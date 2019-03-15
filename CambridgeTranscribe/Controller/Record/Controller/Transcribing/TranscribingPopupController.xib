@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="52q-TO-5DM" customClass="TranscribingPopupController" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="G8u-Ch-dBu">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transcript" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-cp-ebT">
+                        <rect key="frame" x="150" y="56" width="75" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="26X-tP-ugl">
+                        <rect key="frame" x="16" y="100" width="343" height="400"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="400" id="27b-qB-yM6"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="52q-TO-5DM" id="Hau-qH-sut"/>
+                            <outlet property="delegate" destination="52q-TO-5DM" id="9RZ-vm-4Wc"/>
+                        </connections>
+                    </tableView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8X1-7i-Za7" customClass="PlayButton" customModule="CambridgeTranscribe" customModuleProvider="target">
+                        <rect key="frame" x="157.5" y="552" width="60" height="60"/>
+                        <color key="backgroundColor" red="0.23921568630000001" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8X1-7i-Za7" secondAttribute="height" multiplier="1:1" id="RuM-cb-q8g"/>
+                            <constraint firstAttribute="width" constant="60" id="TPy-ys-SRK"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
+                        <connections>
+                            <action selector="playButtonTapped:" destination="52q-TO-5DM" eventType="touchUpInside" id="87U-sJ-Nh8"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="FQh-cp-ebT" firstAttribute="top" secondItem="c1U-zD-3UH" secondAttribute="top" constant="36" id="1H6-lz-FKT"/>
+                    <constraint firstItem="8X1-7i-Za7" firstAttribute="centerX" secondItem="c1U-zD-3UH" secondAttribute="centerX" id="24c-Tm-EiW"/>
+                    <constraint firstItem="26X-tP-ugl" firstAttribute="centerX" secondItem="c1U-zD-3UH" secondAttribute="centerX" id="8Xg-kk-w9Y"/>
+                    <constraint firstItem="26X-tP-ugl" firstAttribute="leading" secondItem="c1U-zD-3UH" secondAttribute="leading" constant="16" id="VfF-56-Yme"/>
+                    <constraint firstItem="8X1-7i-Za7" firstAttribute="top" secondItem="26X-tP-ugl" secondAttribute="bottom" constant="52" id="e0B-0q-iKe"/>
+                    <constraint firstItem="FQh-cp-ebT" firstAttribute="centerX" secondItem="c1U-zD-3UH" secondAttribute="centerX" id="hv1-3I-PHy"/>
+                    <constraint firstItem="26X-tP-ugl" firstAttribute="top" secondItem="FQh-cp-ebT" secondAttribute="bottom" constant="24" id="kz9-jI-ddK"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="c1U-zD-3UH"/>
+            </view>
+            <connections>
+                <outlet property="playButton" destination="8X1-7i-Za7" id="9UJ-CX-sFJ"/>
+                <outlet property="tableView" destination="26X-tP-ugl" id="iWJ-wm-Bi3"/>
+                <outlet property="titleLabel" destination="FQh-cp-ebT" id="rQo-j3-Njw"/>
+            </connections>
+            <point key="canvasLocation" x="-34" y="74"/>
+        </viewController>
+    </objects>
+</document>

@@ -34,6 +34,7 @@
     if (self) {
         _subscriptionKey = self.class.subscriptionKey;
         _region = self.class.region;
+        _isPlaying = NO;
     }
     return self;
 }
@@ -55,6 +56,7 @@
 - (void)startRecognizing {
     NSLog(@"Start recognising");
     __weak typeof(self) weakSelf = self;
+    self.isPlaying = YES;
 
     [self.speechRecognizer addRecognizedEventHandler:^(SPXSpeechRecognizer * _Nonnull recognizer,
                                                        SPXSpeechRecognitionEventArgs * _Nonnull args) {
@@ -89,6 +91,7 @@
 - (void)stopRecognizing
 {
     [self.speechRecognizer stopContinuousRecognition];
+    self.isPlaying = NO;
 }
 
 @end
