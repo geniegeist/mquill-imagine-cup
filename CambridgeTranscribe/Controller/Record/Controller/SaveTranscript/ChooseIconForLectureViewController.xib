@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseIconForLectureViewController" customModule="CambridgeTranscribe" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="fLz-IT-Dea" customClass="ChooseIconForLectureViewController" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="BRq-rg-JD4">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a color " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owZ-yZ-Mgm">
+                        <rect key="frame" x="32" y="110" width="191.5" height="46"/>
+                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="32"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9a-5c-q3P">
+                        <rect key="frame" x="16" y="46" width="43" height="54"/>
+                        <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                        <state key="normal" image="back"/>
+                        <connections>
+                            <action selector="goBack:" destination="fLz-IT-Dea" eventType="touchUpInside" id="RAo-sf-fIf"/>
+                        </connections>
+                    </button>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCI-Md-j8S" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                        <rect key="frame" x="32" y="180" width="70" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="5ae-Bs-mgN"/>
+                            <constraint firstAttribute="width" secondItem="xCI-Md-j8S" secondAttribute="height" multiplier="1:1" id="5lY-8c-sj0"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LxY-V1-28w" appends="YES" id="Hjs-WU-Zjz"/>
+                        </connections>
+                    </view>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py5-RH-t8X" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                        <rect key="frame" x="140" y="180" width="70" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="Chw-QJ-8GX"/>
+                            <constraint firstAttribute="width" secondItem="Py5-RH-t8X" secondAttribute="height" multiplier="1:1" id="sNY-sM-eQR"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9Yx-YQ-eRN" appends="YES" id="7ck-b1-xsb"/>
+                        </connections>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkD-vO-bjb">
+                        <rect key="frame" x="164.5" y="703" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLZ-Na-knR" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                        <rect key="frame" x="248" y="180" width="70" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tLZ-Na-knR" secondAttribute="height" multiplier="1:1" id="9oe-Wa-GTl"/>
+                            <constraint firstAttribute="height" constant="70" id="PNM-MB-VYI"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="10S-xp-kXV" appends="YES" id="Ch7-0d-U65"/>
+                        </connections>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="tLZ-Na-knR" firstAttribute="width" secondItem="tLZ-Na-knR" secondAttribute="height" multiplier="1:1" id="1C1-h9-1rW"/>
+                    <constraint firstItem="tLZ-Na-knR" firstAttribute="top" secondItem="Py5-RH-t8X" secondAttribute="top" id="6Mw-TX-vTx"/>
+                    <constraint firstItem="Py5-RH-t8X" firstAttribute="width" secondItem="Py5-RH-t8X" secondAttribute="height" multiplier="1:1" id="7wj-5N-VFe"/>
+                    <constraint firstItem="Py5-RH-t8X" firstAttribute="top" secondItem="xCI-Md-j8S" secondAttribute="top" id="8pa-JI-lfX"/>
+                    <constraint firstItem="owZ-yZ-Mgm" firstAttribute="top" secondItem="Avr-r6-hbg" secondAttribute="top" constant="90" id="AMC-L2-0Na"/>
+                    <constraint firstItem="tLZ-Na-knR" firstAttribute="leading" secondItem="Py5-RH-t8X" secondAttribute="trailing" constant="38" id="B9p-Se-iL3"/>
+                    <constraint firstItem="owZ-yZ-Mgm" firstAttribute="leading" secondItem="Avr-r6-hbg" secondAttribute="leading" constant="32" id="J3y-l6-sJQ"/>
+                    <constraint firstItem="xCI-Md-j8S" firstAttribute="top" secondItem="owZ-yZ-Mgm" secondAttribute="bottom" constant="24" id="L4i-JD-0gl"/>
+                    <constraint firstItem="hkD-vO-bjb" firstAttribute="centerX" secondItem="Avr-r6-hbg" secondAttribute="centerX" id="N1k-0m-sj0"/>
+                    <constraint firstItem="Py5-RH-t8X" firstAttribute="leading" secondItem="xCI-Md-j8S" secondAttribute="trailing" constant="38" id="TR5-gj-Kip"/>
+                    <constraint firstItem="xCI-Md-j8S" firstAttribute="leading" secondItem="owZ-yZ-Mgm" secondAttribute="leading" id="WSU-ff-rSY"/>
+                    <constraint firstItem="M9a-5c-q3P" firstAttribute="leading" secondItem="Avr-r6-hbg" secondAttribute="leading" constant="16" id="i8r-N4-6qQ"/>
+                    <constraint firstItem="tLZ-Na-knR" firstAttribute="width" secondItem="tLZ-Na-knR" secondAttribute="height" multiplier="1:1" id="pQi-Hx-ltJ"/>
+                    <constraint firstItem="M9a-5c-q3P" firstAttribute="top" secondItem="Avr-r6-hbg" secondAttribute="top" constant="26" id="pT1-94-5qF"/>
+                    <constraint firstItem="Avr-r6-hbg" firstAttribute="bottom" secondItem="hkD-vO-bjb" secondAttribute="bottom" constant="-66" id="zFs-Rb-nZH"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="Avr-r6-hbg"/>
+            </view>
+            <connections>
+                <outlet property="magenta" destination="xCI-Md-j8S" id="kvp-4Y-5oP"/>
+                <outlet property="orange" destination="tLZ-Na-knR" id="BLp-Xd-rSy"/>
+                <outlet property="turquoise" destination="Py5-RH-t8X" id="ex4-GV-v0k"/>
+            </connections>
+            <point key="canvasLocation" x="-116" y="44"/>
+        </viewController>
+        <tapGestureRecognizer id="LxY-V1-28w" userLabel="magenta">
+            <connections>
+                <action selector="magentaTapped:" destination="fLz-IT-Dea" id="ifz-xA-SOT"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="9Yx-YQ-eRN" userLabel="turquoise">
+            <connections>
+                <action selector="turquoiseTapped:" destination="fLz-IT-Dea" id="45S-Du-0Mw"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="10S-xp-kXV" userLabel="orange">
+            <connections>
+                <action selector="orangeTapped:" destination="fLz-IT-Dea" id="HqV-67-Spn"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="back" width="11" height="18"/>
+    </resources>
+</document>

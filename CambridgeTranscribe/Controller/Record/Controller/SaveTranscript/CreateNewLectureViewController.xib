@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewLectureViewController" customModule="CambridgeTranscribe" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="jXp-fx-J95" customClass="CreateNewLectureViewController" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="rMn-w9-JST">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqo-S2-x5b">
+                        <rect key="frame" x="32" y="110" width="208.5" height="46"/>
+                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="32"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjf-4c-cnE">
+                        <rect key="frame" x="16" y="46" width="43" height="54"/>
+                        <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                        <state key="normal" image="back"/>
+                        <connections>
+                            <action selector="backButtonTapped:" destination="jXp-fx-J95" eventType="touchUpInside" id="Jx3-08-qU2"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Da-Th-hA7" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
+                        <rect key="frame" x="32" y="180" width="44" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="kI1-hJ-FT2"/>
+                            <constraint firstAttribute="width" secondItem="7Da-Th-hA7" secondAttribute="height" multiplier="1:1" id="vv2-9o-eML"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vJ3-Bb-YVw" appends="YES" id="TPw-uN-pqM"/>
+                        </connections>
+                    </view>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agu-wn-778" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                        <rect key="frame" x="32" y="252" width="327" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="BrB-4I-wN2"/>
+                        </constraints>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="continue"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Lecture Identifier (max 5 chars)"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-iS-Kpq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                        <rect key="frame" x="32" y="332" width="327" height="64"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="done"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Lecture name"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fel-wl-YbC">
+                        <rect key="frame" x="147.5" y="696" width="80" height="37"/>
+                        <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                        <state key="normal" title="Create class">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="saveButtonTapped:" destination="jXp-fx-J95" eventType="touchUpInside" id="tvI-Yh-frU"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="agu-wn-778" firstAttribute="top" secondItem="7Da-Th-hA7" secondAttribute="bottom" constant="28" id="4ba-Hp-xQj"/>
+                    <constraint firstItem="fel-wl-YbC" firstAttribute="centerX" secondItem="0Ha-ul-T2j" secondAttribute="centerX" id="6QK-af-okp"/>
+                    <constraint firstItem="Gqo-S2-x5b" firstAttribute="leading" secondItem="0Ha-ul-T2j" secondAttribute="leading" constant="32" id="7Er-pR-Had"/>
+                    <constraint firstItem="fjf-4c-cnE" firstAttribute="leading" secondItem="0Ha-ul-T2j" secondAttribute="leading" constant="16" id="9Sc-t3-ggG"/>
+                    <constraint firstItem="agu-wn-778" firstAttribute="leading" secondItem="7Da-Th-hA7" secondAttribute="leading" id="CjG-gW-YRv"/>
+                    <constraint firstItem="v1V-iS-Kpq" firstAttribute="height" secondItem="agu-wn-778" secondAttribute="height" id="Glf-vV-33S"/>
+                    <constraint firstItem="v1V-iS-Kpq" firstAttribute="leading" secondItem="agu-wn-778" secondAttribute="leading" id="JCt-4x-O8y"/>
+                    <constraint firstItem="7Da-Th-hA7" firstAttribute="top" secondItem="Gqo-S2-x5b" secondAttribute="bottom" constant="24" id="cwr-0Q-adH"/>
+                    <constraint firstItem="0Ha-ul-T2j" firstAttribute="bottom" secondItem="fel-wl-YbC" secondAttribute="bottom" constant="-66" id="dc4-Yy-MDg"/>
+                    <constraint firstItem="v1V-iS-Kpq" firstAttribute="top" secondItem="agu-wn-778" secondAttribute="bottom" constant="16" id="hyI-Vk-jMe"/>
+                    <constraint firstItem="Gqo-S2-x5b" firstAttribute="top" secondItem="0Ha-ul-T2j" secondAttribute="top" constant="90" id="oPl-k0-ePP"/>
+                    <constraint firstItem="7Da-Th-hA7" firstAttribute="leading" secondItem="Gqo-S2-x5b" secondAttribute="leading" id="oyy-Hv-s3m"/>
+                    <constraint firstItem="v1V-iS-Kpq" firstAttribute="width" secondItem="agu-wn-778" secondAttribute="width" id="v7G-xE-Z7i"/>
+                    <constraint firstItem="fjf-4c-cnE" firstAttribute="top" secondItem="0Ha-ul-T2j" secondAttribute="top" constant="26" id="w1B-Bi-fB6"/>
+                    <constraint firstItem="0Ha-ul-T2j" firstAttribute="trailing" secondItem="agu-wn-778" secondAttribute="trailing" constant="16" id="xJQ-6a-GXD"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="0Ha-ul-T2j"/>
+            </view>
+            <connections>
+                <outlet property="backButton" destination="fjf-4c-cnE" id="XIu-D3-jrF"/>
+                <outlet property="lectureIdentifierTextField" destination="agu-wn-778" id="CdF-sH-dW5"/>
+                <outlet property="lectureNameTextField" destination="v1V-iS-Kpq" id="s5K-A6-Q7P"/>
+                <outlet property="saveButton" destination="fel-wl-YbC" id="rgA-fr-NXG"/>
+                <outlet property="saveButtonBottomConstraint" destination="dc4-Yy-MDg" id="cM9-Hb-gYk"/>
+                <outlet property="transcriptIconView" destination="7Da-Th-hA7" id="aMz-3R-0dy"/>
+            </connections>
+            <point key="canvasLocation" x="144.80000000000001" y="-177.66116941529236"/>
+        </viewController>
+        <tapGestureRecognizer id="vJ3-Bb-YVw">
+            <connections>
+                <action selector="transcriptIconViewTapped:" destination="jXp-fx-J95" id="T8O-Cn-7t2"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="back" width="11" height="18"/>
+    </resources>
+</document>

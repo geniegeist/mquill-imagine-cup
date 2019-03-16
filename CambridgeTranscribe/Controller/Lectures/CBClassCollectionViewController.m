@@ -8,7 +8,6 @@
 
 #import "CBClassCollectionViewController.h"
 #import "CBClassCollectionViewCell.h"
-#import "CBLecturesCollectionViewController.h"
 #import "CBClassesManager.h"
 #import "NSDate+TimeAgo.h"
 #import "CBLectureView.h"

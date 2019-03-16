@@ -13,14 +13,17 @@ target 'CambridgeTranscribe' do
   pod 'MZTimerLabel'
   pod 'ActionSheetPicker-3.0', :inhibit_warnings => true
   pod 'NSDate+TimeAgo'
-  pod "Motion"
   pod 'CHIPageControl/Aleppo'
   pod 'UserDefaultsStore'
   pod "GSKStretchyHeaderView"
   pod 'PXSiriWave', '~> 0.0.2'
   pod 'NVActivityIndicatorView'
   pod "TOMSMorphingLabel", "~> 0.5"
-  pod 'Alamofire', '~> 4.0.0'
+  pod 'Alamofire', '~> 4.0.0', :inhibit_warnings => true
   pod 'Dwifft'
   pod 'ActiveLabel'
+  pod 'Kingfisher'
+  pod 'SkyFloatingLabelTextField'
+  pod 'Hero'
+  pod "SwiftSiriWaveformView"
 end

@@ -10,13 +10,38 @@ import UIKit
 
 class PlayButton: Button {
     
+    enum Size {
+        case normal
+        case large
+    }
+    
+    var size: Size = .normal {
+        didSet {
+            if (!self.isPlaying) {
+                if (size == .normal) {
+                    self.setImage(UIImage(named: "play-triangle"), for: .normal)
+                } else {
+                    self.setImage(UIImage(named: "play-triangle-large"), for: .normal)
+                }
+            }
+        }
+    }
+    
     var isPlaying: Bool = false {
         didSet {
             if (isPlaying) {
-                self.setImage(UIImage(named: "II"), for: .normal)
+                if (size == .normal) {
+                    self.setImage(UIImage(named: "II"), for: .normal)
+                } else {
+                    self.setImage(UIImage(named: "II-large"), for: .normal)
+                }
                 self.imageEdgeInsets = .zero
             } else {
-                self.setImage(UIImage(named: "play-triangle"), for: .normal)
+                if (size == .normal) {
+                    self.setImage(UIImage(named: "play-triangle"), for: .normal)
+                } else {
+                    self.setImage(UIImage(named: "play-triangle-large"), for: .normal)
+                }
                 self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
             }
         }

@@ -30,21 +30,20 @@
                                 <state key="normal" image="adi"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4e-io-Rho" customClass="PlayButton" customModule="CambridgeTranscribe" customModuleProvider="target">
-                                <rect key="frame" x="16" y="308.5" width="30" height="30"/>
+                                <rect key="frame" x="16" y="303.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.23921568627450979" green="0.4823529411764706" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z4e-io-Rho" secondAttribute="height" multiplier="1:1" id="0xV-zr-O2H"/>
-                                    <constraint firstAttribute="width" constant="30" id="d4f-g2-gUD"/>
+                                    <constraint firstAttribute="width" constant="40" id="d4f-g2-gUD"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCe-Ei-H2g" customClass="TOMSMorphingLabel">
-                                <rect key="frame" x="58" y="308.5" width="259" height="30"/>
+                                <rect key="frame" x="68" y="303.5" width="239" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fCe-Ei-H2g" firstAttribute="centerX" secondItem="ZmV-my-w6k" secondAttribute="centerX" id="9AZ-IW-Pda"/>
                             <constraint firstItem="z4e-io-Rho" firstAttribute="centerY" secondItem="ZmV-my-w6k" secondAttribute="centerY" id="9zi-Xl-rdu"/>

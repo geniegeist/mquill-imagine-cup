@@ -20,11 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UIStoryboard(name: "Root", bundle: nil).instantiateInitialViewController()
         window?.makeKeyAndVisible()
         
+        let lectures = [LectureDocument(id: "cs106", shortName: "CS106", name: "Machine Intelligence", color: .turquoise)]
+        let lectureStore = LectureStore.lectures
+        try! lectureStore.save(lectures)
+        
         let fragments = [
             TranscriptFragment(content: "Frequency is the number of occurrences of a repeating event per unit of time. It is also referred to as temporal frequency, which emphasizes the contrast to spatial frequency and angular frequency. The period is the duration of time of one cycle in a repeating event, so the period is the reciprocal of the frequency. For example: if a newborn baby's heart beats at a frequency of 120 times a minute, its period—the time interval between beats—is half a second.", isFavourite: false, tags: [TranscriptTag(name: .marking, range: NSRange(location: 0, length: 5)), TranscriptTag(name: .keyword, range: NSRange(location: 10, length: 5))]),
             TranscriptFragment(content: "Frequency is an important parameter used in science and engineering to specify the rate of oscillatory and vibratory phenomena, such as mechanical vibrations, audio signals, radio waves, and light.", isFavourite: true)
                          ];
-        let transcript = TranscriptDocument(id:"test-01", title: "CS107 Programming Paradigms", sequence: 6, fragments: fragments)
+        let transcript = TranscriptDocument(id:"test-01", title: "CS107 Programming Paradigms", sequence: 6, fragments: fragments, lectureId: "cs106")
         let store = TranscriptStore.transcripts
         try! store.save(transcript)
         

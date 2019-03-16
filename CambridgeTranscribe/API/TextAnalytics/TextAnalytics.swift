@@ -17,16 +17,9 @@ class TextAnalytics {
         struct KeyPhrase: Codable {
             let documentId: String
             let content: String
-            
-            /*
-            init(from dictionary: Dictionary<String,Any>) {
-                self.id = dictionary["id"] as! String
-                self.keyphrases = dictionary["keyPhrases"] as! [String]
-            }
-            */
         }
         
-        struct Entity {
+        struct Entity: Equatable {
             let documentId: String
             let name: String
             let matches: [String]
@@ -42,6 +35,10 @@ class TextAnalytics {
                               wikipediaId: dictionary["wikipediaId"] as? String,
                               wikipediaUrl: dictionary["wikipediaUrl"] as? String,
                               bingId: dictionary["bingId"] as! String)
+            }
+            
+            static func == (lhs: Entity, rhs: Entity) -> Bool {
+                return lhs.documentId == rhs.documentId && lhs.bingId == rhs.bingId
             }
         }
     }
@@ -118,9 +115,11 @@ class TextAnalytics {
                                 let kk = doc["entities"] as! [[String : Any]]
                                 entities += kk.map({ Result.Entity.from(documentId: id, dictionary: $0) })
                             }
+                            
+                            
  
                             if let completionHandler = handler {
-                                completionHandler(entities)
+                                completionHandler(entities.unique)
                             }
         }
     }

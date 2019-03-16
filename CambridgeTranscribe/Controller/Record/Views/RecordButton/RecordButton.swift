@@ -20,7 +20,7 @@ class RecordButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = frame.bounds.size.width / 2.0
+        layer.cornerRadius = frame.size.width / 2.0
         gradientBG.frame = bounds
         quillImageView.frame = quillImageViewRect()
     }

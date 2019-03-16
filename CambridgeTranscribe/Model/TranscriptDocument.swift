@@ -50,17 +50,20 @@ struct TranscriptDocument: Codable, Identifiable {
     var date: Date
     var sequence: Int
     var fragments: [TranscriptFragment]
+    var lectureId: String
     
     init(id: String = UUID().uuidString,
          title: String,
          sequence: Int,
          fragments: [TranscriptFragment],
-         date: Date = Date()) {
+         date: Date = Date(),
+         lectureId: String) {
         self.id = id
         self.title = title
         self.sequence = sequence
         self.date = date
         self.fragments = fragments
+        self.lectureId = lectureId
     }
     
     static let idKey = \TranscriptDocument.id

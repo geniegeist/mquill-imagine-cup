@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Motion
 
 protocol TranscriptViewControllerDelegate {
     func transcriptViewController(_ vc: TranscriptViewController, didChange transcript: TranscriptDocument)
@@ -36,11 +35,7 @@ class TranscriptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        isMotionEnabled = false
-        
-        headerBackground.motionIdentifier = "headerBG"
-        
+                
         scrollViewTopBackground = UIView()
         scrollViewTopBackground.frame = CGRect(x: 0, y: -800, width: view.bounds.size.width, height: 800)
         scrollViewTopBackground.backgroundColor = UIColor(rgb: 0x2A2A49)
@@ -55,7 +50,6 @@ class TranscriptViewController: UIViewController {
         leftImageView.layer.cornerRadius = 8
         leftImageView.layer.masksToBounds = true
         leftImageView.layer.insertSublayer(imageGradient, at: 0)
-        leftImageView.motionIdentifier = "leftImageView"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy - HH:mm"
@@ -70,7 +64,6 @@ class TranscriptViewController: UIViewController {
         headlineLabel.text = transcript?.title
         headlineLabel.font = UIFont.brandonGrotesque(weight: .bold, size: 32)
         headlineLabel.textColor = UIColor.white
-        headlineLabel.motionIdentifier = "headline"
 
         audioPlaybackProgress = UINib(nibName: "TranscriptAudioPlaybackProgress", bundle: nil).instantiate(withOwner: self, options: nil).first as? TranscriptAudioPlaybackProgress
         audioPlaybackProgress.frame = audioPlaybackContainer.bounds

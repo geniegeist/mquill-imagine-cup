@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SaveTranscriptViewController" customModule="CambridgeTranscribe" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="lGX-8b-JSr" customClass="SaveTranscriptViewController" customModule="CambridgeTranscribe" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="erR-nu-t7R">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save transcript in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkI-rR-yir">
+                        <rect key="frame" x="32" y="110" width="220" height="46"/>
+                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="32"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Seq-JS-1CF">
+                        <rect key="frame" x="0.0" y="188" width="375" height="447"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="lGX-8b-JSr" id="Jbu-1Q-ixY"/>
+                            <outlet property="delegate" destination="lGX-8b-JSr" id="Gpi-3z-NNF"/>
+                        </connections>
+                    </tableView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjk-xQ-bSu">
+                        <rect key="frame" x="313" y="44" width="58" height="58"/>
+                        <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                        <state key="normal" image="close-white"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-Pz-7Jk">
+                        <rect key="frame" x="164.5" y="703" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="save:" destination="lGX-8b-JSr" eventType="touchUpInside" id="mI0-Cv-fTh"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="dkI-rR-yir" firstAttribute="top" secondItem="pyu-Wr-sOH" secondAttribute="top" constant="90" id="5zF-v5-WId"/>
+                    <constraint firstItem="pyu-Wr-sOH" firstAttribute="trailing" secondItem="Yjk-xQ-bSu" secondAttribute="trailing" constant="4" id="BgA-se-N8T"/>
+                    <constraint firstItem="Seq-JS-1CF" firstAttribute="leading" secondItem="pyu-Wr-sOH" secondAttribute="leading" id="PGt-uu-tGl"/>
+                    <constraint firstItem="Seq-JS-1CF" firstAttribute="top" secondItem="dkI-rR-yir" secondAttribute="bottom" constant="32" id="SSA-xA-hUc"/>
+                    <constraint firstItem="Yjk-xQ-bSu" firstAttribute="top" secondItem="pyu-Wr-sOH" secondAttribute="top" constant="24" id="XDb-JL-nEm"/>
+                    <constraint firstItem="pyu-Wr-sOH" firstAttribute="trailing" secondItem="Seq-JS-1CF" secondAttribute="trailing" id="aTg-KI-Jzx"/>
+                    <constraint firstItem="IxB-Pz-7Jk" firstAttribute="centerX" secondItem="pyu-Wr-sOH" secondAttribute="centerX" id="b4e-Vo-x1L"/>
+                    <constraint firstItem="pyu-Wr-sOH" firstAttribute="bottom" secondItem="IxB-Pz-7Jk" secondAttribute="bottom" constant="-66" id="ddm-gx-3xp"/>
+                    <constraint firstItem="pyu-Wr-sOH" firstAttribute="bottom" secondItem="Seq-JS-1CF" secondAttribute="bottom" constant="32" id="uwb-h0-fWH"/>
+                    <constraint firstItem="dkI-rR-yir" firstAttribute="leading" secondItem="pyu-Wr-sOH" secondAttribute="leading" constant="32" id="zWM-1i-7VA"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="pyu-Wr-sOH"/>
+            </view>
+            <connections>
+                <outlet property="closeButton" destination="Yjk-xQ-bSu" id="AfF-gP-ieQ"/>
+                <outlet property="saveButton" destination="IxB-Pz-7Jk" id="L46-UW-792"/>
+                <outlet property="saveButtonBottomConstraint" destination="ddm-gx-3xp" id="Zim-Wm-VAX"/>
+                <outlet property="tableView" destination="Seq-JS-1CF" id="qWw-7V-9Xf"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="72"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="close-white" width="26" height="26"/>
+    </resources>
+</document>

@@ -29,7 +29,7 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
         super.viewDidLoad()
         preferredContentSize = CGSize(width: -1, height: Constants.barHeight)
 
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.white
         view.clipsToBounds = false
         contentView.backgroundColor = UIColor.white
         contentView.clipsToBounds = false

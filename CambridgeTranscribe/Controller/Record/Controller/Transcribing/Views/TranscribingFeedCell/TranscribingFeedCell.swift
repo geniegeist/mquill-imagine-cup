@@ -10,10 +10,14 @@ import UIKit
 import ActiveLabel
 
 class TranscribingFeedCell: UITableViewCell {
+    
+    var feedIdentifier: String?
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: ActiveLabel!
+    @IBOutlet weak var transcriptIconView: TranscriptIconView!
+    @IBOutlet weak var copyrightLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +32,28 @@ class TranscribingFeedCell: UITableViewCell {
         mainView.layer.shadowOffset = .zero
         mainView.clipsToBounds = false
         
+        titleLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 20)
+        titleLabel.textColor = UIColor(white: 0, alpha: 0.66)
+        
         contentLabel.numberOfLines = 0
-        contentLabel.text = "nsfjnsk sjkd fjks fjksd fkjs fjks fh sdhjf shjf jhs fhjs fhsd hfjhs jfhs"
+        contentLabel.font = UIFont.brandonGrotesque(weight: .regular, size: 17)
+        contentLabel.textColor = UIColor(white: 0, alpha: 0.66)
+        
+        copyrightLabel.font = UIFont.brandonGrotesque(weight: .regular, size: 12)
+        copyrightLabel.textColor = UIColor(white: 0, alpha: 0.33)
+        copyrightLabel.text = "Wikipedia"
+        
+        transcriptIconView.imageView.image = UIImage(named: "Taylor-Swift-revenge-nerds")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        transcriptIconView.imageView.image = nil
+        transcriptIconView.isHidden = false
     }
 
 }

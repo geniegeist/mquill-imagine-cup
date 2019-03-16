@@ -30,7 +30,7 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         transcribeView.layer.cornerRadius = 16
         transcribeView.layer.shadowColor = UIColor(rgb: 0x0036FF).cgColor
         transcribeView.layer.shadowOpacity = 0.1

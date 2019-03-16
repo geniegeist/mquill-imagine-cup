@@ -47,15 +47,16 @@ PODS:
   - FCAlertView (1.4.0)
   - FFPopup (1.0.0)
   - GSKStretchyHeaderView (1.0.4)
-  - Motion (1.4.3):
-    - Motion/Core (= 1.4.3)
-  - Motion/Core (1.4.3)
+  - Hero (1.4.0)
+  - Kingfisher (5.1.0)
   - MZTimerLabel (0.5.4)
   - "NSDate+TimeAgo (1.0.6)"
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
   - PXSiriWave (0.0.2)
+  - SkyFloatingLabelTextField (3.6.0)
+  - SwiftSiriWaveformView (2.4.0)
   - TOMSMorphingLabel (0.5.1)
   - UserDefaultsStore (1.3)
 
@@ -70,11 +71,14 @@ DEPENDENCIES:
   - FCAlertView
   - FFPopup (from `https://github.com/JonyFang/FFPopup.git`)
   - GSKStretchyHeaderView
-  - Motion
+  - Hero
+  - Kingfisher
   - MZTimerLabel
   - "NSDate+TimeAgo"
   - NVActivityIndicatorView
   - PXSiriWave (~> 0.0.2)
+  - SkyFloatingLabelTextField
+  - SwiftSiriWaveformView
   - TOMSMorphingLabel (~> 0.5)
   - UserDefaultsStore
 
@@ -89,11 +93,14 @@ SPEC REPOS:
     - Dwifft
     - FCAlertView
     - GSKStretchyHeaderView
-    - Motion
+    - Hero
+    - Kingfisher
     - MZTimerLabel
     - "NSDate+TimeAgo"
     - NVActivityIndicatorView
     - PXSiriWave
+    - SkyFloatingLabelTextField
+    - SwiftSiriWaveformView
     - TOMSMorphingLabel
     - UserDefaultsStore
 
@@ -117,14 +124,17 @@ SPEC CHECKSUMS:
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   FFPopup: f1a9c2bb1df9d9cd254f15081e74112d9ccb6969
   GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
-  Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   "NSDate+TimeAgo": 35601c619b2d59290055e4fe76e61d97677a2360
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   PXSiriWave: a65c60234d03316f052209becb54a8d77883c182
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
+  SwiftSiriWaveformView: baa04ed2089e854af00ea54c38a7700ca43d7ae0
   TOMSMorphingLabel: 3e88a2bf5257f8993ebc51fb3109187a0bfb2c4d
   UserDefaultsStore: b91848cdfa88a0e3e73fb01aa614631dd3092450
 
-PODFILE CHECKSUM: 4e55c8ad4856abbee944c5239403d5b4ec447024
+PODFILE CHECKSUM: a6ce943f1f0cbb7e0b731447e485d4eb27cfe51f
 
 COCOAPODS: 1.6.0

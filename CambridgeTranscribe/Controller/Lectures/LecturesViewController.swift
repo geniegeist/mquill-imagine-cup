@@ -8,7 +8,6 @@
 
 import UIKit
 import UserDefaultsStore
-import Motion
 
 class LecturesViewController: UIViewController {
 
@@ -20,7 +19,6 @@ class LecturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isMotionEnabled = false
         view.backgroundColor = UIColor(rgb: 0xFAB943)
         
         collectionView.register(UINib(nibName: "LectureCell", bundle: nil), forCellWithReuseIdentifier: "lectureCell")

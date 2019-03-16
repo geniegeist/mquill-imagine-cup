@@ -41,8 +41,8 @@ class RootViewController: UIViewController {
         pageControl.numberOfPages = 3
         pageControl.padding = 12
         pageControl.radius = pageControlHeight / 2
-        pageControl.tintColors = [UIColor(white: 1, alpha: 0.4), UIColor(rgb: 0x2D6EFF), UIColor(white: 1, alpha: 0.4)]
-        pageControl.currentPageTintColor = UIColor(white: 1, alpha: 1)
+        pageControl.tintColors = [UIColor(white: 0.1, alpha: 1), UIColor.white, UIColor(white: 0.1, alpha: 1)]
+        pageControl.currentPageTintColor = UIColor(rgb: 0x3D7BFF)
         pageControl.set(progress: 1, animated: false)
         view.addSubview(pageControl)
     }
@@ -94,10 +94,16 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
         if (finished) {
             guard let currentVC = pageViewController.viewControllers?.first else { return }
             if (currentVC == lecturesViewController) {
+                pageControl.tintColors = [UIColor.white,UIColor.white,UIColor.white ]
+                pageControl.currentPageTintColor = UIColor.white
                 currentPageIndex = 0
             } else if (currentVC == recordViewController) {
+                pageControl.tintColors = [UIColor.black,UIColor.black,UIColor.black ]
+                pageControl.currentPageTintColor = UIColor(rgb: 0x3D7BFF)
                 currentPageIndex = 1
             } else if (currentVC == dailySummaryViewController) {
+                pageControl.tintColors = [UIColor.white,UIColor.white,UIColor.white ]
+                pageControl.currentPageTintColor = UIColor.white
                 currentPageIndex = 2
             }
         }
@@ -105,10 +111,38 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView == pageViewControllerScrollView) {
+            let contentOffsetX = scrollView.contentOffset.x
             let width = view.bounds.size.width
-            let normalizedOffset = scrollView.contentOffset.x - width
+            let normalizedOffset = contentOffsetX - width
             let progress = normalizedOffset / width
             pageControl.progress = Double(currentPageIndex) + Double(progress)
+            
+            if (contentOffsetX > width) {
+                view.backgroundColor = UIColor(rgb: 0x479FD7) // blue
+            } else {
+                view.backgroundColor = UIColor(rgb: 0xFAB943) // orange
+            }
+                        
+            guard let currentVC = pageViewController.viewControllers?.first else { return }
+
+            if (currentVC == dailySummaryViewController) {
+                if (contentOffsetX > width - width * 0.5) {
+                    pageControl.tintColors = [UIColor.white,UIColor.white,UIColor.white ]
+                    pageControl.currentPageTintColor = UIColor.white
+                } else {
+                    pageControl.tintColors = [UIColor.black,UIColor.black,UIColor.black ]
+                    pageControl.currentPageTintColor = UIColor(rgb: 0x3D7BFF)
+                }
+            } else if (currentVC == lecturesViewController) {
+                if (contentOffsetX > width + width * 0.5) {
+                    pageControl.tintColors = [UIColor.black,UIColor.black,UIColor.black ]
+                    pageControl.currentPageTintColor = UIColor(rgb: 0x3D7BFF)
+                } else {
+                    pageControl.tintColors = [UIColor.white,UIColor.white,UIColor.white ]
+                    pageControl.currentPageTintColor = UIColor.white
+                }
+            }
+
         }
     }
 }

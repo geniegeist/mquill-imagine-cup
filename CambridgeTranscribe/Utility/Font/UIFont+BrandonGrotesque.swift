@@ -14,6 +14,7 @@ extension UIFont {
         enum FontWeight {
             case regular
             case medium
+            case mediumItalic
             case bold
             case boldItalic
         }
@@ -26,6 +27,8 @@ extension UIFont {
             fontName = "BrandonGrotesque-Regular"
         case .medium:
             fontName = "BrandonGrotesque-Medium"
+        case .mediumItalic:
+            fontName = "BrandonGrotesque-MediumItalic"
         case .bold:
             fontName = "BrandonGrotesque-Bold"
         case .boldItalic:

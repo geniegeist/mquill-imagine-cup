@@ -9,7 +9,7 @@
 import Alamofire
 
 class EntitySearch {
-    
+
     struct Result {
         struct Entity {
             enum Hint: String {
@@ -34,6 +34,7 @@ class EntitySearch {
                 }
             }
             
+            
             let bingId: String
             let entityDescription: String?
             let webSearchUrl: String
@@ -42,13 +43,18 @@ class EntitySearch {
             let hints: [Hint]?
             let displayHint: String?
             let imageUrl: String?
+            let licenseAttribution: String?
             
             static func from(dictionary: Dictionary<String, Any?>) -> Entity {
                 let entityPresentationInfo = dictionary["entityPresentationInfo"] as? [String:Any?]
                 let entityTypeHints = entityPresentationInfo?["entityTypeHints"] as? [String]
                 let displayHint = entityPresentationInfo?["entityTypeDisplayHint"] as? String
                 let image = dictionary["image"] as? [String:Any?]
-                
+                let contractualRules = dictionary["contractualRules"] as? [Dictionary<String, Any>]
+                let contractualRulesObj = contractualRules?.first(where: { (dict) -> Bool in
+                    let _type = dict["_type"] as? String?
+                    return _type == "ContractualRules/LicenseAttribution"
+                })
                 
                 return Entity(
                     bingId: dictionary["bingId"] as! String,
@@ -58,7 +64,8 @@ class EntitySearch {
                     url: dictionary["url"] as? String,
                     hints: entityTypeHints?.map({ Hint.from(string: $0) }),
                     displayHint: displayHint,
-                    imageUrl: image?["hostPageUrl"] as? String
+                    imageUrl: image?["hostPageUrl"] as? String,
+                    licenseAttribution: contractualRulesObj?["licenseNotice"] as? String
                 )
             }
         }
@@ -69,7 +76,7 @@ class EntitySearch {
     private let endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/"
     
     private let apiKey: String
-    private let market: String = "en-US"
+    private let market: String = "en-us"
     
     init() {
         let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
