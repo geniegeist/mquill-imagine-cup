@@ -19,7 +19,11 @@ class CreateNewLectureViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
-    private var color: LectureDocument.Color = LectureDocument.Color.magenta
+    private var color: LectureDocument.Color = LectureDocument.Color.magenta {
+        didSet {
+            transcriptIconView.color = color
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

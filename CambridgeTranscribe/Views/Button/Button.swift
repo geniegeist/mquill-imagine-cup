@@ -11,7 +11,7 @@ import UIKit
 class Button: UIButton {
     
     var minimumHitArea = CGSize(width: 0, height: 0)
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()

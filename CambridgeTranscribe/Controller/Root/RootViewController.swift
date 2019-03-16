@@ -122,7 +122,7 @@ extension RootViewController: UIPageViewControllerDelegate, UIPageViewController
             } else {
                 view.backgroundColor = UIColor(rgb: 0xFAB943) // orange
             }
-                        
+            
             guard let currentVC = pageViewController.viewControllers?.first else { return }
 
             if (currentVC == dailySummaryViewController) {

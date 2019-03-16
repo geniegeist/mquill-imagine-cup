@@ -17,7 +17,7 @@ protocol ChooseIconForLectureViewControllerDelegate {
 class ChooseIconForLectureViewController: UIViewController {
     
     struct Constants {
-        static let unselectedAlpha: CGFloat = 0.66
+        static let unselectedAlpha: CGFloat = 1
     }
     var delegate: ChooseIconForLectureViewControllerDelegate?
 
@@ -52,6 +52,9 @@ class ChooseIconForLectureViewController: UIViewController {
         magenta.alpha = 1
         turquoise.alpha = Constants.unselectedAlpha
         orange.alpha = Constants.unselectedAlpha
+        
+        navigationController?.popViewController(animated: true)
+
     }
     
     @IBAction func turquoiseTapped(_ sender: Any) {
@@ -61,6 +64,8 @@ class ChooseIconForLectureViewController: UIViewController {
         turquoise.alpha = 1
         magenta.alpha = Constants.unselectedAlpha
         orange.alpha = Constants.unselectedAlpha
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func orangeTapped(_ sender: Any) {
@@ -70,6 +75,8 @@ class ChooseIconForLectureViewController: UIViewController {
         orange.alpha = 1
         magenta.alpha = Constants.unselectedAlpha
         turquoise.alpha = Constants.unselectedAlpha
+        
+        navigationController?.popViewController(animated: true)
     }
     
     

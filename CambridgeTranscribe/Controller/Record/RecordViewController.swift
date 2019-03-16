@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordViewController: UIViewController {
     
@@ -27,6 +28,8 @@ class RecordViewController: UIViewController {
     private var adiViewOriginFrame: CGRect {
         return CGRect(x: 12, y: Constants.pullOverTopInset, width: view.bounds.size.width - 12 * 2, height: 264)
     }
+    
+    private var audioPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()

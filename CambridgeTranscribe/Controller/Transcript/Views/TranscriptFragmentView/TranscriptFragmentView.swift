@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @objc protocol TranscriptFragmentViewDelegate {
     @objc optional func transcriptFragmentLikeButtonTapped(_ fragmentView: TranscriptFragmentView)
     @objc optional func transcriptFragmentPlayButtonTapped(_ fragmentView: TranscriptFragmentView)
@@ -38,7 +39,11 @@ class TranscriptFragmentView: UIView {
     
     var isFavourite: Bool = false {
         didSet {
-            favouriteButton.tintColor = isFavourite ? UIColor(rgb: 0xFF4866) : UIColor(rgb: 0xC0C0C0)
+            if (isFavourite && !favouriteButton.isSelected) {
+                favouriteButton.select()
+            } else if (!isFavourite && favouriteButton.isSelected) {
+                favouriteButton.deselect()
+            }
         }
     }
     
@@ -48,8 +53,8 @@ class TranscriptFragmentView: UIView {
     
     // UI
     
-    var favouriteButton: UIButton!
-    var playButton: UIButton!
+    var favouriteButton: DOFavoriteButton!
+    // var playButton: UIButton!
     var transcriptLabel: TranscriptLabel!
     
     // Internal properties
@@ -79,7 +84,7 @@ class TranscriptFragmentView: UIView {
         dateLabel.frame = rectForDateLabel()
         dateLabel.sizeToFit()
         favouriteButton.frame = rectForFavouriteButton()
-        playButton.frame = rectForPlayButton()
+        // playButton.frame = rectForPlayButton()
         transcriptLabel.frame = rectForTranscriptLabel()
     }
     
@@ -91,18 +96,22 @@ class TranscriptFragmentView: UIView {
         dateLabel.sizeToFit()
         addSubview(dateLabel)
         
-        favouriteButton = UIButton(type: .system)
-        favouriteButton.frame = rectForFavouriteButton()
-        favouriteButton.setImage(UIImage(named: "like"), for: .normal)
-        favouriteButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: .touchUpInside)
-        addSubview(favouriteButton)
         
+        favouriteButton = DOFavoriteButton(frame: rectForFavouriteButton(), image: UIImage(named: "like"))
+        favouriteButton.addTarget(self, action: #selector(likeButtonTapped(_:)), for: .touchUpInside)
+        favouriteButton.imageColorOn = UIColor.init(rgb: 0xFF4866)
+        favouriteButton.contentEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+        addSubview(favouriteButton)
+ 
+        
+        /*
         playButton = UIButton(type: .system)
         playButton.frame = rectForPlayButton()
         playButton.setImage(UIImage(named: "play"), for: .normal)
         playButton.tintColor = UIColor(rgb: 0xC0C0C0)
         playButton.addTarget(self, action: #selector(playButtonTapped(_:)), for: .touchUpInside)
         addSubview(playButton)
+        */
         
         transcriptLabel = TranscriptLabel()
         transcriptLabel.frame = rectForTranscriptLabel()
@@ -112,7 +121,7 @@ class TranscriptFragmentView: UIView {
     
     // MARK: Action
     
-    @objc private func likeButtonTapped(_ sender: UIButton) {
+    @objc private func likeButtonTapped(_ sender: DOFavoriteButton) {
         delegate?.transcriptFragmentLikeButtonTapped?(self)
     }
     
@@ -127,9 +136,9 @@ class TranscriptFragmentView: UIView {
     }
     
     private func rectForFavouriteButton() -> CGRect {
-        let x = dateLabel.frame.maxX + 12
-        let y = dateLabel.frame.origin.y
-        return CGRect(x: x, y:y, width: 25, height: 25)
+        let x = dateLabel.frame.maxX + 4
+        let y = dateLabel.frame.origin.y - 8
+        return CGRect(x: x, y:y, width: 38, height: 38)
     }
     
     private func rectForPlayButton() -> CGRect {

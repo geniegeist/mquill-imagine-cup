@@ -9,7 +9,6 @@
 #ifndef CambridgeTranscribe_Bridging_Header_h
 #define CambridgeTranscribe_Bridging_Header_h
 
-#import "CBLecturesContainerViewController.h"
 #import "CBChatbotViewController.h"
 #import "CBRecordDetailViewController.h"
 #import "CTSpeechToText.h"

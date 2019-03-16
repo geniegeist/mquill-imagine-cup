@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4H1-Nn-QAg">
                     <rect key="frame" x="16" y="16" width="343" height="169"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQW-zO-s5p" customClass="UIImageView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQW-zO-s5p" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGR-2b-6hn">
@@ -109,8 +109,8 @@
             <connections>
                 <outlet property="dateLabel" destination="DBp-Lk-cZd" id="Tdc-5O-vgg"/>
                 <outlet property="headlineLabel" destination="duf-1V-s15" id="lxQ-2T-8Sw"/>
-                <outlet property="leftImageTitleLabel" destination="uGR-2b-6hn" id="sMY-nh-p7j"/>
-                <outlet property="leftImageView" destination="sQW-zO-s5p" id="BOI-7C-uXF"/>
+                <outlet property="transcriptIconView" destination="sQW-zO-s5p" id="BOI-7C-uXF"/>
+                <outlet property="transcriptIconViewTitleLabel" destination="uGR-2b-6hn" id="sMY-nh-p7j"/>
             </connections>
             <point key="canvasLocation" x="53.600000000000001" y="310.79460269865069"/>
         </view>

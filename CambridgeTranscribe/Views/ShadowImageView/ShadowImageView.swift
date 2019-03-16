@@ -17,7 +17,7 @@ class ShadowImageView: UIImageView {
         
         gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: 800, height: 700)
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(white: 0, alpha: 0.8).cgColor]
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor(white: 0, alpha: 0.9).cgColor]
         gradientLayer.locations = [0.0, 0.7]
         layer.insertSublayer(gradientLayer, at: 0)
     }

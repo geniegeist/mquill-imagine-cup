@@ -40,6 +40,19 @@
                                     <outlet property="delegate" destination="DdM-CF-PlY" id="ePg-jZ-TOh"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MW-63-H3D">
+                                <rect key="frame" x="319" y="48.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="9Jf-0J-q4G"/>
+                                    <constraint firstAttribute="width" secondItem="0MW-63-H3D" secondAttribute="height" multiplier="1:1" id="O5Y-oj-2az"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="like"/>
+                                <connections>
+                                    <action selector="likeButtonTapped:" destination="DdM-CF-PlY" eventType="touchUpInside" id="Gg4-Lh-bRW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450979" green="0.22352941176470587" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -48,7 +61,9 @@
                             <constraint firstItem="471-M7-GvL" firstAttribute="leading" secondItem="gSk-Ql-KgQ" secondAttribute="leading" constant="24" id="aWA-fJ-Rad"/>
                             <constraint firstItem="471-M7-GvL" firstAttribute="top" secondItem="gSk-Ql-KgQ" secondAttribute="top" constant="36" id="odA-tz-He3"/>
                             <constraint firstItem="05a-Nx-j7B" firstAttribute="leading" secondItem="gSk-Ql-KgQ" secondAttribute="leading" id="rey-Ti-FEg"/>
+                            <constraint firstItem="0MW-63-H3D" firstAttribute="centerY" secondItem="471-M7-GvL" secondAttribute="centerY" id="rzE-9R-B04"/>
                             <constraint firstItem="gSk-Ql-KgQ" firstAttribute="bottom" secondItem="05a-Nx-j7B" secondAttribute="bottom" id="xwb-iK-5zK"/>
+                            <constraint firstItem="gSk-Ql-KgQ" firstAttribute="trailing" secondItem="0MW-63-H3D" secondAttribute="trailing" constant="16" id="yFL-Va-NIs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSk-Ql-KgQ"/>
                     </view>
@@ -62,6 +77,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="like" width="128" height="128"/>
         <image name="settings" width="50" height="50"/>
     </resources>
 </document>

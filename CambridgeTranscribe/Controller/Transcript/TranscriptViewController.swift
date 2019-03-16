@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol TranscriptViewControllerDelegate {
     func transcriptViewController(_ vc: TranscriptViewController, didChange transcript: TranscriptDocument)
@@ -14,20 +15,33 @@ protocol TranscriptViewControllerDelegate {
 
 class TranscriptViewController: UIViewController {
     
+    @IBOutlet weak var headerImageView: ShadowImageView!
+    @IBOutlet weak var headerBottomBar: UIView!
     @IBOutlet weak var headerBackground: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     private var scrollViewTopBackground: UIView!
-    @IBOutlet weak var leftImageView: UIImageView!
+    @IBOutlet weak var transcriptIconView: TranscriptIconView?
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var headlineLabel: UILabel!
     @IBOutlet weak var audioPlaybackContainer: UIView!
     private var audioPlaybackProgress: TranscriptAudioPlaybackProgress!
-    @IBOutlet weak var askADIButton: Button!
     
     public var transcript: TranscriptDocument?
     @IBOutlet weak var fragmentStackView: UIStackView!
     
     var delegate: TranscriptViewControllerDelegate?
+    
+    lazy private var textToSpeech: TextToSpeech = {
+      return TextToSpeech()
+    }()
+    var audioPlayer: AVAudioPlayer?
+    var audioDisplayLink: CADisplayLink?
+    
+    public var color: LectureDocument.Color = .magenta {
+        didSet {
+            transcriptIconView?.color = color
+        }
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
@@ -35,21 +49,16 @@ class TranscriptViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.white
                 
         scrollViewTopBackground = UIView()
         scrollViewTopBackground.frame = CGRect(x: 0, y: -800, width: view.bounds.size.width, height: 800)
         scrollViewTopBackground.backgroundColor = UIColor(rgb: 0x2A2A49)
         scrollView.addSubview(scrollViewTopBackground)
-        scrollView.backgroundColor = UIColor(rgb: 0x2A2A49)
-        
-        askADIButton.centerTextAndImage(spacing: 8)
-        
-        let imageGradient = CAGradientLayer()
-        imageGradient.frame = leftImageView.bounds
-        imageGradient.colors = [UIColor(rgb: 0x5A4BFF).cgColor, UIColor(rgb: 0x5F4CFF).cgColor]
-        leftImageView.layer.cornerRadius = 8
-        leftImageView.layer.masksToBounds = true
-        leftImageView.layer.insertSublayer(imageGradient, at: 0)
+
+        scrollView.backgroundColor = UIColor.white
+        headerBottomBar.backgroundColor = UIColor.white
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy - HH:mm"
@@ -59,15 +68,20 @@ class TranscriptViewController: UIViewController {
             dateLabel.text = ""
         }
         dateLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 17)
-        dateLabel.textColor = UIColor(white: 1, alpha: 0.5)
+        dateLabel.textColor = UIColor(white: 1, alpha: 1)
         
         headlineLabel.text = transcript?.title
         headlineLabel.font = UIFont.brandonGrotesque(weight: .bold, size: 32)
         headlineLabel.textColor = UIColor.white
 
+        transcriptIconView?.color = color
+        transcriptIconView?.title = LectureStore.lectures.object(withId: transcript!.lectureId)!.shortName
+        
+        audioPlaybackContainer.backgroundColor = UIColor.clear
         audioPlaybackProgress = UINib(nibName: "TranscriptAudioPlaybackProgress", bundle: nil).instantiate(withOwner: self, options: nil).first as? TranscriptAudioPlaybackProgress
         audioPlaybackProgress.frame = audioPlaybackContainer.bounds
         audioPlaybackContainer.addSubview(audioPlaybackProgress)
+        audioPlaybackProgress.playButton.addTarget(self, action: #selector(playAudioButtonTapped), for: .touchUpInside)
         
         if let transcript = self.transcript {
             for fragment in transcript.fragments {
@@ -87,11 +101,17 @@ class TranscriptViewController: UIViewController {
         }
         
         fragmentStackView.sizeToFit()
+        fragmentStackView.backgroundColor = UIColor.white
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        scrollView.backgroundColor = UIColor(rgb: 0xffffff)
     }
     
     override func viewDidLayoutSubviews() {
@@ -100,10 +120,63 @@ class TranscriptViewController: UIViewController {
         audioPlaybackProgress.frame = audioPlaybackContainer.bounds
     }
     
+    //MARK: Actions
+    
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func playAudioButtonTapped() {
+        if let audioPlayer = self.audioPlayer, audioPlayer.isPlaying {
+            audioPlayer.stop()
+            return;
+        }
+        
+        guard let content = transcript?.fragments.first?.content else { return }
+        self.audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.processing
+
+        textToSpeech.speechFrom(text: content) { audioData in
+            DispatchQueue.main.async {
+                guard let data = audioData else { return }
+                let audioSession = AVAudioSession.init()
+                do {
+                    self.audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.preparingAudio
+
+                    try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker]) // options is important otherwise the sound is very quiet
+                    try audioSession.setActive(true)
+                    
+                    self.audioPlayer = try AVAudioPlayer(data: data, fileTypeHint: AVFileType.wav.rawValue)
+                    self.audioPlayer!.delegate = self
+                    self.audioPlayer!.prepareToPlay()
+                    self.audioPlayer!.play()
+
+                    self.audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.playing
+                    
+                    self.audioDisplayLink = CADisplayLink(target: self, selector: #selector(self.updateAudioProgress))
+                    self.audioDisplayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    //MARK: Audio
+    
+    @objc private func updateAudioProgress() {
+        guard let audioPlayer = self.audioPlayer else {
+            audioDisplayLink?.invalidate()
+            return
+        }
+        
+        if (audioPlayer.isPlaying) {
+            let progress: Float = Float(audioPlayer.currentTime / audioPlayer.duration)
+            audioPlaybackProgress.progressView.setProgress(progress, animated: false)
+        } else {
+            audioDisplayLink?.invalidate()
+            audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.finished
+        }
+    }
 }
 
 extension TranscriptViewController: TranscriptFragmentViewDelegate {
@@ -157,4 +230,15 @@ extension TranscriptViewController: TranscriptFragmentViewDelegate {
         navigationController?.pushViewController(entityVC, animated: true)
     }
 
+}
+
+
+extension TranscriptViewController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        audioPlaybackProgress.progressView.setProgress(1, animated: true)
+        audioDisplayLink?.invalidate()
+        audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.finished
+    }
+    
 }

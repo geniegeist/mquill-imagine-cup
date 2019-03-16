@@ -29,8 +29,9 @@ class TranscribingViewController: UINavigationController {
     private var feeds: [LiveTranscriptFeed] = [] {
         didSet {
             feedCalculator?.sectionedValues = SectionedValues([(0, feeds)])
-            let row = feedCalculator!.numberOfObjects(inSection: 0) - 1
             /*
+             let row = feedCalculator!.numberOfObjects(inSection: 0) - 1
+            
             if (row > 0 && !userIsScrolling && !lockerUserContentOffset && oldValue.count > 1) {
                 feedView.scrollToRow(at: IndexPath(row: row, section: 0), at: .top, animated: true)
             }
@@ -164,7 +165,6 @@ class TranscribingViewController: UINavigationController {
         speechToText.startRecognizing()
         presentPopupBar(withContentViewController: popupController, animated: true, completion: nil)
         
-        
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         var url = paths[0]
         url.appendPathComponent("recordTest.m4a")
@@ -176,8 +176,8 @@ class TranscribingViewController: UINavigationController {
             AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
         ]
         
-        let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setCategory(.playAndRecord, mode: .default)
+        let audioSession:AVAudioSession = AVAudioSession.init()
+        try! audioSession.setCategory(.record, mode: .default)
         audioRecorder = try! AVAudioRecorder(url: url, settings: recordSettings)
         try! audioSession.setActive(true)
         
@@ -222,9 +222,11 @@ class TranscribingViewController: UINavigationController {
             }
             DispatchQueue.global(qos: .default).async {
                 self.speechToText.stopRecognizing()
+                self.audioRecorder.stop()
             }
         } else {
             speechToText.startRecognizing()
+            audioRecorder.record()
             
             if (popupBarController.contentLabel.text == "Resume transcription...") {
                 popupBarController.contentLabel.text = "I am listening..."
