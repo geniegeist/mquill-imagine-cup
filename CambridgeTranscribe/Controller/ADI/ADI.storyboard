@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="NPS-yY-TQ6">
@@ -18,20 +23,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lZ-f9-hxi">
-                                <rect key="frame" x="166" y="350" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oy8-vM-1cV">
+                                <rect key="frame" x="12" y="407" width="351" height="244"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="bNQ-16-NcL"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="245" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jfz-6Y-GZH" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="44" y="184" width="253" height="64"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ryq-vr-SL2"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="What is your question?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rl1-2w-rle">
+                                <rect key="frame" x="325" y="40" width="26" height="26"/>
+                                <state key="normal" image="close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="dismiss"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="5Cr-VE-qyG" eventType="touchUpInside" id="ejf-E0-NYi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-B6-KP0">
+                                <rect key="frame" x="309" y="203.5" width="54" height="37"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.4823529411764706" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="u1a-EJ-0yq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                                <state key="normal" title="Ask">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="askButtonTapped:" destination="5Cr-VE-qyG" eventType="touchUpInside" id="710-DI-fFM"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-oZ-LRB" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="8" y="210" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9xl-oZ-LRB" secondAttribute="height" multiplier="1:1" id="Aar-GF-nQI"/>
+                                    <constraint firstAttribute="width" constant="28" id="cqb-ux-NWV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.23921568630000001" green="0.4823529412" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballRotate"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7Y-Ki-rXQ">
+                                <rect key="frame" x="0.0" y="100" width="375" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-ve-maf" customClass="AskAdiButton" customModule="CambridgeTranscribe" customModuleProvider="target">
+                                <rect key="frame" x="155.5" y="567" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="XE5-az-waF"/>
+                                    <constraint firstAttribute="width" secondItem="DIb-ve-maf" secondAttribute="height" multiplier="1:1" id="eBx-fW-bzt"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="startVoiceButtonTapped:" destination="5Cr-VE-qyG" eventType="touchUpInside" id="UTM-yx-4Fp"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="trailing" secondItem="A7Y-Ki-rXQ" secondAttribute="trailing" id="02g-5w-emM"/>
+                            <constraint firstItem="Qsd-B6-KP0" firstAttribute="leading" secondItem="Jfz-6Y-GZH" secondAttribute="trailing" constant="12" id="4SY-xz-HAb"/>
+                            <constraint firstItem="Oy8-vM-1cV" firstAttribute="leading" secondItem="kzj-u2-j3z" secondAttribute="leading" constant="12" id="6sx-oh-1wp"/>
+                            <constraint firstItem="A7Y-Ki-rXQ" firstAttribute="top" secondItem="kzj-u2-j3z" secondAttribute="top" constant="80" id="AF9-1Z-1ZW"/>
+                            <constraint firstItem="Jfz-6Y-GZH" firstAttribute="top" secondItem="kzj-u2-j3z" secondAttribute="top" constant="164" id="C5k-NZ-u9D"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="bottom" secondItem="Oy8-vM-1cV" secondAttribute="bottom" constant="16" id="Cv0-pT-pyO"/>
+                            <constraint firstItem="9xl-oZ-LRB" firstAttribute="leading" secondItem="kzj-u2-j3z" secondAttribute="leading" constant="8" id="Ex6-KM-ZNF"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="bottom" secondItem="A7Y-Ki-rXQ" secondAttribute="bottom" constant="60" id="WO3-Vz-dZb"/>
+                            <constraint firstItem="DIb-ve-maf" firstAttribute="centerX" secondItem="kzj-u2-j3z" secondAttribute="centerX" id="Z9G-FW-BDM"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="trailing" secondItem="Oy8-vM-1cV" secondAttribute="trailing" constant="12" id="dd8-AE-yGR"/>
+                            <constraint firstItem="Qsd-B6-KP0" firstAttribute="centerY" secondItem="Jfz-6Y-GZH" secondAttribute="centerY" constant="6" id="dg0-lv-IbK"/>
+                            <constraint firstItem="Rl1-2w-rle" firstAttribute="top" secondItem="kzj-u2-j3z" secondAttribute="top" constant="20" id="fsx-sz-8Ut"/>
+                            <constraint firstItem="9xl-oZ-LRB" firstAttribute="centerY" secondItem="Jfz-6Y-GZH" secondAttribute="centerY" constant="8" id="kCM-VC-9Er"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="trailing" secondItem="Qsd-B6-KP0" secondAttribute="trailing" constant="12" id="qsa-w1-FCz"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="bottom" secondItem="DIb-ve-maf" secondAttribute="bottom" constant="36" id="rP8-ly-c8w"/>
+                            <constraint firstItem="A7Y-Ki-rXQ" firstAttribute="leading" secondItem="kzj-u2-j3z" secondAttribute="leading" id="viz-ne-jqe"/>
+                            <constraint firstItem="kzj-u2-j3z" firstAttribute="trailing" secondItem="Rl1-2w-rle" secondAttribute="trailing" constant="24" id="xrD-Qy-Kcl"/>
+                            <constraint firstItem="Jfz-6Y-GZH" firstAttribute="leading" secondItem="9xl-oZ-LRB" secondAttribute="trailing" constant="8" id="ywx-e0-7cX" customClass="NV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kzj-u2-j3z"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KA4-lN-cqI" appends="YES" id="fdI-cQ-bdD"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9xl-oZ-LRB" id="5pf-ts-Im3"/>
+                        <outlet property="activityIndicatorSizeConstraint" destination="cqb-ux-NWV" id="Ovp-KN-xo6"/>
+                        <outlet property="adiViewContainer" destination="Oy8-vM-1cV" id="Exw-qJ-f4O"/>
+                        <outlet property="adiViewContainerBottomConstraint" destination="Cv0-pT-pyO" id="rtQ-Fm-XzT"/>
+                        <outlet property="askButton" destination="Qsd-B6-KP0" id="86i-JJ-W4G"/>
+                        <outlet property="startVoiceButton" destination="DIb-ve-maf" id="nvO-cL-jeH"/>
+                        <outlet property="tableView" destination="A7Y-Ki-rXQ" id="wbX-lF-jZp"/>
+                        <outlet property="textField" destination="Jfz-6Y-GZH" id="LC7-ih-7cq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8f-hf-eD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KA4-lN-cqI">
+                    <connections>
+                        <action selector="tapped:" destination="5Cr-VE-qyG" id="oVx-TD-n8N"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="25" y="340"/>
+            <point key="canvasLocation" x="24.800000000000001" y="339.58020989505252"/>
         </scene>
         <!--Pull OverADI View Controller-->
         <scene sceneID="nw2-Ut-DGn">
@@ -48,4 +167,7 @@
             <point key="canvasLocation" x="825" y="392"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="26" height="26"/>
+    </resources>
 </document>

@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 class PullOverADIView: UIView {
     
     enum State {
+        case idle
         case waitingForSpeech
         case processingSpeech
         case processingRequest
@@ -26,10 +27,16 @@ class PullOverADIView: UIView {
     var siriWave: PXSiriWave!
     var siriDisplayLink: CADisplayLink!
     @IBOutlet weak var topHeaderContainer: UIView!
+    @IBOutlet weak var keyboardButton: UIButton!
+    @IBOutlet weak var recognizeVoiceButton: UIButton!
     var topSiri: PXSiriWave!
     
     var isPlayingMainWave: Bool = false
-    var isPlayingTopWave: Bool = false
+    var isPlayingTopWave: Bool = false {
+        didSet {
+            topSiri.isHidden = !isPlayingTopWave
+        }
+    }
     
     var state: State = .waitingForSpeech {
         didSet {
@@ -57,7 +64,19 @@ class PullOverADIView: UIView {
                 smallTitleLabel.isHidden = false
                 siriViewContainer.isHidden = true
                 activityIndicator.isHidden = true
+            } else if (state == .idle) {
+                supportLabel.isHidden = true
+                titleLabel.isHidden = true
+                smallTitleLabel.isHidden = false
+                siriViewContainer.isHidden = false
+                activityIndicator.isHidden = true
+                recognizeVoiceButton.isHidden = false
+                
+                smallTitleLabel.text = "How can I help you?"
+                supportLabel.text = "You can write or speak to ADI"
             }
+            
+            isPlayingMainWave = !(state == .idle || state == .finished)
         }
     }
 
@@ -76,15 +95,16 @@ class PullOverADIView: UIView {
     
     private func setupUI() {
         siriWave = PXSiriWave(frame: siriViewContainer.bounds)
-        siriWave.backgroundColor = UIColor.init(rgb: 0x2A2A49)
+        siriWave.backgroundColor = UIColor.clear
         siriWave.layer.masksToBounds = true
         siriWave.intensity = 0.3
         siriWave.amplitude = 0.01;
         siriWave.frequency = 0.1
         siriWave.colors = [UIColor(rgb: 0x2085fc), UIColor(rgb: 0x5efca9), UIColor(rgb: 0xfd4767)]
         siriWave.configure()
-        siriViewContainer.addSubview(siriWave)
+        siriViewContainer.insertSubview(siriWave, at: 0)
         siriViewContainer.layer.masksToBounds = true
+        siriViewContainer.backgroundColor = UIColor.init(rgb: 0x2A2A49)
         
         siriDisplayLink = CADisplayLink(target: self, selector: #selector(updateMeters))
         siriDisplayLink.add(to: RunLoop.current, forMode: .common)
@@ -102,6 +122,14 @@ class PullOverADIView: UIView {
         backgroundColor = UIColor(rgb: 0x2A2A49)
         layer.cornerRadius = 24
         layer.masksToBounds = true
+        
+        /*
+        recognizeVoiceButton.backgroundColor = UIColor(white: 1, alpha: 0.2)
+        recognizeVoiceButton.setTitleColor(UIColor.white, for: .normal)
+        recognizeVoiceButton.titleLabel?.font = UIFont.brandonGrotesque(weight: .medium, size: 17)
+        recognizeVoiceButton.layer.cornerRadius = 4
+        */
+        recognizeVoiceButton.isHidden = true
     }
     
     @objc private func updateMeters() {

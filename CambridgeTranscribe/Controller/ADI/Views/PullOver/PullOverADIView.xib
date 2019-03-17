@@ -39,8 +39,30 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTR-d5-AYe">
                     <rect key="frame" x="0.0" y="100" width="375" height="164"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmF-6Y-YpS">
+                            <rect key="frame" x="323" y="116" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="aUV-ST-jKB"/>
+                                <constraint firstAttribute="width" secondItem="bmF-6Y-YpS" secondAttribute="height" multiplier="1:1" id="kVx-6d-tsg"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="icons8-keyboard-96"/>
+                        </button>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqM-Wm-YsE">
+                            <rect key="frame" x="8" y="118" width="44" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="cxD-Cj-eQe"/>
+                            </constraints>
+                            <state key="normal" image="microphone"/>
+                        </button>
+                    </subviews>
                     <constraints>
+                        <constraint firstItem="rdg-00-yog" firstAttribute="bottom" secondItem="bmF-6Y-YpS" secondAttribute="bottom" constant="12" id="cfV-Cv-Z5k"/>
+                        <constraint firstItem="rdg-00-yog" firstAttribute="trailing" secondItem="bmF-6Y-YpS" secondAttribute="trailing" constant="16" id="kx6-z1-Jn9"/>
+                        <constraint firstItem="dqM-Wm-YsE" firstAttribute="leading" secondItem="rdg-00-yog" secondAttribute="leading" constant="8" id="reC-Gc-ttl"/>
                         <constraint firstAttribute="height" constant="164" id="yZs-NW-IIf"/>
+                        <constraint firstItem="rdg-00-yog" firstAttribute="bottom" secondItem="dqM-Wm-YsE" secondAttribute="bottom" constant="12" id="yb7-yz-wJL"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="rdg-00-yog"/>
                 </view>
@@ -92,6 +114,8 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="activityIndicator" destination="WsU-EL-d41" id="Em8-zs-XPi"/>
+                <outlet property="keyboardButton" destination="bmF-6Y-YpS" id="SoK-mc-s0k"/>
+                <outlet property="recognizeVoiceButton" destination="dqM-Wm-YsE" id="Xca-aD-7O1"/>
                 <outlet property="siriViewContainer" destination="fTR-d5-AYe" id="6P6-UH-YuY"/>
                 <outlet property="smallTitleLabel" destination="ozy-AZ-wwm" id="6Zs-JM-tmS"/>
                 <outlet property="supportLabel" destination="tMO-Ny-fgW" id="dYb-C1-6NY"/>
@@ -101,4 +125,8 @@
             <point key="canvasLocation" x="53.600000000000001" y="273.4632683658171"/>
         </view>
     </objects>
+    <resources>
+        <image name="icons8-keyboard-96" width="72" height="72"/>
+        <image name="microphone" width="18" height="34"/>
+    </resources>
 </document>

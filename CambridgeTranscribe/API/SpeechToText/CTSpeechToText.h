@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isPlaying;
 - (void)startRecognizing;
 - (void)stopRecognizing;
+
+- (void)recognizeUtterance:(void (^)(NSString *))completionBlock;
 @end
 
 NS_ASSUME_NONNULL_END

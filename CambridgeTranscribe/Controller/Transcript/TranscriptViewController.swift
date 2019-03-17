@@ -37,6 +37,8 @@ class TranscriptViewController: UIViewController {
     var audioPlayer: AVAudioPlayer?
     var audioDisplayLink: CADisplayLink?
     
+    private var askAdiButton: AskAdiButton!
+    
     public var color: LectureDocument.Color = .magenta {
         didSet {
             transcriptIconView?.color = color
@@ -51,6 +53,12 @@ class TranscriptViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
+        
+        let askAdiSize: CGFloat = 64
+        askAdiButton = AskAdiButton(frame: CGRect(x: view.bounds.size.width - askAdiSize - 16, y: view.bounds.size.height - askAdiSize - 24, width: askAdiSize, height: askAdiSize))
+        view.addSubview(askAdiButton)
+        askAdiButton.addTarget(self, action: #selector(askAdiButtonTapped), for: .touchUpInside)
+        askAdiButton.hero.id = "batman"
                 
         scrollViewTopBackground = UIView()
         scrollViewTopBackground.frame = CGRect(x: 0, y: -800, width: view.bounds.size.width, height: 800)
@@ -159,6 +167,13 @@ class TranscriptViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func askAdiButtonTapped() {
+        let vc = UIStoryboard(name: "ADI", bundle: nil).instantiateInitialViewController() as! ADIViewController
+        let context = transcript?.fragments.map({ $0.content }).joined(separator: " ")
+        vc.context = context
+        present(vc, animated: true, completion: nil)
     }
     
     //MARK: Audio

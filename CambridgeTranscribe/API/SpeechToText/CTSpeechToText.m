@@ -94,4 +94,14 @@
     self.isPlaying = NO;
 }
 
+- (void)recognizeUtterance:(void (NSString *))completionBlock
+{
+    [self.speechRecognizer recognizeOnceAsync:^(SPXSpeechRecognitionResult * _Nonnull result) {
+        NSString *utterance = result.text;
+        if (completionBlock) {
+            completionBlock(utterance);
+        }
+    }];
+}
+
 @end

@@ -51,6 +51,9 @@
                                                 <rect key="frame" x="309" y="28" width="58" height="58"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                                 <state key="normal" image="close_filled_round"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="dismiss"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="dismiss:" destination="o6q-4n-imB" eventType="touchUpInside" id="6kW-AD-hJg"/>
                                                 </connections>
@@ -81,7 +84,6 @@
                                             <constraint firstItem="rtY-IM-1BW" firstAttribute="centerY" secondItem="Ybo-Yh-daQ" secondAttribute="centerY" id="LVM-L8-qXp"/>
                                             <constraint firstItem="Ybo-Yh-daQ" firstAttribute="leading" secondItem="8SH-ye-dxm" secondAttribute="leading" id="OKS-Up-HwM"/>
                                             <constraint firstItem="cKI-cY-7bV" firstAttribute="top" secondItem="w1w-Ub-xWQ" secondAttribute="bottom" constant="24" id="Q6V-KS-1Rg"/>
-                                            <constraint firstItem="8SH-ye-dxm" firstAttribute="top" secondItem="Ybo-Yh-daQ" secondAttribute="bottom" constant="169" id="Q8F-Bv-Imv"/>
                                             <constraint firstAttribute="bottom" secondItem="cKI-cY-7bV" secondAttribute="bottom" id="QJH-3n-QhA"/>
                                             <constraint firstAttribute="bottom" secondItem="6Dg-uV-iR4" secondAttribute="bottom" id="SEk-P7-EW3"/>
                                             <constraint firstAttribute="trailing" secondItem="rtY-IM-1BW" secondAttribute="trailing" constant="8" id="c5N-PJ-Ltd"/>
