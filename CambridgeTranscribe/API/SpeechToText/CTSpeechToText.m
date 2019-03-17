@@ -91,16 +91,14 @@
 - (void)stopRecognizing
 {
     [self.speechRecognizer stopContinuousRecognition];
+    self.speechRecognizer = nil;
     self.isPlaying = NO;
 }
 
-- (void)recognizeUtterance:(void (NSString *))completionBlock
+- (void)recognizeUtterance:(void (^)(NSString * _Nonnull))completionBlock
 {
     [self.speechRecognizer recognizeOnceAsync:^(SPXSpeechRecognitionResult * _Nonnull result) {
-        NSString *utterance = result.text;
-        if (completionBlock) {
-            completionBlock(utterance);
-        }
+        completionBlock(result.text);
     }];
 }
 

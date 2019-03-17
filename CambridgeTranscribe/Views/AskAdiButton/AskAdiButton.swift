@@ -14,6 +14,14 @@ class AskAdiButton: UIButton {
     var siriDisplayLink: CADisplayLink!
 
     var isPlaying: Bool = true
+    
+    var cornerRadius: CGFloat? {
+        didSet {
+            if let cornerRadius = self.cornerRadius {
+                layer.cornerRadius = cornerRadius
+            }
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,7 +35,11 @@ class AskAdiButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = frame.size.height / 2.0
+        if let cornerRadius = self.cornerRadius {
+            layer.cornerRadius = cornerRadius
+        } else {
+            layer.cornerRadius = frame.size.height / 2.0
+        }
     }
     
     private func setupUI() {
@@ -45,10 +57,15 @@ class AskAdiButton: UIButton {
         siriWave.isUserInteractionEnabled = false
         addSubview(siriWave)
         
+        let timer = Timer(timeInterval: 0.04, target: self, selector: #selector(updateMeters), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
+        
+        /*
         Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true) { timer in
             self.updateMeters()
         }
-
+        */
+        
         backgroundColor = UIColor(rgb: 0x35355B)
         
         setTitle("ADI", for: .normal)

@@ -104,6 +104,11 @@
 		6FC82C89223E60BF001BD229 /* ADISimpleTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FC82C87223E60BF001BD229 /* ADISimpleTextCell.xib */; };
 		6FC82C8C223E653B001BD229 /* ADIInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C8A223E653B001BD229 /* ADIInfoCell.swift */; };
 		6FC82C8D223E653B001BD229 /* ADIInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FC82C8B223E653B001BD229 /* ADIInfoCell.xib */; };
+		6FC82C91223EC246001BD229 /* ADIListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C90223EC246001BD229 /* ADIListeningViewController.swift */; };
+		6FC82C93223EC888001BD229 /* ADIFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C92223EC888001BD229 /* ADIFailViewController.swift */; };
+		6FC82C95223ECDC3001BD229 /* ADITextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C94223ECDC3001BD229 /* ADITextViewController.swift */; };
+		6FC82C97223EF660001BD229 /* ADIResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C96223EF660001BD229 /* ADIResponseViewController.swift */; };
+		6FC82C99223F14BB001BD229 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82C98223F14BB001BD229 /* SettingsViewController.swift */; };
 		6FCC5120221962F90029AEAC /* TintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCC511F221962F90029AEAC /* TintImageView.swift */; };
 		6FD8E7C621F3FE0000363438 /* CBRecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7C521F3FE0000363438 /* CBRecordDetailViewController.m */; };
 		6FD8E7C921F4071900363438 /* CBRecordTranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8E7C821F4071900363438 /* CBRecordTranscriptViewController.m */; };
@@ -250,6 +255,11 @@
 		6FC82C87223E60BF001BD229 /* ADISimpleTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADISimpleTextCell.xib; sourceTree = "<group>"; };
 		6FC82C8A223E653B001BD229 /* ADIInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADIInfoCell.swift; sourceTree = "<group>"; };
 		6FC82C8B223E653B001BD229 /* ADIInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADIInfoCell.xib; sourceTree = "<group>"; };
+		6FC82C90223EC246001BD229 /* ADIListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADIListeningViewController.swift; sourceTree = "<group>"; };
+		6FC82C92223EC888001BD229 /* ADIFailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ADIFailViewController.swift; path = CambridgeTranscribe/Controller/ADI/ADIFailViewController.swift; sourceTree = SOURCE_ROOT; };
+		6FC82C94223ECDC3001BD229 /* ADITextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADITextViewController.swift; sourceTree = "<group>"; };
+		6FC82C96223EF660001BD229 /* ADIResponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADIResponseViewController.swift; sourceTree = "<group>"; };
+		6FC82C98223F14BB001BD229 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6FCC511F221962F90029AEAC /* TintImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintImageView.swift; sourceTree = "<group>"; };
 		6FD8E7C421F3FE0000363438 /* CBRecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBRecordDetailViewController.h; sourceTree = "<group>"; };
 		6FD8E7C521F3FE0000363438 /* CBRecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRecordDetailViewController.m; sourceTree = "<group>"; };
@@ -451,6 +461,10 @@
 			children = (
 				6F4D1F5122368D090068C7A2 /* Views */,
 				6F05D4F02236527800729A21 /* ADIViewController.swift */,
+				6FC82C90223EC246001BD229 /* ADIListeningViewController.swift */,
+				6FC82C92223EC888001BD229 /* ADIFailViewController.swift */,
+				6FC82C94223ECDC3001BD229 /* ADITextViewController.swift */,
+				6FC82C96223EF660001BD229 /* ADIResponseViewController.swift */,
 				6F05D4F22236528600729A21 /* ADI.storyboard */,
 				6F4D1F48223673DB0068C7A2 /* PullOverADIViewController.swift */,
 			);
@@ -462,6 +476,7 @@
 			children = (
 				6F05D4872233E94200729A21 /* Views */,
 				6F05D4852233E72800729A21 /* LecturesViewController.swift */,
+				6FC82C98223F14BB001BD229 /* SettingsViewController.swift */,
 				6F05D4832233E6EC00729A21 /* Lectures.storyboard */,
 			);
 			path = Lectures;
@@ -526,7 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				6FC82C85223E609B001BD229 /* Cells */,
-				6F4D1F5522369C860068C7A2 /* Processing */,
 				6F4D1F5222368D130068C7A2 /* PullOver */,
 			);
 			path = Views;
@@ -539,13 +553,6 @@
 				6F4D1F5322368D280068C7A2 /* PullOverADIView.xib */,
 			);
 			path = PullOver;
-			sourceTree = "<group>";
-		};
-		6F4D1F5522369C860068C7A2 /* Processing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Processing;
 			sourceTree = "<group>";
 		};
 		6F4D1F56223859650068C7A2 /* Summary */ = {
@@ -1271,6 +1278,7 @@
 			files = (
 				6F983215223BAF6F00868167 /* EntitySearch.swift in Sources */,
 				6F597936223CE28F00D7BBEE /* Array+Unique.swift in Sources */,
+				6FC82C99223F14BB001BD229 /* SettingsViewController.swift in Sources */,
 				6F05D4EE2235BB4100729A21 /* ShadowImageView.swift in Sources */,
 				6F597927223C12AC00D7BBEE /* CreateNewLectureViewController.swift in Sources */,
 				6F05D4862233E72800729A21 /* LecturesViewController.swift in Sources */,
@@ -1290,10 +1298,12 @@
 				6F4D1F582238597E0068C7A2 /* DailySummaryViewController.swift in Sources */,
 				6FD8E7C921F4071900363438 /* CBRecordTranscriptViewController.m in Sources */,
 				6F05D49D2234035A00729A21 /* TranscriptAudioPlaybackProgress.swift in Sources */,
+				6FC82C93223EC888001BD229 /* ADIFailViewController.swift in Sources */,
 				6F05D4972233F89F00729A21 /* TranscriptViewController.swift in Sources */,
 				6F4D1F89223A56120068C7A2 /* TranscriptIconView.swift in Sources */,
 				6F05D4A22234230D00729A21 /* Button.swift in Sources */,
 				6FBB619E221B42BA0073650C /* SCSiriWaveformView.m in Sources */,
+				6FC82C95223ECDC3001BD229 /* ADITextViewController.swift in Sources */,
 				6F05D4F12236527800729A21 /* ADIViewController.swift in Sources */,
 				6F05D4DD2235845500729A21 /* NSRange+UITextRange.swift in Sources */,
 				6F597919223BF47600D7BBEE /* SaveTranscriptViewController.swift in Sources */,
@@ -1305,6 +1315,7 @@
 				6F05D4E02235A0D700729A21 /* EntityViewController.swift in Sources */,
 				6F4D1F5E223863460068C7A2 /* DailySummaryCell.swift in Sources */,
 				6F4D1F96223AAA6A0068C7A2 /* PlayButton.swift in Sources */,
+				6FC82C97223EF660001BD229 /* ADIResponseViewController.swift in Sources */,
 				6FC82C88223E60BF001BD229 /* ADISimpleTextCell.swift in Sources */,
 				6F59791F223BFB9100D7BBEE /* SaveTranscriptCell.swift in Sources */,
 				6F53C1C5223D6FAE00683094 /* DOFavoriteButton.swift in Sources */,
@@ -1331,6 +1342,7 @@
 				6F05D4B222353E4000729A21 /* TranscriptDocument.swift in Sources */,
 				6F05D4942233F68700729A21 /* LectureTag.swift in Sources */,
 				6FED1A5A2219C33E00A3D375 /* RecordViewController.swift in Sources */,
+				6FC82C91223EC246001BD229 /* ADIListeningViewController.swift in Sources */,
 				6F05D48A2233E96E00729A21 /* LectureCell.swift in Sources */,
 				6F59792B223C296600D7BBEE /* String+Range.swift in Sources */,
 				6F4D1F6E2239A47B0068C7A2 /* TranscribingCustomBarViewController.swift in Sources */,

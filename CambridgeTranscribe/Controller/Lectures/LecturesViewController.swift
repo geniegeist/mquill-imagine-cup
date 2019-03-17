@@ -37,6 +37,10 @@ class LecturesViewController: UIViewController {
         navVC.navigationBar.isHidden = true
         present(navVC, animated: true, completion: nil)
     }
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        let vc = UIStoryboard(name: "Lectures", bundle: nil).instantiateViewController(withIdentifier: "settings") as! SettingsViewController
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension LecturesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -65,6 +69,12 @@ extension LecturesViewController: UICollectionViewDelegate, UICollectionViewData
         cell.headlineLabel.text = transcript.title
         cell.transcriptIconView.color = lecture.color
         cell.transcriptIconViewTitleLabel.text = lecture.shortName
+        
+        if (transcript.keywords.count > 3) {
+            cell.tags = Array(transcript.keywords[0...2])
+        } else {
+            cell.tags = transcript.keywords
+        }
         
         return cell
     }

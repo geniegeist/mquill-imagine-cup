@@ -31,7 +31,7 @@ class FavouritesViewController: UIViewController {
         
         view.backgroundColor = UIColor(rgb: 0xE74774)
 
-        tableView.layer.cornerRadius = 16
+        tableView.layer.cornerRadius = 24
         tableView.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self

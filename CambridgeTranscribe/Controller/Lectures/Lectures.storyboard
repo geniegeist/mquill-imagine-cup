@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_med.otf">
+            <string>BrandonGrotesque-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Lectures View Controller-->
         <scene sceneID="g0O-ea-jyZ">
@@ -25,6 +30,9 @@
                                     <constraint firstAttribute="width" constant="25" id="Xfx-dX-Xqk"/>
                                 </constraints>
                                 <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="DdM-CF-PlY" eventType="touchUpInside" id="0sc-cn-g9K"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="05a-Nx-j7B">
                                 <rect key="frame" x="0.0" y="89" width="375" height="578"/>
@@ -74,6 +82,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVM-Oj-Q0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="516" y="-229.83508245877064"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="qYM-h5-Quf">
+            <objects>
+                <viewController storyboardIdentifier="settings" id="ncS-Er-cHw" customClass="SettingsViewController" customModule="CambridgeTranscribe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oqX-Mn-iY8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrg-TR-zvb">
+                                <rect key="frame" x="147" y="27" width="81" height="29"/>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oN-pl-qOH">
+                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created with ♥ in Cambridge, Edinburgh and Berlin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-8v-G53">
+                                        <rect key="frame" x="24" y="48" width="232" height="49"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ufd-8v-G53" firstAttribute="leading" secondItem="4oN-pl-qOH" secondAttribute="leading" constant="24" id="55U-X7-UCP"/>
+                                    <constraint firstItem="ufd-8v-G53" firstAttribute="centerX" secondItem="4oN-pl-qOH" secondAttribute="centerX" id="DD5-FM-dQR"/>
+                                    <constraint firstItem="ufd-8v-G53" firstAttribute="top" secondItem="4oN-pl-qOH" secondAttribute="top" constant="48" id="otE-0P-uaS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2784313725" green="0.62352941179999999" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rrg-TR-zvb" firstAttribute="centerX" secondItem="h3r-qD-qbi" secondAttribute="centerX" id="DhO-GC-1dh"/>
+                            <constraint firstItem="4oN-pl-qOH" firstAttribute="top" secondItem="Rrg-TR-zvb" secondAttribute="bottom" id="dHf-fB-hHa"/>
+                            <constraint firstItem="h3r-qD-qbi" firstAttribute="bottom" secondItem="4oN-pl-qOH" secondAttribute="bottom" id="hQ6-FS-ldo"/>
+                            <constraint firstItem="4oN-pl-qOH" firstAttribute="leading" secondItem="h3r-qD-qbi" secondAttribute="leading" id="lkK-9C-Gsd"/>
+                            <constraint firstItem="Rrg-TR-zvb" firstAttribute="top" secondItem="h3r-qD-qbi" secondAttribute="top" constant="7" id="q3S-PI-SkG"/>
+                            <constraint firstItem="h3r-qD-qbi" firstAttribute="trailing" secondItem="4oN-pl-qOH" secondAttribute="trailing" id="uqq-rk-nTf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h3r-qD-qbi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4h-Bg-Ijp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1301.5999999999999" y="-230.73463268365819"/>
         </scene>
     </scenes>
     <resources>

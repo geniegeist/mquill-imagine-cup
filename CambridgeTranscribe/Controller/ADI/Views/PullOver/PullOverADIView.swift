@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import TOMSMorphingLabel
 
 class PullOverADIView: UIView {
     
@@ -21,14 +22,14 @@ class PullOverADIView: UIView {
 
     @IBOutlet weak var supportLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var smallTitleLabel: UILabel!
+    @IBOutlet weak var smallTitleLabel: TOMSMorphingLabel!
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     @IBOutlet weak var siriViewContainer: UIView!
     var siriWave: PXSiriWave!
     var siriDisplayLink: CADisplayLink!
     @IBOutlet weak var topHeaderContainer: UIView!
     @IBOutlet weak var keyboardButton: UIButton!
-    @IBOutlet weak var recognizeVoiceButton: UIButton!
+    @IBOutlet weak var retryButton: UIButton!
     var topSiri: PXSiriWave!
     
     var isPlayingMainWave: Bool = false
@@ -70,7 +71,6 @@ class PullOverADIView: UIView {
                 smallTitleLabel.isHidden = false
                 siriViewContainer.isHidden = false
                 activityIndicator.isHidden = true
-                recognizeVoiceButton.isHidden = false
                 
                 smallTitleLabel.text = "How can I help you?"
                 supportLabel.text = "You can write or speak to ADI"
@@ -122,19 +122,19 @@ class PullOverADIView: UIView {
         backgroundColor = UIColor(rgb: 0x2A2A49)
         layer.cornerRadius = 24
         layer.masksToBounds = true
-        
+                
         /*
         recognizeVoiceButton.backgroundColor = UIColor(white: 1, alpha: 0.2)
         recognizeVoiceButton.setTitleColor(UIColor.white, for: .normal)
         recognizeVoiceButton.titleLabel?.font = UIFont.brandonGrotesque(weight: .medium, size: 17)
         recognizeVoiceButton.layer.cornerRadius = 4
         */
-        recognizeVoiceButton.isHidden = true
     }
     
     @objc private func updateMeters() {
         var decibels = 0.1
         decibels = pow((pow(10.0, 0.05 * decibels) - pow(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - pow(10.0, 0.05 * -60.0))), 1.0 / 2.0);
+        
         if (isPlayingMainWave) {
             siriWave.update(withLevel: CGFloat(decibels))
         }
@@ -158,12 +158,16 @@ class PullOverADIView: UIView {
         smallTitleLabel.text = userSpeech
     }
     
-    public func setStateToProcessingRequest(request: String, animated: Bool = true) {
+    public func setStateToProcessingRequest(request: String, delayText: String? = nil, delay: Double = 5.0, animated: Bool = true) {
         self.smallTitleLabel.alpha = 0
         self.smallTitleLabel.text = request
         self.smallTitleLabel.isHidden = false
-        self.supportLabel.text = "I am searching the internet"
+        self.supportLabel.text = "Asking ADI"
         self.titleLabel.isHidden = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.smallTitleLabel.setText(delayText) {}
+        }
         
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.siriViewContainer.alpha = 0

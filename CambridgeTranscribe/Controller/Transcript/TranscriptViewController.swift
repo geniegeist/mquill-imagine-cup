@@ -59,6 +59,7 @@ class TranscriptViewController: UIViewController {
         view.addSubview(askAdiButton)
         askAdiButton.addTarget(self, action: #selector(askAdiButtonTapped), for: .touchUpInside)
         askAdiButton.hero.id = "batman"
+        askAdiButton.cornerRadius = 16
                 
         scrollViewTopBackground = UIView()
         scrollViewTopBackground.frame = CGRect(x: 0, y: -800, width: view.bounds.size.width, height: 800)
@@ -208,9 +209,7 @@ extension TranscriptViewController: TranscriptFragmentViewDelegate {
         delegate?.transcriptViewController(self, didChange: transcript!)
     }
     
-    func transcriptFragmentPlayButtonTapped(_ fragment: TranscriptFragmentView) {
-        
-    }
+    func transcriptFragmentPlayButtonTapped(_ fragment: TranscriptFragmentView) { }
     
     func transcriptFragment(_ fragmentView: TranscriptFragmentView, markTextIn range: NSRange) {
         let fragmentId = fragmentView.id!

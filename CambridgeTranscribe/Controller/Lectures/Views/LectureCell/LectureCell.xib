@@ -63,36 +63,18 @@
                                 <constraint firstItem="DBp-Lk-cZd" firstAttribute="leading" secondItem="H0l-1g-N7q" secondAttribute="leading" id="dg8-5A-9AT"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newton’s second law" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-RM-Azg" customClass="LectureTag" customModule="CambridgeTranscribe" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="148" width="162" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hamilton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W55-is-tZJ" customClass="LectureTag" customModule="CambridgeTranscribe" customModuleProvider="target">
-                            <rect key="frame" x="170" y="148" width="69" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Relativity theory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skx-0r-2eN" customClass="LectureTag" customModule="CambridgeTranscribe" customModuleProvider="target">
-                            <rect key="frame" x="247" y="148" width="124" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-cW-m5K">
+                            <rect key="frame" x="4" y="58" width="335" height="107"/>
+                        </stackView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="H0l-1g-N7q" secondAttribute="trailing" id="1Hu-1f-bu9"/>
                         <constraint firstItem="sQW-zO-s5p" firstAttribute="top" secondItem="4H1-Nn-QAg" secondAttribute="top" id="8sO-7P-9S7"/>
+                        <constraint firstItem="WA9-cW-m5K" firstAttribute="top" secondItem="sQW-zO-s5p" secondAttribute="bottom" constant="8" id="Gxy-C6-KAI"/>
                         <constraint firstItem="H0l-1g-N7q" firstAttribute="centerY" secondItem="sQW-zO-s5p" secondAttribute="centerY" id="Hx7-Xi-gIf"/>
-                        <constraint firstItem="W55-is-tZJ" firstAttribute="top" secondItem="Ido-RM-Azg" secondAttribute="top" id="VPY-3Q-5no"/>
-                        <constraint firstItem="Ido-RM-Azg" firstAttribute="leading" secondItem="4H1-Nn-QAg" secondAttribute="leading" id="gjZ-om-v6P"/>
-                        <constraint firstItem="skx-0r-2eN" firstAttribute="top" secondItem="W55-is-tZJ" secondAttribute="top" id="gnO-T0-wgS"/>
-                        <constraint firstItem="W55-is-tZJ" firstAttribute="leading" secondItem="Ido-RM-Azg" secondAttribute="trailing" constant="8" id="kNU-ey-Xs5"/>
-                        <constraint firstItem="skx-0r-2eN" firstAttribute="leading" secondItem="W55-is-tZJ" secondAttribute="trailing" constant="8" id="nRi-Li-p4p"/>
+                        <constraint firstAttribute="bottom" secondItem="WA9-cW-m5K" secondAttribute="bottom" constant="4" id="eEi-z1-fRR"/>
                         <constraint firstItem="sQW-zO-s5p" firstAttribute="leading" secondItem="4H1-Nn-QAg" secondAttribute="leading" id="sEh-nM-1by"/>
-                        <constraint firstAttribute="bottom" secondItem="Ido-RM-Azg" secondAttribute="bottom" id="trj-2Q-YfG"/>
+                        <constraint firstItem="WA9-cW-m5K" firstAttribute="leading" secondItem="4H1-Nn-QAg" secondAttribute="leading" constant="4" id="uxQ-Yh-Hre"/>
                         <constraint firstItem="H0l-1g-N7q" firstAttribute="leading" secondItem="sQW-zO-s5p" secondAttribute="trailing" constant="8" id="w2v-sQ-SQb"/>
                     </constraints>
                 </view>
@@ -109,6 +91,7 @@
             <connections>
                 <outlet property="dateLabel" destination="DBp-Lk-cZd" id="Tdc-5O-vgg"/>
                 <outlet property="headlineLabel" destination="duf-1V-s15" id="lxQ-2T-8Sw"/>
+                <outlet property="tagsStackView" destination="WA9-cW-m5K" id="CwI-LX-7yh"/>
                 <outlet property="transcriptIconView" destination="sQW-zO-s5p" id="BOI-7C-uXF"/>
                 <outlet property="transcriptIconViewTitleLabel" destination="uGR-2b-6hn" id="sMY-nh-p7j"/>
             </connections>

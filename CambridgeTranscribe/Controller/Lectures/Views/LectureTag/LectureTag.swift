@@ -14,6 +14,16 @@ class LectureTag: UILabel {
     @IBInspectable var bottomInset: CGFloat = 2.0
     @IBInspectable var leftInset: CGFloat = 7.0
     @IBInspectable var rightInset: CGFloat = 7.0
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

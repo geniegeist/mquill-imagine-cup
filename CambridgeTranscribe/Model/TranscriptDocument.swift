@@ -66,5 +66,14 @@ struct TranscriptDocument: Codable, Identifiable {
         self.lectureId = lectureId
     }
     
+    var keywords: [String] {
+        var res = [String]()
+        for frag in fragments {
+            let tags = frag.tags.filter({ $0.name == .keyword })
+            res += tags.map({ String(frag.content.substring(with: $0.range )!) })
+        }
+        return res
+    }
+    
     static let idKey = \TranscriptDocument.id
 }

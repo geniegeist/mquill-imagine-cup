@@ -14,6 +14,26 @@ class LectureCell: UICollectionViewCell {
     @IBOutlet weak var transcriptIconView: TranscriptIconView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var headlineLabel: UILabel!
+    @IBOutlet weak var tagsStackView: UIStackView!
+    
+    var tags: [String] = [] {
+        didSet {
+            
+            if (tags.count == 0) {
+                tags.append("No keywords found")
+            }
+            
+            for view in tagsStackView.arrangedSubviews {
+                view.removeFromSuperview()
+            }
+            
+            for tag in tags {
+                let tagView = LectureTag()
+                tagView.text = tag
+                tagsStackView.addArrangedSubview(tagView)
+            }
+        }
+    }
         
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +42,11 @@ class LectureCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        tags = []
     }
     
     private func setupUI() {
