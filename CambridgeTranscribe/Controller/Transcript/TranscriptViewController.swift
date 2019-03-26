@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Kingfisher
 
 protocol TranscriptViewControllerDelegate {
     func transcriptViewController(_ vc: TranscriptViewController, didChange transcript: TranscriptDocument)
@@ -15,6 +16,7 @@ protocol TranscriptViewControllerDelegate {
 
 class TranscriptViewController: UIViewController {
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerImageView: ShadowImageView!
     @IBOutlet weak var headerBottomBar: UIView!
     @IBOutlet weak var headerBackground: UIView!
@@ -31,6 +33,9 @@ class TranscriptViewController: UIViewController {
     
     var delegate: TranscriptViewControllerDelegate?
     
+    lazy private var entitySearch: EntitySearch = {
+        return EntitySearch()
+    }()
     lazy private var textToSpeech: TextToSpeech = {
       return TextToSpeech()
     }()
@@ -65,8 +70,10 @@ class TranscriptViewController: UIViewController {
         scrollViewTopBackground.frame = CGRect(x: 0, y: -800, width: view.bounds.size.width, height: 800)
         scrollViewTopBackground.backgroundColor = UIColor(rgb: 0x2A2A49)
         scrollView.addSubview(scrollViewTopBackground)
-
         scrollView.backgroundColor = UIColor.white
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+        scrollView.delegate = self
+        
         headerBottomBar.backgroundColor = UIColor.white
         
         let dateFormatter = DateFormatter()
@@ -177,6 +184,19 @@ class TranscriptViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        // text to share
+        let text = transcript!.stylizedContent
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = view // so that iPads won't crash
+        
+        // present the view controller
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
     //MARK: Audio
     
     @objc private func updateAudioProgress() {
@@ -240,7 +260,23 @@ extension TranscriptViewController: TranscriptFragmentViewDelegate {
     func transcriptFragment(_ fragmentView: TranscriptFragmentView, didTapKeyword keyword: String) {
         let entityVC = UIStoryboard(name: "Entity", bundle: nil).instantiateInitialViewController() as! EntityViewController
         entityVC.title = keyword
-        entityVC.content = "Frequency is the number of occurrences of a repeating event per unit of time. It is also referred to as temporal frequency, which emphasizes the contrast to spatial frequency and angular frequency. The period is the duration of time of one cycle in a repeating event, so the period is the reciprocal of the frequency. For example: if a newborn baby's heart beats at a frequency of 120 times a minute, its period—the time interval between beats—is half a second."
+        
+        entitySearch.query(keyword) { (result) in
+            DispatchQueue.main.async {
+                let q = result.filter({ !$0.hints!.contains(.organization) })
+                if let content = q.first?.entityDescription {
+                    entityVC.content = content
+                    if let imageUrl = q.first?.imageUrl {
+                        entityVC.entityHeader.imageView.kf.setImage(with: URL(string: imageUrl),  options:[.transition(.fade(1)), .cacheOriginalImage])
+                    }
+                } else {
+                    entityVC.content = result.first?.entityDescription
+                    entityVC.entityHeader.imageView.image = UIImage(named: "laura-converse-484763-unsplash")
+                }
+            }
+        }
+        
+        entityVC.content = ""
         navigationController?.pushViewController(entityVC, animated: true)
     }
 
@@ -255,4 +291,10 @@ extension TranscriptViewController: AVAudioPlayerDelegate {
         audioPlaybackProgress.state = TranscriptAudioPlaybackProgress.State.finished
     }
     
+}
+
+extension TranscriptViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        topConstraint.constant = 28 + scrollView.contentOffset.y
+    }
 }

@@ -100,18 +100,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oN-pl-qOH">
                                 <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created with ♥ in Cambridge, Edinburgh and Berlin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-8v-G53">
-                                        <rect key="frame" x="24" y="48" width="232" height="49"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-06-KXr">
+                                        <rect key="frame" x="24" y="48" width="327" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="QIA-o5-1xM"/>
+                                        </constraints>
+                                        <string key="text">Created with ♥ in
+Cambridge, Edinburgh and Berlin.
+
+By Areeg, Ioana and Duc.  All illustrations are publicly available under humaaans.com.</string>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-hg-47G">
+                                        <rect key="frame" x="332" y="16" width="26" height="26"/>
+                                        <state key="normal" image="close_filled_round"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ufd-8v-G53" firstAttribute="leading" secondItem="4oN-pl-qOH" secondAttribute="leading" constant="24" id="55U-X7-UCP"/>
-                                    <constraint firstItem="ufd-8v-G53" firstAttribute="centerX" secondItem="4oN-pl-qOH" secondAttribute="centerX" id="DD5-FM-dQR"/>
-                                    <constraint firstItem="ufd-8v-G53" firstAttribute="top" secondItem="4oN-pl-qOH" secondAttribute="top" constant="48" id="otE-0P-uaS"/>
+                                    <constraint firstItem="eDj-06-KXr" firstAttribute="leading" secondItem="4oN-pl-qOH" secondAttribute="leading" constant="24" id="29M-au-MPv"/>
+                                    <constraint firstItem="yFa-hg-47G" firstAttribute="top" secondItem="4oN-pl-qOH" secondAttribute="top" constant="16" id="6OI-6P-ahI"/>
+                                    <constraint firstItem="eDj-06-KXr" firstAttribute="top" secondItem="4oN-pl-qOH" secondAttribute="top" constant="48" id="CNO-Rj-bjQ"/>
+                                    <constraint firstItem="eDj-06-KXr" firstAttribute="centerX" secondItem="4oN-pl-qOH" secondAttribute="centerX" id="lXL-H6-UXy"/>
+                                    <constraint firstAttribute="trailing" secondItem="yFa-hg-47G" secondAttribute="trailing" constant="17" id="wg8-Sd-kDk"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -138,6 +151,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close_filled_round" width="26" height="26"/>
         <image name="like" width="128" height="128"/>
         <image name="settings" width="50" height="50"/>
     </resources>

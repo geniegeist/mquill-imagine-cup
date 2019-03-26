@@ -21,6 +21,13 @@ class DailySummaryViewController: UIViewController {
         return CGRect(x: 0, y: 0, width: view.bounds.size.width, height: collectionView.contentSize.height)
     }
     
+    var results: [String] = [
+        "MQuill: Lecture Capture, smart search, Q and A, a scroll away",
+        "So Todd talked about doing customer discovery. This is a tool to help you do that. Who has heard of minimum viable product?. It is not a prototype.",
+        "Thomas John Thomson (August 5, 1877) was a Canadian artist active in the early 20th century.",
+        "Let’s see, one is that Homework 1 will be due Thursday"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,11 +58,14 @@ class DailySummaryViewController: UIViewController {
 extension DailySummaryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DailySummaryCell
+        
+        let result = results[indexPath.row]
+        cell.titleLabel.text = result
         
         return cell
     }
@@ -75,5 +85,29 @@ extension DailySummaryViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header", for: indexPath)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let idx = indexPath.row
+        var identifier = "w353454-01"
+        if (idx == 0) {
+            identifier = "w353454-01"
+        } else if (idx == 1) {
+            identifier = "1"
+        } else if (idx == 2) {
+            identifier = "2"
+        } else {
+            identifier = "5"
+        }
+        
+        let vc = UIStoryboard(name: "Transcript", bundle: nil).instantiateInitialViewController() as! TranscriptViewController
+        
+        let lol = TranscriptStore.transcripts.allObjects()
+        let store = TranscriptStore.transcripts.object(withId: identifier)!
+        
+        vc.transcript = store
+        
+        present(vc, animated: true, completion: nil)
     }
 }

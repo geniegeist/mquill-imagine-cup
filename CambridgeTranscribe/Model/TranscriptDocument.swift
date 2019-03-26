@@ -75,5 +75,23 @@ struct TranscriptDocument: Codable, Identifiable {
         return res
     }
     
+    var content: String {
+        var content = ""
+        for frag in fragments {
+            content += frag.content
+        }
+        return content
+    }
+    
+    var stylizedContent: String {
+        var content = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy - HH:mm"
+        for frag in fragments {
+            content += "\n\n" + dateFormatter.string(from: frag.date) + "\n" + frag.content
+        }
+        return content
+    }
+    
     static let idKey = \TranscriptDocument.id
 }

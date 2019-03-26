@@ -58,11 +58,19 @@
                             <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="16"/>
                             <state key="normal" title="Retry"/>
                         </button>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdS-VA-Ud2">
+                            <rect key="frame" x="156" y="110" width="63" height="54"/>
+                            <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="18"/>
+                            <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="16"/>
+                            <state key="normal" title="Done"/>
+                        </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="UdS-VA-Ud2" firstAttribute="top" secondItem="dqM-Wm-YsE" secondAttribute="top" id="Csc-aq-UeN"/>
                         <constraint firstItem="rdg-00-yog" firstAttribute="bottom" secondItem="bmF-6Y-YpS" secondAttribute="bottom" constant="12" id="cfV-Cv-Z5k"/>
                         <constraint firstItem="rdg-00-yog" firstAttribute="trailing" secondItem="bmF-6Y-YpS" secondAttribute="trailing" constant="16" id="kx6-z1-Jn9"/>
                         <constraint firstItem="dqM-Wm-YsE" firstAttribute="leading" secondItem="rdg-00-yog" secondAttribute="leading" id="reC-Gc-ttl"/>
+                        <constraint firstItem="UdS-VA-Ud2" firstAttribute="centerX" secondItem="rdg-00-yog" secondAttribute="centerX" id="uK5-Ni-UVL"/>
                         <constraint firstAttribute="height" constant="164" id="yZs-NW-IIf"/>
                         <constraint firstItem="rdg-00-yog" firstAttribute="bottom" secondItem="dqM-Wm-YsE" secondAttribute="bottom" id="yb7-yz-wJL"/>
                     </constraints>
@@ -116,6 +124,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="activityIndicator" destination="WsU-EL-d41" id="Em8-zs-XPi"/>
+                <outlet property="doneButton" destination="UdS-VA-Ud2" id="DcH-P5-uzT"/>
                 <outlet property="keyboardButton" destination="bmF-6Y-YpS" id="SoK-mc-s0k"/>
                 <outlet property="retryButton" destination="dqM-Wm-YsE" id="i7m-VG-FKS"/>
                 <outlet property="siriViewContainer" destination="fTR-d5-AYe" id="6P6-UH-YuY"/>

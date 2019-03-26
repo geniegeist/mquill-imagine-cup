@@ -32,6 +32,8 @@ class PullOverADIView: UIView {
     @IBOutlet weak var retryButton: UIButton!
     var topSiri: PXSiriWave!
     
+    @IBOutlet weak var doneButton: UIButton!
+    
     var isPlayingMainWave: Bool = false
     var isPlayingTopWave: Bool = false {
         didSet {

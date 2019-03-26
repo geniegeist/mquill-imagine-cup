@@ -19,10 +19,19 @@ class ADITextViewController: UIViewController {
     
     @IBOutlet weak var textField: SkyFloatingLabelTextField!
     @IBOutlet weak var askButton: UIButton!
+    @IBOutlet weak var bottomBar: UIView!
+    
+    var disableMicrophone: Bool = false
     
     private lazy var deepPavlov: DeepPavlov = {
         return DeepPavlov()
     }()
+    
+    
+    private lazy var luis: LUIS = {
+        return LUIS()
+    }()
+    
     
     var request: String = "" {
         didSet {
@@ -62,6 +71,7 @@ class ADITextViewController: UIViewController {
         activityIndicatorViewSize.constant = 0
         askButton.isEnabled = false
         askButton.alpha = 0.33
+        bottomBar.isHidden = disableMicrophone
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,18 +106,34 @@ class ADITextViewController: UIViewController {
     
     private func askPavlov(_ question: String) {
         if let context = self.context {
-            isLoading = true
+            self.isLoading = true
             // Question answering over text
             deepPavlov.question(question, over: context) { (response) in
-                self.isLoading = false
-                
                 if let str = response, str.count > 0 {
                     print(str)
+                    self.isLoading = false
                     let textVC = UIStoryboard(name: "ADI", bundle: nil).instantiateViewController(withIdentifier: "response") as! ADIResponseViewController
                     textVC.context = context
                     textVC.userResponse = question
                     textVC.adiResponse = str
                     self.navigationController?.pushViewController(textVC, animated: true)
+                    
+                    self.luis.intentFrom(str, handler: { (response) in
+                        let r = response.entities?.filter({ $0.dateValue != nil }).first
+                        if let dateStr = r?.dateValue {
+                            
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd"
+                            let dateRes = dateFormatter.date(from: dateStr)
+                            
+                            dateFormatter.dateStyle = .long
+                            
+                            if (dateRes != nil) {
+                                textVC.adiResponse = str + ". That is the \(dateFormatter.string(from: dateRes!))."
+                            }
+
+                        }
+                    })
                 } else {
                     // no answer found
                 }

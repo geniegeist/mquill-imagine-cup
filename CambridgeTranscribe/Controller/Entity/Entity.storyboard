@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Brandon_med.otf">
-            <string>BrandonGrotesque-Medium</string>
+        <array key="MaratPro-Regular.otf">
+            <string>MaratPro-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -26,49 +26,23 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="goD-om-OaH">
                                 <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="so4-Ip-Efs">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="208"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Xro-x9-oiQ">
+                                    <rect key="frame" x="0.0" y="72" width="375" height="198"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVg-hk-iFJ">
-                                            <rect key="frame" x="59.5" y="82" width="256" height="44"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z39-TZ-ukX" customClass="Button" customModule="CambridgeTranscribe" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
-                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
-                                                    <state key="normal" title="Websearch"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-HL-1VO" customClass="Button" customModule="CambridgeTranscribe" customModuleProvider="target">
-                                                    <rect key="frame" x="136" y="0.0" width="120" height="44"/>
-                                                    <color key="backgroundColor" red="0.2627450980392157" green="0.51372549019607838" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="kXc-Pg-iQV"/>
-                                                        <constraint firstAttribute="height" constant="44" id="qnL-Ih-aoQ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="17"/>
-                                                    <state key="normal" title="Ask ADI">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Heh-HL-1VO" secondAttribute="trailing" id="B8E-Hk-Big"/>
-                                                <constraint firstItem="z39-TZ-ukX" firstAttribute="height" secondItem="Heh-HL-1VO" secondAttribute="height" id="Hap-dU-ftv"/>
-                                                <constraint firstItem="z39-TZ-ukX" firstAttribute="width" secondItem="Heh-HL-1VO" secondAttribute="width" id="ULy-ru-YxM"/>
-                                                <constraint firstItem="Heh-HL-1VO" firstAttribute="top" secondItem="DVg-hk-iFJ" secondAttribute="top" id="Vea-iY-ko1"/>
-                                                <constraint firstAttribute="bottom" secondItem="Heh-HL-1VO" secondAttribute="bottom" id="b7K-Xt-fBi"/>
-                                                <constraint firstItem="Heh-HL-1VO" firstAttribute="leading" secondItem="z39-TZ-ukX" secondAttribute="trailing" constant="16" id="cIK-xn-sdW"/>
-                                                <constraint firstItem="z39-TZ-ukX" firstAttribute="leading" secondItem="DVg-hk-iFJ" secondAttribute="leading" id="ePq-rx-yJm"/>
-                                                <constraint firstItem="z39-TZ-ukX" firstAttribute="top" secondItem="DVg-hk-iFJ" secondAttribute="top" id="iJE-sw-OzY"/>
-                                                <constraint firstAttribute="bottom" secondItem="z39-TZ-ukX" secondAttribute="bottom" id="vpf-iw-WBc"/>
-                                            </constraints>
-                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.66000000000000003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdQ-4I-ar8">
+                                            <rect key="frame" x="24" y="24" width="339" height="374"/>
+                                            <fontDescription key="fontDescription" name="MaratPro-Regular" family="Marat Pro" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="DVg-hk-iFJ" firstAttribute="centerY" secondItem="so4-Ip-Efs" secondAttribute="centerY" id="BuM-SA-fpu"/>
-                                        <constraint firstItem="DVg-hk-iFJ" firstAttribute="centerX" secondItem="so4-Ip-Efs" secondAttribute="centerX" id="vBf-NB-kbW"/>
+                                        <constraint firstItem="MdQ-4I-ar8" firstAttribute="top" secondItem="Xro-x9-oiQ" secondAttribute="top" constant="24" id="7Yo-a4-xgu"/>
+                                        <constraint firstItem="MdQ-4I-ar8" firstAttribute="leading" secondItem="Xro-x9-oiQ" secondAttribute="leading" constant="24" id="DwI-OW-Pwk"/>
+                                        <constraint firstAttribute="trailing" secondItem="MdQ-4I-ar8" secondAttribute="trailing" constant="12" id="V51-Xa-EPr"/>
+                                        <constraint firstAttribute="bottom" secondItem="MdQ-4I-ar8" secondAttribute="bottom" constant="-200" id="yhu-72-1Yl"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -79,25 +53,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="69q-n1-iqM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Frequency is the number of occurrences of a repeating event per unit of time. It is also referred to as temporal frequency, which emphasizes the contrast to spatial frequency and angular frequency. The period is the duration of time of one cycle in a repeating event, so the period is the reciprocal of the frequency. For example: if a newborn baby's heart beats at a frequency of 120 times a minute, its period—the time interval between beats—is half a second. </mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-xB-fm1">
+                                                    <rect key="frame" x="15" y="11" width="345" height="32.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="69q-n1-iqM" firstAttribute="leading" secondItem="l8y-Ng-tWO" secondAttribute="leading" id="P8m-wa-6oK"/>
-                                                <constraint firstItem="69q-n1-iqM" firstAttribute="top" secondItem="l8y-Ng-tWO" secondAttribute="top" id="ltP-TW-2j1"/>
-                                                <constraint firstAttribute="bottom" secondItem="69q-n1-iqM" secondAttribute="bottom" id="lz1-9s-lIm"/>
-                                                <constraint firstAttribute="trailing" secondItem="69q-n1-iqM" secondAttribute="trailing" id="sK6-66-gwH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rQT-xB-fm1" secondAttribute="trailing" id="AUD-F3-CHH"/>
+                                                <constraint firstItem="rQT-xB-fm1" firstAttribute="leading" secondItem="l8y-Ng-tWO" secondAttribute="leadingMargin" id="V0m-pi-qUL"/>
+                                                <constraint firstAttribute="bottom" secondItem="rQT-xB-fm1" secondAttribute="bottom" id="tzp-UJ-knZ"/>
+                                                <constraint firstItem="rQT-xB-fm1" firstAttribute="top" secondItem="l8y-Ng-tWO" secondAttribute="topMargin" id="yKg-cf-tvl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="textView" destination="69q-n1-iqM" id="7K2-3A-1Z0"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -116,9 +86,8 @@
                         <viewLayoutGuide key="safeArea" id="dsq-Su-pOY"/>
                     </view>
                     <connections>
-                        <outlet property="askADIButton" destination="Heh-HL-1VO" id="DtW-Cz-rTu"/>
+                        <outlet property="contentLabel" destination="MdQ-4I-ar8" id="cJD-ky-PUs"/>
                         <outlet property="tableView" destination="goD-om-OaH" id="z7i-h9-KD9"/>
-                        <outlet property="websearchButton" destination="z39-TZ-ukX" id="yGr-k7-ZFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp0-01-EGe" userLabel="First Responder" sceneMemberID="firstResponder"/>

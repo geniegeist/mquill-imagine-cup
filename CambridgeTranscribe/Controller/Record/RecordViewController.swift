@@ -26,10 +26,12 @@ class RecordViewController: UIViewController {
     
     private var adiView: PullOverADIView!
     private var adiViewOriginFrame: CGRect {
-        return CGRect(x: 12, y: Constants.pullOverTopInset, width: view.bounds.size.width - 12 * 2, height: 264)
+        return CGRect(x: 12, y: Constants.pullOverTopInset + 12, width: view.bounds.size.width - 12 * 2, height: 244)
     }
     
     private var audioPlayer: AVAudioPlayer!
+    
+    var isPresentingADI: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class RecordViewController: UIViewController {
         adiView.frame = adiViewOriginFrame
         adiView.isPlayingTopWave = true
         adiView.isPlayingMainWave = false
+        adiView.siriWave.isHidden = true
         pullOverScrollView.addSubview(adiView)
     }
     
@@ -71,6 +74,18 @@ class RecordViewController: UIViewController {
     private func finalPullOverOffset() -> CGFloat {
         let extra = view.frame.size.height - transcribeContainerView.frame.maxY - 22
         return Constants.pullOverThreshold - extra
+    }
+    
+    private func presentADI() {
+        print("present")
+        isPresentingADI = false
+        let adi = UIStoryboard(name: "ADI", bundle: nil).instantiateInitialViewController() as! ADIViewController
+        adi.context = TranscriptStore.contentOfAllAtranscripts
+        adi.customModalAnimationType = true
+        adi.hero.modalAnimationType = .fade
+        present(adi, animated: true) {
+            self.pullOverScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
     }
 }
 
@@ -99,10 +114,19 @@ extension RecordViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         print("Did end dragging")
         let offset = scrollView.contentOffset.y
-        if (offset >= Constants.pullOverThreshold * 0.75) {
+        print(offset)
+        if (offset >= 200) {
             scrollView.setContentOffset(CGPoint(x: 0, y: finalPullOverOffset() - 22), animated: true)
+            //presentADI()
         } else {
             scrollView.setContentOffset(.zero, animated: true)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if (offset >= 200 && !isPresentingADI) {
+            presentADI()
         }
     }
 }

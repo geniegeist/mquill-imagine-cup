@@ -14,5 +14,15 @@ class TranscriptStore {
     static var transcripts: UserDefaultsStore<TranscriptDocument> {
         return UserDefaultsStore<TranscriptDocument>(uniqueIdentifier: "transcripts")!
     }
+    
+    static var contentOfAllAtranscripts: String {
+        let transcripts = TranscriptStore.transcripts.allObjects()
+        var res = ""
+        for t in transcripts {
+            res += t.content
+        }
+        return res
+    }
+    
 
 }

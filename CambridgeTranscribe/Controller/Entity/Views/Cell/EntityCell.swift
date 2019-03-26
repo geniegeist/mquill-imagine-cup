@@ -20,9 +20,9 @@ class EntityCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        textView.isEditable = false
-        textView.textContainerInset = UIEdgeInsets(top: 32, left: 24, bottom: 32, right: 24)
-        textView.isUserInteractionEnabled = false
+        //textView.isEditable = false
+        //textView.textContainerInset = UIEdgeInsets(top: 32, left: 24, bottom: 32, right: 24)
+        //textView.isUserInteractionEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

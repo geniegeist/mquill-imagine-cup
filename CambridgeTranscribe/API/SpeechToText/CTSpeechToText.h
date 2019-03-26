@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface CTSpeechToText : NSObject
-@property (nonatomic, assign) id<CTSpeechToTextDelegate> delegate;
+@property (nonatomic, assign) id<CTSpeechToTextDelegate> _Nullable delegate;
 @property (nonatomic, assign) BOOL isPlaying;
 - (void)startRecognizing;
 - (void)stopRecognizing;

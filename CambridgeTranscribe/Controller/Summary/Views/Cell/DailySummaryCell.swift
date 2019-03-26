@@ -12,6 +12,9 @@ class DailySummaryCell: UICollectionViewCell {
     
     @IBOutlet weak var icon: UIView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var transcriptIconView: TranscriptIconView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +39,8 @@ class DailySummaryCell: UICollectionViewCell {
         mainView.layer.shadowColor = UIColor(rgb: 0x0036FF).cgColor
         mainView.layer.shadowRadius = 24
         mainView.layer.shadowOpacity = 0.08
+        
+        titleLabel.textColor = UIColor.black
     }
     
 }

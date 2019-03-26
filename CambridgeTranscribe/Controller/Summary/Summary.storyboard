@@ -74,9 +74,22 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buI-Ki-g6e">
                                                             <rect key="frame" x="36" y="32" width="315" height="161"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTs-os-Xgp">
+                                                                    <rect key="frame" x="24" y="24" width="279" height="29"/>
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Medium" family="Brandon Grotesque" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" red="0.2784313725" green="0.62352941179999999" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="cTs-os-Xgp" secondAttribute="trailing" constant="12" id="7u4-sE-cqH"/>
+                                                                <constraint firstItem="cTs-os-Xgp" firstAttribute="top" secondItem="buI-Ki-g6e" secondAttribute="top" constant="24" id="DaE-Dw-GiD"/>
+                                                                <constraint firstItem="cTs-os-Xgp" firstAttribute="leading" secondItem="buI-Ki-g6e" secondAttribute="leading" constant="24" id="KlD-l8-GhI"/>
+                                                            </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzQ-mT-YgV">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzQ-mT-YgV" customClass="TranscriptIconView" customModule="CambridgeTranscribe" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="16" width="40" height="40"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -97,6 +110,8 @@
                                                 <connections>
                                                     <outlet property="icon" destination="uzQ-mT-YgV" id="cGr-vY-hhM"/>
                                                     <outlet property="mainView" destination="buI-Ki-g6e" id="w37-Xt-EAq"/>
+                                                    <outlet property="titleLabel" destination="cTs-os-Xgp" id="G3c-mJ-AvB"/>
+                                                    <outlet property="transcriptIconView" destination="uzQ-mT-YgV" id="Nfq-ku-lnk"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

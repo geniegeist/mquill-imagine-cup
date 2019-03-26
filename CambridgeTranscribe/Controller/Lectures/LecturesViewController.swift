@@ -24,6 +24,7 @@ class LecturesViewController: UIViewController {
         collectionView.register(UINib(nibName: "LectureCell", bundle: nil), forCellWithReuseIdentifier: "lectureCell")
         collectionView.register(UINib(nibName: "LectureHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

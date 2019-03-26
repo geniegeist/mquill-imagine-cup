@@ -90,9 +90,9 @@
 
 - (void)stopRecognizing
 {
+    self.isPlaying = NO;
     [self.speechRecognizer stopContinuousRecognition];
     self.speechRecognizer = nil;
-    self.isPlaying = NO;
 }
 
 - (void)recognizeUtterance:(void (^)(NSString * _Nonnull))completionBlock

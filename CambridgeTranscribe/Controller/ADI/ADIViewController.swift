@@ -12,18 +12,30 @@ import Hero
 class ADIViewController: UINavigationController {
     
     var context: String?
+    var disableMicrophone: Bool = false
+    var customModalAnimationType: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBar.isHidden = true
         hero.isEnabled = true
-        hero.modalAnimationType = .autoReverse(presenting: .zoom)
+        if (!customModalAnimationType) {
+            hero.modalAnimationType = .autoReverse(presenting: .zoom)
+        }
         hero.navigationAnimationType = .autoReverse(presenting: .zoom)
         view.backgroundColor = UIColor.black
 
-        let listeningVC = UIStoryboard(name: "ADI", bundle: nil).instantiateViewController(withIdentifier: "listening") as! ADIListeningViewController
-        listeningVC.context = context
-        setViewControllers([listeningVC], animated: false)
+        if (!disableMicrophone) {
+            let listeningVC = UIStoryboard(name: "ADI", bundle: nil).instantiateViewController(withIdentifier: "listening") as! ADIListeningViewController
+            listeningVC.context = context
+            setViewControllers([listeningVC], animated: false)
+        } else {
+            let textVC = UIStoryboard(name: "ADI", bundle: nil).instantiateViewController(withIdentifier: "text") as! ADITextViewController
+            textVC.context = context
+            textVC.disableMicrophone = true
+            setViewControllers([textVC], animated: false)
+        }
+        
     }
 }

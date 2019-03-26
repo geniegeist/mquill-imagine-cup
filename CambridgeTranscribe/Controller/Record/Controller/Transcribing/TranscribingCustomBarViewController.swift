@@ -18,7 +18,7 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var playButton: PlayButton!
-    @IBOutlet weak var askAdiButton: Button!
+    @IBOutlet weak var askAdiButton: AskAdiButton!
     @IBOutlet weak var contentLabel: TOMSMorphingLabel!
     
     class func createFromNib() -> TranscribingCustomBarViewController {
@@ -44,8 +44,8 @@ class TranscribingCustomBarViewController: LNPopupCustomBarViewController {
         maskLayer.path = path.cgPath
         contentView.layer.mask = maskLayer
         
-        askAdiButton.layer.cornerRadius = 8
-        askAdiButton.minimumHitArea = CGSize(width: 16, height: 16)
+        askAdiButton.setTitle("ADI", for: .normal)
+        askAdiButton.cornerRadius = 8
         playButton.minimumHitArea = CGSize(width: 16, height: 16)
         
         contentLabel.font = UIFont.brandonGrotesque(weight: .medium, size: 17)

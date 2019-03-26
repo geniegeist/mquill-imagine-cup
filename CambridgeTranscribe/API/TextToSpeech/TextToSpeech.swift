@@ -45,7 +45,7 @@ class TextToSpeech {
     }
     
     func speechFrom(text: String, handler:((Data?) -> Void)?) {
-        if (jwtToken == nil) {
+        if (jwtToken == nil || true) {
             getToken() {
                 self.startSpeechRequest(text: text, handler: handler)
             }

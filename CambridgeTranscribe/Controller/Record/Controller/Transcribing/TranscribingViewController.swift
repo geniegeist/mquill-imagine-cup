@@ -114,11 +114,13 @@ class TranscribingViewController: UINavigationController {
         popupController = TranscribingPopupController.createFromNib()
         popupController.fragments = fragments
         popupController.floatingSaveButton.addTarget(self, action: #selector(presentSaveTranscriptViewController), for: .touchUpInside)
+        popupController.floatingDiscardButton.addTarget(self, action: #selector(dismissTCVC), for: .touchUpInside)
         popupController.playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         
         popupBarController = TranscribingCustomBarViewController.createFromNib()
         popupBarController.setContent(Constants.placeholderPopup, animated: false)
         popupBarController.playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        popupBarController.askAdiButton.addTarget(self, action: #selector(askAdiButtonTapped), for: .touchUpInside)
         popupBarController.playButton.isPlaying = true
         
         popupInteractionStyle = .drag
@@ -214,6 +216,10 @@ class TranscribingViewController: UINavigationController {
         })
     }
     
+    @objc func dismissTCVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @objc func playButtonTapped() {
         if (speechToText.isPlaying) {
             self.isTranscribing = false // optimistic UI
@@ -232,6 +238,13 @@ class TranscribingViewController: UINavigationController {
                 popupBarController.contentLabel.text = "I am listening..."
             }
         }
+    }
+    
+    @objc func askAdiButtonTapped() {
+        let vc = UIStoryboard(name: "ADI", bundle: nil).instantiateInitialViewController() as! ADIViewController
+        vc.context = fragments.map({ $0.content }).joined(separator: " ")
+        vc.disableMicrophone = true
+        present(vc, animated: true)
     }
     
     @objc func dismissButtonTapped() {

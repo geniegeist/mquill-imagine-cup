@@ -17,6 +17,9 @@ class SettingsViewController: UIViewController {
     }
     
 
+    @IBAction func dismissBtnTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
