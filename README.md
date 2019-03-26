@@ -1,9 +1,11 @@
 # Imagine Cup EMEA Final 2019  
-Entry for the amazing Imagine Cup in Amsterdam. 12 teams from Europ, Middle East and Africa were invited to Amsterdam and competed for the final sport in Seattle.
+Entry for the amazing Imagine Cup in Amsterdam. 12 teams from Europ, Middle East and Africa were invited to Amsterdam and competed for the final spot in Seattle.
 
 [Website](https://imaginecup.microsoft.com/en-us/emea)
 
 ## Project Overview
+
+![MQuill Logo](https://i.imgur.com/hjvzUs8.png)
 
 Built in 24 hours at HackCambridge 4D, we have pushed ourselves to invent a capture lecture app that helps students to get the most out of their lectures. Using Azure’s Speech-to-Text service, MQuill provides transcriptions of lectures in real time. Thanks to custom acoustic and language models, MQuill achieves a high level of accuracy even when describing lectures in noisy environments commonly found in classrooms. The more often MQuill is used to transcribe lectures, the better the results get since MQuill gets used to various speaker styles. Our app enables searching for lectures that contain specific keywords or took place at a specific date. We use Azure’s Text Analytics service to identify keywords in the transcripts. With Named Entity Recognition we can identify dates in the user’s request, and search for notes that were recorded at the specified date. The keyword extraction provided by the Text Analytics service let MQuill identify the most important topics of the lecture. Search for lectures that contain specific keywords or took place at a specific date. We use Azure’s Text Analytics service to identify keywords in the transcripts.
 
